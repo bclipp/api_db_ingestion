@@ -1,0 +1,1001 @@
+id,name,latitude,longitude
+1,Semiconductors,40.8247318,-96.6157192
+2,Telecommunications Equipment,42.4395419,-83.3155257
+3,Home Furnishings,38.92,-76.99
+4,n/a,41.8265437,-71.4013635
+5,Major Chemicals,33.76,-84.39
+6,Major Banks,39.0638705,-108.5506486
+7,Electric Utilities: Central,28.54,-81.38
+8,Biotechnology: Electromedical & Electrotherapeutic Apparatus,33.1362221,-97.0821162
+9,Telecommunications Equipment,33.45,-112.08
+10,Restaurants,41.9203468,-87.6433139
+11,Semiconductors,37.7162538,-97.2983363
+12,n/a,41.879109,-86.550039
+13,Computer Software: Prepackaged Software,45.31,-93.79
+14,n/a,39.2708955,-84.3279093
+15,Finance: Consumer Services,39.9990626,-83.0173386
+16,n/a,38.8363582,-104.794212
+17,Office Equipment/Supplies/Services,47.6508882,-122.3084023
+18,n/a,27.8684314,-82.5270388
+19,n/a,32.9901414,-96.8027198
+20,Oil & Gas Production,29.9518573,-90.067925
+21,Computer Software: Prepackaged Software,40.6238902,-75.3936808
+22,Electric Utilities: Central,33.9548846,-118.0273914
+23,Diversified Commercial Services,31.77,-106.43
+24,Semiconductors,32.886855,-96.967936
+25,Telecommunications Equipment,37.9098504,-84.4172666
+26,Homebuilding,32.46,-84.99
+27,Metal Fabrications,38.4099999,-82.4599999
+28,Major Banks,42.2827426,-83.1488186
+29,Precious Metals,41.64,-83.54
+30,Computer Software: Prepackaged Software,35.9015016,-81.138279
+31,Consumer Specialties,35.1268513,-119.1855785
+32,Property-Casualty Insurers,38.87,-77.23
+33,n/a,34.1615135,-118.3403506
+34,Retail: Computer Software & Peripheral Equipment,38.9,-77.04
+35,n/a,36.1964847,-95.8459341
+36,Computer Software: Prepackaged Software,30.27,-97.74
+37,Industrial Machinery/Components,38.57,-121.47
+38,Computer Software: Prepackaged Software,33.7636344,-117.9688322
+39,Investment Bankers/Brokers/Service,30.1921004,-81.6975206
+40,Major Pharmaceuticals,39.68,-75.75
+41,Military/Government/Technical,38.88,-76.85
+42,Marine Transportation,38.93,-77.4
+43,Radio And Television Broadcasting And Communications Equipment,30.4190616,-97.8395151
+44,Real Estate Investment Trusts,25.84791,-80.2377078
+45,n/a,36.1457192,-86.8066559
+46,Automotive Aftermarket,37.7813454,-122.497668
+47,Property-Casualty Insurers,34.9378859,-81.9021301
+48,Telecommunications Equipment,31.5547633,-84.06035
+49,Industrial Machinery/Components,41.07,-85.14
+50,n/a,40.7634529,-73.9798808
+51,n/a,27.8684314,-82.5270388
+52,Electrical Products,43.5072348,-83.9638426
+53,Life Insurance,42.65,-73.76
+54,Packaged Foods,33.192168,-117.3028803
+55,Containers/Packaging,40.7,-111.94
+56,Oil & Gas Production,25.6697865,-80.4660256
+57,Business Services,32.7299999,-97.3199999
+58,n/a,41.6517775,-83.5016887
+59,Major Pharmaceuticals,42.3662435,-83.3270994
+60,Business Services,40.2299999,-111.66
+61,Investment Bankers/Brokers/Service,32.9578909,-102.8518139
+62,n/a,39.4854373,-119.8757349
+63,Hospital/Nursing Management,41.5359304,-88.1193763
+64,Savings Institutions,30.3617348,-81.6966306
+65,Major Pharmaceuticals,41.2505888,-75.8520879
+66,n/a,39.1645065,-119.7634857
+67,Major Pharmaceuticals,36.1857974,-79.8184684
+68,Telecommunications Equipment,40.8690303,-73.8477874
+69,Major Pharmaceuticals,34.9568026,-106.6055534
+70,n/a,40.6238902,-75.3936808
+71,n/a,40.7886028,-81.4251512
+72,Integrated oil Companies,39.7761758,-89.6051502
+73,Auto Manufacturing,35.1307639,-118.5882119
+74,Major Pharmaceuticals,42.3745311,-88.1263369
+75,Major Pharmaceuticals,39.14,-84.54
+76,Aerospace,37.2422863,-121.7309452
+77,n/a,27.9943858,-82.459481
+78,Mining & Quarrying of Nonmetallic Minerals (No Fuels),27.791959,-82.723924
+79,EDP Services,28.3921554,-81.5322149
+80,Industrial Specialties,38.03,-87.58
+81,n/a,25.5527232,-80.3352364
+82,Electric Utilities: Central,42.7333428,-87.8255014
+83,Biotechnology: In Vitro & In Vivo Diagnostic Substances,40.7525629,-73.976024
+84,n/a,32.34977,-80.67895
+85,Clothing/Shoe/Accessory Stores,42.0948645,-80.1707662
+86,Forest Products,30.4864144,-97.6722668
+87,EDP Services,36.1069958,-79.8522564
+88,Business Services,41.9403795,-87.6531805
+89,Oil & Gas Production,41.07,-85.14
+90,n/a,43.1581207,-77.6063541
+91,Computer Software: Prepackaged Software,40.8395426,-73.7023905
+92,Major Banks,37.78,-122.42
+93,Advertising,41.6775685,-83.5629746
+94,n/a,42.7282811,-84.5511177
+95,n/a,38.02,-122.55
+96,n/a,26.132433,-81.7951054
+97,Major Pharmaceuticals,33.37,-86.81
+98,Oilfield Services/Equipment,34.6540922,-86.566246
+99,Computer Software: Prepackaged Software,42.35,-71.06
+100,Metal Fabrications,33.7746886,-84.2953464
+101,n/a,32.93,-97.44
+102,Medical/Dental Instruments,26.7044143,-80.1986649
+103,Investment Bankers/Brokers/Service,33.8181422,-117.9009893
+104,Property-Casualty Insurers,41.2418116,-95.9673967
+105,Beverages (Production/Distribution),33.9930471,-118.153228
+106,Restaurants,42.3840829,-83.0415078
+107,Real Estate Investment Trusts,44.9799999,-93.26
+108,n/a,41.64,-83.54
+109,n/a,41.4066243,-73.4077076
+110,Power Generation,37.4040147,-77.4587239
+111,Major Banks,35.4318343,-97.4922407
+112,n/a,43.153975,-77.6120835
+113,Steel/Iron Ore,37.34,-121.89
+114,Coal Mining,41.6919638,-86.3754398
+115,Television Services,40.8143687,-73.7419017
+116,n/a,44.934021,-123.3072848
+117,n/a,35.2299999,-89.9
+118,n/a,30.3121498,-81.7375526
+119,Medical/Dental Instruments,30.6758871,-88.1837629
+120,Television Services,41.6919638,-86.3754398
+121,Food Distributors,32.7150419,-117.1724288
+122,Department/Specialty Retail Stores,43.55,-116.28
+123,Major Pharmaceuticals,41.76,-72.74
+124,n/a,34.052996,-118.2548551
+125,Oil & Gas Production,41.6,-93.61
+126,Major Banks,29.4743666,-98.5165167
+127,Computer Software: Prepackaged Software,35.2188655,-80.8108888
+128,Major Banks,29.54,-98.42
+129,Biotechnology: Electromedical & Electrotherapeutic Apparatus,34.9568026,-106.6055534
+130,Major Pharmaceuticals,42.9979838,-76.1377935
+131,Semiconductors,45.01,-93.65
+132,n/a,61.1870241,-149.8822186
+133,Military/Government/Technical,37.9098504,-84.4172666
+134,Finance: Consumer Services,39.7503186,-104.8367063
+135,Finance: Consumer Services,41.1071733,-80.5993854
+136,Computer Software: Prepackaged Software,38.7102377,-90.3042778
+137,n/a,38.7470186,-90.2526163
+138,Major Banks,41.6,-93.61
+139,Business Services,33.7868136,-112.28609
+140,Home Furnishings,36.9262849,-76.0203323
+141,Business Services,39.8494377,-86.2666463
+142,Life Insurance,36.09,-115.15
+143,Fluid Controls,29.4743666,-98.5165167
+144,n/a,34.0578814,-118.3096648
+145,Oil & Gas Production,33.4658131,-112.0244867
+146,Clothing/Shoe/Accessory Stores,40.496654,-74.446092
+147,Specialty Insurers,35.4318343,-97.4922407
+148,EDP Services,41.2505888,-75.8520879
+149,Banks,29.6464527,-95.4935119
+150,Marine Transportation,35.47,-97.52
+151,Oil & Gas Production,38.8822689,-77.142764
+152,Major Banks,36.1030036,-86.8722146
+153,Major Banks,40.7679191,-93.3362962
+154,Electrical Products,36.1964847,-95.8459341
+155,Other Consumer Services,37.7813454,-122.497668
+156,Biotechnology: In Vitro & In Vivo Diagnostic Substances,35.8559647,-86.3944828
+157,"Computer Software: Programming, Data Processing",32.59,-93.85
+158,Medical/Dental Instruments,41.2101217,-95.9991228
+159,Computer Software: Prepackaged Software,45.0497462,-93.4824636
+160,Medical Specialities,30.4864144,-97.6722668
+161,n/a,29.7386119,-95.484013
+162,Major Banks,37.9098504,-84.4172666
+163,n/a,45.5155832,-122.6788535
+164,Biotechnology: Biological Products (No Diagnostic Substances),35.6046911,-82.4861053
+165,Major Banks,33.6977944,-117.7765895
+166,Automotive Aftermarket,27.3980151,-80.3714326
+167,"Computer Software: Programming, Data Processing",33.519545,-111.5468301
+168,Commercial Banks,29.5613789,-98.5612534
+169,EDP Services,32.7634169,-117.1230937
+170,Oil/Gas Transmission,34.6939733,-86.6107106
+171,Telecommunications Equipment,42.65,-73.76
+172,Television Services,33.7484047,-116.3520354
+173,n/a,25.728011,-80.2454223
+174,Aerospace,32.78,-96.8
+175,Packaged Foods,44.903044,-93.2332244
+176,Major Banks,43.0690343,-89.4245627
+177,Professional Services,29.4743666,-98.5165167
+178,n/a,39.1140535,-94.7743365
+179,n/a,34.7,-118.14
+180,n/a,42.7327231,-84.5575089
+181,Industrial Specialties,33.8781886,-117.5731991
+182,Oil & Gas Production,31.77,-106.43
+183,Diversified Commercial Services,41.07,-85.14
+184,Office Equipment/Supplies/Services,38.34,-85.7
+185,Food Distributors,38.35,-81.64
+186,Major Chemicals,35.1241195,-90.0443217
+187,Auto Parts:O.E.M.,38.8525512,-94.4079213
+188,Business Services,39.14,-84.54
+189,EDP Services,38.8973837,-77.0395416
+190,Biotechnology: Electromedical & Electrotherapeutic Apparatus,31.1393795,-97.8047404
+191,Medical Specialities,36.025609,-78.9853813
+192,Biotechnology: Laboratory Analytical Instruments,43.521619,-96.722641
+193,Medical/Dental Instruments,34.6741181,-92.3517526
+194,n/a,27.6112399,-81.6621917
+195,Auto Parts:O.E.M.,36.8022774,-76.2768755
+196,n/a,32.0005346,-80.9760556
+197,Other Consumer Services,28.5107872,-81.4828198
+198,Industrial Specialties,38.35,-81.63
+199,Business Services,30.0435239,-94.2743628
+200,n/a,35.3922378,-97.4273195
+201,Industrial Specialties,42.9202891,-78.7589558
+202,Other Consumer Services,36.164846,-115.155709
+203,EDP Services,36.9923139,-122.0581762
+204,n/a,42.88,-78.83
+205,EDP Services,32.0056072,-81.0973279
+206,Major Banks,27.3980151,-80.3714326
+207,Medical/Dental Instruments,61.1870241,-149.8822186
+208,Air Freight/Delivery Services,25.9868744,-80.2153998
+209,Major Banks,37.27,-79.94
+210,Real Estate Investment Trusts,39.100057,-84.3680059
+211,Industrial Machinery/Components,25.9400585,-80.2153998
+212,Other Consumer Services,33.52,-86.8
+213,Medical/Dental Instruments,43.153975,-77.6120835
+214,Semiconductors,40.708873,-74.0093553
+215,Oil & Gas Production,39.7170046,-104.9408931
+216,Major Banks,40.9234909,-74.1797766
+217,Major Banks,37.8336281,-122.2029832
+218,Services-Misc. Amusement & Recreation,35.99,-78.9
+219,Major Pharmaceuticals,39.14,-84.54
+220,Recreational Products/Toys,36.0978298,-80.2438321
+221,Radio And Television Broadcasting And Communications Equipment,35.9014983,-81.1381216
+222,Major Banks,33.723039,-84.3436881
+223,Real Estate Investment Trusts,38.9187037,-76.9611991
+224,"Computer Software: Programming, Data Processing",38.409359,-82.3614632
+225,Major Pharmaceuticals,39.9602601,-83.0092803
+226,Agricultural Chemicals,30.4864144,-97.6722668
+227,Metal Fabrications,27.9852231,-82.008014
+228,"Computer Software: Programming, Data Processing",47.6849444,-122.2982224
+229,n/a,37.7794055,-122.4494738
+230,Advertising,38.8978995,-77.0157837
+231,n/a,37.8336281,-122.2029832
+232,Major Banks,31.77,-106.43
+233,Computer Communications Equipment,41.7429283,-87.7123355
+234,Homebuilding,40.1420033,-82.9770371
+235,Diversified Commercial Services,26.0576497,-80.3101684
+236,Medical Electronics,32.7087439,-97.3617845
+237,Medical/Dental Instruments,43.6,-96.7099999
+238,Major Chemicals,34.14,-77.92
+239,Engineering & Construction,41.7721061,-72.7038047
+240,Building Products,21.31,-157.86
+241,Telecommunications Equipment,42.4643438,-83.4056438
+242,Major Banks,35.4209352,-97.6656625
+243,Marine Transportation,30.17,-92.06
+244,Department/Specialty Retail Stores,38.43923,-122.6673018
+245,n/a,41.451118,-81.6309078
+246,n/a,37.27,-79.94
+247,Metal Fabrications,40.4222843,-80.0367259
+248,Other Specialty Stores,45.01,-93.65
+249,Major Pharmaceuticals,39.7472496,-75.5917092
+250,Commercial Banks,21.31,-157.86
+251,Business Services,26.4068381,-80.1058665
+252,Business Services,37.3510878,-79.177041
+253,Auto Parts:O.E.M.,31.9754756,-106.4170311
+254,n/a,40.42,-104.7099999
+255,Major Pharmaceuticals,32.7030883,-96.8029489
+256,Homebuilding,33.1,-117.28
+257,Biotechnology: Biological Products (No Diagnostic Substances),34.1349887,-118.1507494
+258,Biotechnology: Biological Products (No Diagnostic Substances),47.4494702,-122.307217
+259,Property-Casualty Insurers,37.34,-121.89
+260,Investment Bankers/Brokers/Service,36.7949518,-119.7541856
+261,Major Pharmaceuticals,37.27,-79.94
+262,Biotechnology: Electromedical & Electrotherapeutic Apparatus,35.6869752,-105.937799
+263,Motor Vehicles,41.9720786,-87.7517295
+264,Major Banks,37.39,-121.89
+265,EDP Services,43.5072348,-83.9638426
+266,n/a,35.6648088,-101.8036596
+267,Medical/Dental Instruments,32.7311729,-97.4508426
+268,Trucking Freight/Courier Services,25.9400585,-80.2153998
+269,n/a,27.6581078,-82.7293193
+270,EDP Services,32.93,-97.44
+271,Oil & Gas Production,45.5767359,-122.6386722
+272,Major Pharmaceuticals,33.5177039,-117.693138
+273,Medical/Nursing Services,39.0269443,-94.6673484
+274,Natural Gas Distribution,39.1822152,-84.4225186
+275,Auto Manufacturing,39.9799992,-105.248737
+276,n/a,33.207199,-87.5482025
+277,Oil & Gas Production,47.6060781,-122.3329957
+278,Major Banks,30.3859766,-91.0759758
+279,Meat/Poultry/Fish,36.6777372,-121.6555013
+280,Major Pharmaceuticals,38.5574091,-121.4848927
+281,Radio And Television Broadcasting And Communications Equipment,32.2539326,-90.2481337
+282,Telecommunications Equipment,34.7576397,-92.324251
+283,EDP Services,45.6585294,-122.4979879
+284,Packaged Foods,30.1185635,-95.3730176
+285,Homebuilding,33.8752935,-117.5664384
+286,Investment Managers,38.9048517,-94.6864991
+287,EDP Services,41.88,-87.62
+288,Computer Software: Prepackaged Software,40.3208847,-76.8836261
+289,Metal Fabrications,43.6356348,-84.2601444
+290,Industrial Machinery/Components,43.55,-116.28
+291,Industrial Specialties,33.207199,-87.5482025
+292,n/a,32.78,-96.8
+293,Major Chemicals,34.17,-118.12
+294,Broadcasting,38.9,-77.04
+295,Textiles,39.7170046,-104.9408931
+296,Industrial Machinery/Components,44.9799999,-93.26
+297,Property-Casualty Insurers,27.6112399,-81.6621917
+298,Auto Manufacturing,29.6211025,-95.2632201
+299,Real Estate Investment Trusts,40.8,-73.97
+300,Major Pharmaceuticals,39.29,-76.61
+301,Major Pharmaceuticals,35.2219554,-80.8328724
+302,Power Generation,42.9115599,-85.6264635
+303,Biotechnology: Laboratory Analytical Instruments,33.5465493,-101.85193
+304,Computer Software: Prepackaged Software,26.132433,-81.7951054
+305,Savings Institutions,40.8,-73.97
+306,Telecommunications Equipment,47.2457073,-122.4773432
+307,n/a,39.2708955,-84.3279093
+308,Medical/Dental Instruments,35.0010118,-85.3162066
+309,Major Banks,39.2957066,-76.5697075
+310,n/a,35.99,-78.9
+311,Telecommunications Equipment,32.6901244,-96.937016
+312,EDP Services,37.0279431,-76.3116235
+313,Radio And Television Broadcasting And Communications Equipment,39.29,-76.61
+314,Other Consumer Services,40.8690303,-73.8477874
+315,n/a,47.6060781,-122.3329957
+316,Oil Refining/Marketing,32.9578909,-102.8518139
+317,Major Pharmaceuticals,39.3035567,-94.7195096
+318,n/a,42.722661,-73.8301437
+319,Specialty Insurers,29.7857853,-95.8243956
+320,n/a,41.7396715,-85.9262162
+321,Major Banks,40.75,-73.99
+322,Oil & Gas Production,35.3328119,-80.817935
+323,Business Services,26.0576497,-80.3101684
+324,Major Banks,42.4681713,-83.1589716
+325,Biotechnology: In Vitro & In Vivo Diagnostic Substances,35.1274285,-80.8599193
+326,Medical/Nursing Services,38.8189466,-77.0593246
+327,Medical/Dental Instruments,33.4335164,-111.7256936
+328,Natural Gas Distribution,27.27476,-80.31823
+329,Hospital/Nursing Management,35.21,-80.69
+330,Industrial Machinery/Components,42.9202891,-78.7589558
+331,Medical/Dental Instruments,41.7396715,-85.9262162
+332,n/a,37.27,-79.94
+333,Life Insurance,38.26,-85.75
+334,n/a,44.9688472,-93.1315648
+335,Computer Software: Prepackaged Software,31.7698671,-106.4161964
+336,n/a,45.78,-108.5
+337,Business Services,41.6,-93.61
+338,Biotechnology: Biological Products (No Diagnostic Substances),42.29,-83.14
+339,n/a,40.3208847,-76.8836261
+340,n/a,42.3604802,-71.0590624
+341,Major Banks,39.95,-75.16
+342,Electrical Products,31.77,-106.43
+343,Clothing/Shoe/Accessory Stores,40.9234909,-74.1797766
+344,Oil/Gas Transmission,45.5593978,-122.807445
+345,Television Services,38.26,-85.75
+346,Pollution Control Equipment,37.9414132,-77.3472943
+347,Industrial Machinery/Components,44.9790183,-93.1855735
+348,n/a,35.47,-97.52
+349,Oil & Gas Production,35.0010118,-85.3162066
+350,n/a,33.0227476,-117.1382404
+351,Computer Software: Prepackaged Software,32.0688848,-102.0946818
+352,Professional Services,29.76,-95.36
+353,Business Services,45.0497462,-93.4824636
+354,Real Estate Investment Trusts,30.5547139,-84.0801613
+355,Engineering & Construction,42.2685543,-89.0965841
+356,Industrial Machinery/Components,41.7429283,-87.7123355
+357,n/a,40.7582228,-73.9704871
+358,Aerospace,38.43923,-122.6673018
+359,Industrial Specialties,32.229334,-110.8772009
+360,Hotels/Resorts,21.3488387,-157.9435603
+361,n/a,40.22,-74.74
+362,Rental/Leasing Companies,26.411026,-80.0926014
+363,Environmental Services,42.0722039,-80.0964415
+364,Natural Gas Distribution,30.372807,-91.1833043
+365,Pollution Control Equipment,32.59,-93.85
+366,Telecommunications Equipment,31.77,-106.43
+367,Industrial Machinery/Components,39.062982,-76.8391683
+368,Property-Casualty Insurers,32.2392184,-93.5205641
+369,Computer Communications Equipment,41.8784851,-87.627893
+370,n/a,40.7132136,-74.2120629
+371,n/a,36.1457192,-86.8066559
+372,Property-Casualty Insurers,30.3152434,-81.6856808
+373,EDP Services,33.519545,-111.5468301
+374,Major Banks,30.1185635,-95.3730176
+375,Major Pharmaceuticals,33.52,-86.8
+376,n/a,33.45,-112.08
+377,n/a,33.5465493,-101.85193
+378,Beverages (Production/Distribution),25.9369686,-81.5596427
+379,Oil & Gas Production,45.62,-94.25
+380,Biotechnology: Biological Products (No Diagnostic Substances),38.6132118,-90.3207299
+381,EDP Services,31.9754756,-106.4170311
+382,Telecommunications Equipment,31.1393795,-97.8047404
+383,Electric Utilities: Central,36.9923139,-122.0581762
+384,n/a,30.3276652,-81.6631259
+385,Metal Fabrications,38.32,-122.64
+386,n/a,37.2422863,-121.7309452
+387,Oil & Gas Production,40.8,-73.97
+388,Biotechnology: Biological Products (No Diagnostic Substances),34.5259004,-117.0625875
+389,Semiconductors,38.9273849,-77.0125445
+390,n/a,39.7665139,-89.6100521
+391,Business Services,39.5511448,-104.9505671
+392,n/a,32.7030883,-96.8029489
+393,Telecommunications Equipment,38.889471,-77.0578855
+394,Major Banks,21.2962334,-157.7019881
+395,n/a,30.27,-97.74
+396,Oil & Gas Production,33.9253024,-84.3857442
+397,Business Services,34.04,-118.26
+398,Finance: Consumer Services,29.9653661,-90.0629989
+399,Catalog/Specialty Distribution,43.0543956,-87.9383822
+400,Major Chemicals,42.9115599,-85.6264635
+401,Restaurants,38.7470186,-90.2526163
+402,Building operators,30.4864144,-97.6722668
+403,Telecommunications Equipment,29.483344,-98.5207797
+404,Real Estate Investment Trusts,37.27,-79.94
+405,Finance: Consumer Services,21.31,-157.86
+406,n/a,41.76,-72.74
+407,Oilfield Services/Equipment,43.0690343,-89.4245627
+408,Major Pharmaceuticals,34.0578814,-118.3096648
+409,n/a,32.2539326,-90.2481337
+410,Coal Mining,27.3980151,-80.3714326
+411,Real Estate Investment Trusts,27.9852231,-82.008014
+412,n/a,38.8822689,-77.142764
+413,n/a,33.5199899,-86.8512078
+414,n/a,43.1790617,-86.1853474
+415,Semiconductors,32.7526842,-97.3264658
+416,Medical Specialities,25.7564471,-80.2056382
+417,Savings Institutions,61.1870241,-149.8822186
+418,n/a,26.6664174,-80.0894977
+419,n/a,26.2778269,-80.109357
+420,Marine Transportation,45.616422,-122.5804528
+421,Major Banks,38.8993417,-77.0091334
+422,Telecommunications Equipment,37.39,-121.89
+423,Food Distributors,34.1289479,-79.6838874
+424,Medical/Dental Instruments,41.6920942,-70.9427914
+425,Major Chemicals,41.3009263,-95.8881542
+426,Restaurants,39.7434917,-84.0854432
+427,Containers/Packaging,38.8920292,-77.0136483
+428,Real Estate Investment Trusts,29.483344,-98.5207797
+429,n/a,32.7299999,-97.3199999
+430,n/a,43.1625916,-77.6079126
+431,Telecommunications Equipment,39.02,-94.72
+432,Investment Managers,41.6775685,-83.5629746
+433,Other Specialty Stores,42.3745311,-88.1263369
+434,Major Banks,40.9163004,-74.172438
+435,n/a,38.8965627,-77.0224418
+436,Major Chemicals,42.6532844,-73.762495
+437,Major Banks,44.78,-93.91
+438,Major Banks,38.6,-121.45
+439,Broadcasting,39.603484,-119.7078532
+440,Electrical Products,39.3614334,-76.5892774
+441,Telecommunications Equipment,32.2821952,-90.2291565
+442,Real Estate Investment Trusts,38.2473,-85.68525
+443,Business Services,41.8822489,-87.7221872
+444,Oilfield Services/Equipment,40.804574,-96.6157192
+445,Specialty Insurers,39.1,-94.58
+446,Major Pharmaceuticals,43.0043693,-85.6332093
+447,Medical/Dental Instruments,40.6238902,-75.3936808
+448,n/a,38.5,-92.15
+449,Home Furnishings,34.0028786,-84.1446376
+450,Real Estate Investment Trusts,42.1014803,-72.5766759
+451,Hotels/Resorts,35.4209352,-97.6656625
+452,Oil & Gas Production,39.7284944,-121.8374777
+453,n/a,33.7746886,-84.2953464
+454,Major Banks,41.8062766,-87.6482474
+455,Building operators,27.27476,-80.31823
+456,Mining & Quarrying of Nonmetallic Minerals (No Fuels),33.6523096,-86.7114545
+457,Medical/Dental Instruments,29.6793128,-82.3723105
+458,n/a,41.2,-111.98
+459,n/a,44.9688472,-93.1315648
+460,EDP Services,32.7657318,-117.199996
+461,Major Pharmaceuticals,39.67,-86.19
+462,Farming/Seeds/Milling,36.3193563,-115.0228736
+463,Real Estate Investment Trusts,27.3980151,-80.3714326
+464,Engineering & Construction,40.44,-79.9599999
+465,Real Estate Investment Trusts,35.8054733,-78.6169494
+466,n/a,40.7608571,-73.9681265
+467,Clothing/Shoe/Accessory Stores,39.7503186,-104.8367063
+468,Oil & Gas Production,47.61,-122.33
+469,Business Services,47.6288591,-122.3456919
+470,Metal Fabrications,38.0434058,-121.2969674
+471,Water Supply,33.8101772,-118.3520389
+472,Biotechnology: Biological Products (No Diagnostic Substances),36.9923139,-122.0581762
+473,Hospital/Nursing Management,40.7634529,-73.9798808
+474,Restaurants,41.7,-83.65
+475,Hospital/Nursing Management,37.1120141,-93.3086778
+476,n/a,39.0041504,-77.0391754
+477,Electric Utilities: Central,32.903454,-117.2195678
+478,Oil & Gas Production,43.1581207,-77.6063541
+479,Consumer Specialties,38.8978995,-77.0157837
+480,n/a,34.17,-118.12
+481,Biotechnology: Commercial Physical & Biological Resarch,45.1908533,-93.3007481
+482,Oil & Gas Production,38.58,-121.49
+483,Hospital/Nursing Management,30.17,-92.06
+484,n/a,41.88,-87.63
+485,Clothing/Shoe/Accessory Stores,36.1069958,-79.8522564
+486,Electric Utilities: Central,45.01,-93.65
+487,Transportation Services,40.6998888,-73.8076421
+488,Transportation Services,42.7376689,-84.5169757
+489,Real Estate,39.9311729,-104.9739333
+490,n/a,42.4678076,-70.9844
+491,Marine Transportation,40.5944059,-74.0711359
+492,Food Distributors,33.6160293,-111.8926303
+493,Farming/Seeds/Milling,38.8563576,-104.6995991
+494,Farming/Seeds/Milling,38.7240446,-77.1082444
+495,Newspapers/Magazines,36.09,-115.15
+496,n/a,38.3237571,-108.1821561
+497,Industrial Machinery/Components,30.475663,-87.193563
+498,Life Insurance,32.8094568,-96.889555
+499,Television Services,40.6238902,-75.3936808
+500,Consumer Electronics/Appliances,38.8965627,-77.0224418
+501,Radio And Television Broadcasting And Communications Equipment,32.7495898,-117.1046198
+502,Beverages (Production/Distribution),37.235499,-93.2478638
+503,Telecommunications Equipment,34.14,-77.92
+504,Building Materials,39.1645065,-119.7634857
+505,Oil & Gas Production,45.616422,-122.5804528
+506,Major Banks,40.0115285,-119.6962677
+507,Savings Institutions,39.29,-76.61
+508,n/a,36.09,-79.83
+509,n/a,43.1095503,-88.0411993
+510,Marine Transportation,35.2299999,-80.84
+511,n/a,38.8973837,-77.0395416
+512,Television Services,38.92,-76.99
+513,n/a,40.6307451,-74.1181234
+514,Major Banks,35.0995959,-89.862563
+515,Food Distributors,30.17,-92.06
+516,Major Banks,40.8143687,-73.7419017
+517,Investment Bankers/Brokers/Service,36.8537392,-76.2652909
+518,Savings Institutions,39.06,-94.61
+519,n/a,21.31,-157.86
+520,Specialty Foods,42.3781869,-83.1059154
+521,Major Banks,39.7443294,-89.7286056
+522,Hospital/Nursing Management,38.552678,-90.3795438
+523,Hotels/Resorts,33.6952452,-117.7639765
+524,Electrical Products,35.9240269,-78.5829504
+525,Mining & Quarrying of Nonmetallic Minerals (No Fuels),41.9203468,-87.6433139
+526,n/a,32.53,-93.75
+527,Food Chains,32.78,-96.8
+528,Recreational Products/Toys,29.8699072,-95.3298675
+529,Homebuilding,42.34,-71.05
+530,Major Pharmaceuticals,32.3630585,-90.1475822
+531,Real Estate Investment Trusts,36.8537392,-76.2652909
+532,Packaged Foods,39.9311729,-104.9739333
+533,n/a,27.7703677,-82.6356732
+534,Publishing,26.11,-80.3
+535,Major Pharmaceuticals,32.51,-93.75
+536,n/a,21.3039859,-157.8625674
+537,Major Pharmaceuticals,41.8822489,-87.7221872
+538,Property-Casualty Insurers,32.9629396,-96.6691579
+539,Marine Transportation,39.4596137,-87.3478243
+540,Building Products,39.1063109,-94.4439365
+541,Savings Institutions,32.9578909,-102.8518139
+542,n/a,36.9262849,-76.0203323
+543,n/a,32.59,-93.85
+544,Metal Fabrications,42.8840931,-78.8724715
+545,Advertising,38.6198298,-121.5198716
+546,Home Furnishings,33.3363836,-111.9343636
+547,n/a,47.61,-122.33
+548,Medical Specialities,42.9862014,-85.625085
+549,Restaurants,38.6,-121.45
+550,Package Goods/Cosmetics,35.15,-90.05
+551,Major Banks,34.0067522,-81.0330246
+552,Major Pharmaceuticals,28.5107872,-81.4828198
+553,n/a,38.9,-77.04
+554,Major Pharmaceuticals,37.3189149,-121.9416226
+555,Telecommunications Equipment,38.8965627,-77.0224418
+556,Major Banks,32.229334,-110.8772009
+557,n/a,32.4237461,-104.2655282
+558,Building Materials,33.52,-86.8
+559,EDP Services,41.8822489,-87.7221872
+560,Air Freight/Delivery Services,37.97,-87.5699999
+561,Major Banks,40.6238902,-75.3936808
+562,Real Estate Investment Trusts,26.4068381,-80.1058665
+563,Diversified Commercial Services,39.0277832,-94.6557914
+564,Auto Manufacturing,26.11,-80.3
+565,Consumer Electronics/Appliances,39.1070379,-94.4928531
+566,Diversified Commercial Services,32.9536923,-96.816156
+567,Natural Gas Distribution,38.92,-76.99
+568,Property-Casualty Insurers,41.64,-83.54
+569,Biotechnology: Biological Products (No Diagnostic Substances),41.451118,-81.6309078
+570,Major Pharmaceuticals,34.1349887,-118.1507494
+571,Major Pharmaceuticals,41.9403795,-87.6531805
+572,Hotels/Resorts,39.8494377,-86.2666463
+573,Computer Software: Prepackaged Software,33.7484047,-116.3520354
+574,Real Estate,39.6599999,-104.84
+575,Movies/Entertainment,35.1241195,-90.0443217
+576,Specialty Chemicals,37.2374847,-121.8277925
+577,n/a,38.58,-121.49
+578,Real Estate Investment Trusts,21.2962334,-157.7019881
+579,n/a,33.5465493,-101.85193
+580,Major Banks,39.9602601,-83.0092803
+581,Real Estate Investment Trusts,42.4681713,-83.1589716
+582,Marine Transportation,40.22,-74.74
+583,Natural Gas Distribution,31.8840886,-102.4953899
+584,n/a,39.014268,-94.4027782
+585,Restaurants,42.1165506,-88.0549221
+586,Computer Software: Prepackaged Software,41.88,-87.63
+587,Electronic Components,40.078872,-82.9447782
+588,Biotechnology: Biological Products (No Diagnostic Substances),35.4674683,-97.4996835
+589,Real Estate Investment Trusts,47.0378741,-122.9006951
+590,RETAIL: Building Materials,43.0543956,-87.9383822
+591,n/a,37.9715592,-87.5710898
+592,Precious Metals,32.9629396,-96.6691579
+593,Major Chemicals,39.100057,-84.3680059
+594,Coal Mining,42.2253803,-83.3415334
+595,Forest Products,29.54,-98.42
+596,Investment Managers,41.2164036,-75.9142437
+597,Oil & Gas Production,38.58,-121.49
+598,Savings Institutions,36.0624707,-86.7768273
+599,Major Banks,40.8247318,-96.6157192
+600,Diversified Commercial Services,32.7030883,-96.8029489
+601,Computer Software: Prepackaged Software,37.74,-122.19
+602,Restaurants,42.3781869,-83.1059154
+603,Water Supply,41.6919638,-86.3754398
+604,Packaged Foods,37.97,-87.5699999
+605,Marine Transportation,42.35,-71.06
+606,n/a,26.6654996,-80.0590804
+607,Major Banks,31.4637723,-100.4370375
+608,Computer Software: Prepackaged Software,40.496654,-74.446092
+609,Major Pharmaceuticals,32.31651,-95.2514685
+610,Major Banks,29.2434976,-82.116955
+611,Package Goods/Cosmetics,36.31,-82.35
+612,Biotechnology: Laboratory Analytical Instruments,47.6025001,-122.3385759
+613,Restaurants,39.1,-94.58
+614,n/a,38.2214782,-85.6794434
+615,Real Estate Investment Trusts,42.1142239,-84.2494229
+616,n/a,36.3193563,-115.0228736
+617,Investment Bankers/Brokers/Service,47.2420053,-122.4206086
+618,Oil & Gas Production,37.74,-122.19
+619,n/a,41.6775685,-83.5629746
+620,Real Estate,29.2434976,-82.116955
+621,Investment Bankers/Brokers/Service,30.3152434,-81.6856808
+622,Hotels/Resorts,30.1921004,-81.6975206
+623,Real Estate Investment Trusts,35.6131551,-97.6385368
+624,Oilfield Services/Equipment,34.28,-118.7
+625,Railroads,39.014268,-94.4027782
+626,Business Services,36.9923139,-122.0581762
+627,Major Pharmaceuticals,34.5925622,-117.8194197
+628,Restaurants,26.4068381,-80.1058665
+629,Packaged Foods,33.7200336,-84.5851994
+630,EDP Services,32.78,-96.8
+631,EDP Services,39.1822152,-84.4225186
+632,Transportation Services,42.9979838,-76.1377935
+633,Life Insurance,42.9202891,-78.7589558
+634,Major Banks,31.5547633,-84.06035
+635,Computer Manufacturing,36.0896801,-79.9528451
+636,Natural Gas Distribution,42.3781869,-83.1059154
+637,Computer Software: Prepackaged Software,38.9080786,-77.0406147
+638,Business Services,28.1434318,-82.3343375
+639,Major Banks,30.2915328,-97.7688358
+640,Biotechnology: Biological Products (No Diagnostic Substances),35.8559647,-86.3944828
+641,n/a,35.4213103,-97.5734783
+642,Food Chains,29.4390958,-98.487335
+643,n/a,37.0098187,-76.4273844
+644,Natural Gas Distribution,36.7949518,-119.7541856
+645,Semiconductors,41.2164036,-75.9142437
+646,n/a,42.35,-71.06
+647,Major Banks,42.3784509,-83.3032607
+648,Major Banks,39.2708955,-84.3279093
+649,n/a,25.9400585,-80.2153998
+650,n/a,41.0875099,-81.6363869
+651,Telecommunications Equipment,34.6540922,-86.566246
+652,Mining & Quarrying of Nonmetallic Minerals (No Fuels),35.4674683,-97.4996835
+653,Business Services,41.07,-85.14
+654,Finance: Consumer Services,39.1335733,-84.4356468
+655,Marine Transportation,38.9331391,-92.3738037
+656,Major Pharmaceuticals,44.903044,-93.2332244
+657,Finance: Consumer Services,32.53,-93.75
+658,EDP Services,37.8010824,-97.3317391
+659,Auto Parts:O.E.M.,30.2102306,-81.7458845
+660,n/a,41.3879567,-75.6499025
+661,Major Pharmaceuticals,45.63,-122.52
+662,Medical/Dental Instruments,30.181965,-97.9701846
+663,Marine Transportation,31.5547633,-84.06035
+664,Radio And Television Broadcasting And Communications Equipment,38.9475624,-77.3295728
+665,Electric Utilities: Central,34.28,-118.7
+666,Biotechnology: Biological Products (No Diagnostic Substances),32.9901414,-96.8027198
+667,Investment Bankers/Brokers/Service,38.8827087,-77.0163235
+668,Medical Specialities,44.9790183,-93.1855735
+669,Paints/Coatings,38.26,-85.75
+670,n/a,39.68,-75.75
+671,Industrial Specialties,35.1341835,-89.8655563
+672,Major Pharmaceuticals,37.99,-84.52
+673,Life Insurance,27.96,-82.53
+674,Containers/Packaging,34.9568026,-106.6055534
+675,Major Pharmaceuticals,27.8684314,-82.5270388
+676,n/a,39.3096984,-76.6701475
+677,Packaged Foods,46.8843099,-96.7847834
+678,EDP Services,34.0067522,-81.0330246
+679,n/a,36.0978298,-80.2438321
+680,n/a,40.7,-89.52
+681,Shoe Manufacturing,30.671701,-96.3438274
+682,Business Services,35.4318343,-97.4922407
+683,n/a,40.7051078,-74.0056827
+684,Major Pharmaceuticals,41.0285407,-81.4633516
+685,Clothing/Shoe/Accessory Stores,33.8640647,-118.1766294
+686,Electrical Products,29.82,-95.29
+687,Trucking Freight/Courier Services,30.475663,-87.193563
+688,Computer Software: Prepackaged Software,33.5465493,-101.85193
+689,Major Pharmaceuticals,32.7495898,-117.1046198
+690,Containers/Packaging,41.2164036,-75.9142437
+691,Major Pharmaceuticals,39.0345609,-94.5521274
+692,Property-Casualty Insurers,39.7446895,-104.9933772
+693,Computer Communications Equipment,39.0860093,-94.6321217
+694,n/a,42.9979838,-76.1377935
+695,Auto Parts:O.E.M.,39.9990626,-83.0173386
+696,Newspapers/Magazines,39.14,-84.54
+697,n/a,41.6,-93.61
+698,Finance: Consumer Services,35.3756077,-94.4313928
+699,Oil & Gas Production,39.95,-75.16
+700,Business Services,47.0378741,-122.9006951
+701,Major Pharmaceuticals,38.03,-87.58
+702,Integrated oil Companies,42.4395419,-83.3155257
+703,Major Pharmaceuticals,35.3328119,-80.817935
+704,n/a,30.401356,-97.7525352
+705,n/a,33.45,-111.97
+706,Business Services,39.7503186,-104.8367063
+707,n/a,30.4649282,-84.3857442
+708,Other Specialty Stores,32.9578909,-102.8518139
+709,n/a,38.7240446,-77.1082444
+710,Electric Utilities: Central,39.68,-75.75
+711,n/a,39.95,-75.16
+712,Major Banks,38.8099385,-104.7599648
+713,Major Pharmaceuticals,26.11,-80.3
+714,Major Pharmaceuticals,40.7544003,-73.9801334
+715,n/a,32.0056072,-81.0973279
+716,Precious Metals,42.3662435,-83.3270994
+717,Coal Mining,41.879109,-86.550039
+718,n/a,34.050751,-118.3841777
+719,n/a,38.35,-81.63
+720,Specialty Foods,38.8363582,-104.794212
+721,Major Pharmaceuticals,37.97,-87.5699999
+722,n/a,44.7984858,-93.1277854
+723,n/a,39.817642,-75.5101999
+724,Real Estate Investment Trusts,25.728011,-80.2454223
+725,Major Pharmaceuticals,41.5399755,-72.9934468
+726,Real Estate Investment Trusts,41.76,-72.69
+727,Real Estate Investment Trusts,36.09,-79.83
+728,n/a,39.0638705,-108.5506486
+729,Biotechnology: In Vitro & In Vivo Diagnostic Substances,39.3035567,-94.7195096
+730,n/a,38.02,-122.55
+731,Major Banks,30.3152434,-81.6856808
+732,Telecommunications Equipment,38.9003669,-77.0351137
+733,Real Estate,38.2214782,-85.6794434
+734,Major Banks,36.0457187,-115.3133908
+735,Television Services,34.0578814,-118.3096648
+736,n/a,27.7772091,-97.4435441
+737,Computer Software: Prepackaged Software,26.6654996,-80.0590804
+738,n/a,31.77,-106.43
+739,"Computer Software: Programming, Data Processing",41.8784851,-87.627893
+740,Computer Software: Prepackaged Software,25.9400585,-80.2153998
+741,Real Estate Investment Trusts,33.6289952,-112.1370601
+742,Investment Bankers/Brokers/Service,45.1908533,-93.3007481
+743,Other Consumer Services,34.10885,-118.2234229
+744,Television Services,35.0863004,-85.1790404
+745,Biotechnology: Biological Products (No Diagnostic Substances),32.4237461,-104.2655282
+746,Business Services,40.5944059,-74.0711359
+747,Business Services,35.4318343,-97.4922407
+748,Auto Parts:O.E.M.,36.3193563,-115.0228736
+749,n/a,45.5767359,-122.6386722
+750,Marine Transportation,36.0458806,-95.8562271
+751,n/a,39.7665139,-89.6100521
+752,n/a,33.3363836,-111.9343636
+753,Real Estate,30.475663,-87.193563
+754,n/a,40.8395426,-73.7023905
+755,Industrial Specialties,41.6,-93.61
+756,Other Consumer Services,47.6025001,-122.3385759
+757,Major Pharmaceuticals,34.143068,-118.1412651
+758,Savings Institutions,38.88,-76.85
+759,Ordnance And Accessories,40.7177351,-111.8985922
+760,Marine Transportation,41.9403795,-87.6531805
+761,n/a,35.8054733,-78.6169494
+762,Investment Bankers/Brokers/Service,40.7753311,-73.8726184
+763,n/a,38.58,-121.49
+764,Property-Casualty Insurers,40.44,-79.9599999
+765,Oilfield Services/Equipment,37.4110966,-122.0181762
+766,Computer Software: Prepackaged Software,33.7636344,-117.9688322
+767,"Computer Software: Programming, Data Processing",43.1625916,-77.6079126
+768,Multi-Sector Companies,32.5746598,-117.0697958
+769,Major Pharmaceuticals,33.9930471,-118.153228
+770,Savings Institutions,38.9583005,-104.7812654
+771,Computer Software: Prepackaged Software,38.6206914,-90.4408037
+772,Finance: Consumer Services,38.9080786,-77.0406147
+773,Major Banks,33.6682421,-117.7659237
+774,n/a,39.7164885,-77.7312977
+775,Property-Casualty Insurers,39.2937264,-76.6248739
+776,Trucking Freight/Courier Services,27.9943858,-82.459481
+777,Telecommunications Equipment,40.7275043,-73.9800645
+778,Telecommunications Equipment,37.7813454,-122.497668
+779,n/a,40.1929685,-74.6502902
+780,Restaurants,34.14,-77.92
+781,n/a,40.77,-73.53
+782,Oil & Gas Production,33.4658131,-112.0244867
+783,Metal Fabrications,34.04,-118.26
+784,n/a,40.6998888,-73.8076421
+785,Building Products,29.910184,-81.5377013
+786,Real Estate Investment Trusts,38.58,-121.49
+787,Oil & Gas Production,34.7179437,-92.3714901
+788,Real Estate Investment Trusts,33.5177039,-117.693138
+789,n/a,41.0875099,-81.6363869
+790,Industrial Machinery/Components,29.084946,-81.0644263
+791,Major Chemicals,36.0624707,-86.7768273
+792,Semiconductors,36.7299999,-119.78
+793,Biotechnology: Biological Products (No Diagnostic Substances),30.0435239,-94.2743628
+794,Major Pharmaceuticals,32.93,-97.44
+795,Electric Utilities: Central,37.3326639,-121.8918364
+796,Major Pharmaceuticals,31.7698671,-106.4161964
+797,Homebuilding,41.76,-72.74
+798,Fluid Controls,39.9602601,-83.0092803
+799,n/a,34.149491,-118.099449
+800,Trucking Freight/Courier Services,40.6998888,-73.8076421
+801,n/a,39.9175385,-75.1136721
+802,Catalog/Specialty Distribution,40.22,-74.74
+803,Other Consumer Services,61.15,-149.9199999
+804,Investment Managers,38.02,-122.55
+805,Major Pharmaceuticals,26.2448015,-81.8115051
+806,Major Pharmaceuticals,39.1674274,-84.5484275
+807,Packaged Foods,36.1,-115.07
+808,n/a,47.1139164,-122.7708828
+809,Real Estate Investment Trusts,37.93,-122.38
+810,Mining & Quarrying of Nonmetallic Minerals (No Fuels),35.0010118,-85.3162066
+811,Property-Casualty Insurers,43.1790617,-86.1853474
+812,Property-Casualty Insurers,37.9429182,-77.3469946
+813,Metal Fabrications,38.58,-121.49
+814,n/a,45.5767359,-122.6386722
+815,n/a,38.6,-121.45
+816,Industrial Specialties,41.9403795,-87.6531805
+817,n/a,36.1964847,-95.8459341
+818,Finance: Consumer Services,39.8786639,-104.6821048
+819,Medical/Dental Instruments,40.4888987,-79.8900686
+820,Real Estate Investment Trusts,27.791959,-82.723924
+821,Radio And Television Broadcasting And Communications Equipment,32.6901244,-96.937016
+822,Computer Software: Prepackaged Software,38.8978995,-77.0157837
+823,n/a,33.6952452,-117.7639765
+824,n/a,41.2899133,-96.0996978
+825,n/a,45.5155832,-122.6788535
+826,Major Banks,61.148769,-149.8010811
+827,Major Pharmaceuticals,32.4237461,-104.2655282
+828,Computer Software: Prepackaged Software,40.7608571,-73.9681265
+829,n/a,31.77,-106.43
+830,Catalog/Specialty Distribution,30.4649282,-84.3857442
+831,n/a,39.1674274,-84.5484275
+832,n/a,27.4404047,-82.5828377
+833,Biotechnology: Biological Products (No Diagnostic Substances),45.5220648,-122.6757228
+834,Savings Institutions,35.6869752,-105.937799
+835,n/a,45.5155832,-122.6788535
+836,Semiconductors,35.6046911,-82.4861053
+837,n/a,30.2102306,-81.7458845
+838,Oil & Gas Production,35.2037032,-80.7842188
+839,n/a,38.43923,-122.6673018
+840,n/a,37.8336281,-122.2029832
+841,n/a,42.6532844,-73.762495
+842,Radio And Television Broadcasting And Communications Equipment,30.401356,-97.7525352
+843,Food Distributors,41.3009263,-95.8881542
+844,Savings Institutions,35.99,-78.9
+845,Auto Parts:O.E.M.,33.7654607,-84.38709
+846,Telecommunications Equipment,30.4415185,-87.2518824
+847,Major Pharmaceuticals,42.1014803,-72.5766759
+848,Major Pharmaceuticals,30.1185635,-95.3730176
+849,Power Generation,37.54,-77.45
+850,n/a,32.7376828,-114.6981307
+851,Home Furnishings,41.2,-111.98
+852,Major Banks,38.94,-77.08
+853,n/a,44.903044,-93.2332244
+854,n/a,29.1374566,-80.9980687
+855,n/a,38.2,-85.7
+856,n/a,36.7299999,-119.78
+857,Telecommunications Equipment,38.031942,-78.498585
+858,Biotechnology: Biological Products (No Diagnostic Substances),37.54,-77.45
+859,Business Services,29.9919028,-90.0795843
+860,Services-Misc. Amusement & Recreation,39.0345609,-94.5521274
+861,Services-Misc. Amusement & Recreation,37.97,-87.5699999
+862,Plastic Products,39.2957066,-76.5697075
+863,Oil & Gas Production,40.6999925,-112.0118669
+864,n/a,38.133032,-85.8963964
+865,n/a,41.9403795,-87.6531805
+866,Oil & Gas Production,41.7644599,-72.6729522
+867,n/a,40.0380778,-75.1136721
+868,Oil & Gas Production,33.9253024,-84.3857442
+869,Biotechnology: Biological Products (No Diagnostic Substances),32.8094568,-96.889555
+870,Medical/Dental Instruments,41.8499561,-87.650042
+871,Oil & Gas Production,32.9629396,-96.6691579
+872,Office Equipment/Supplies/Services,41.8822489,-87.7221872
+873,Computer Software: Prepackaged Software,38.8920292,-77.0136483
+874,Other Specialty Stores,37.34,-121.89
+875,Major Pharmaceuticals,31.77,-106.43
+876,Medical/Dental Instruments,38.6132118,-90.3207299
+877,Department/Specialty Retail Stores,33.76,-84.39
+878,Business Services,38.409359,-82.3614632
+879,Marine Transportation,45.01,-93.65
+880,Home Furnishings,38.58,-121.49
+881,Semiconductors,42.3382755,-83.1756188
+882,Investment Bankers/Brokers/Service,34.052996,-118.2548551
+883,Banks,36.0978298,-80.2438321
+884,Property-Casualty Insurers,39.07,-84.53
+885,Hospital/Nursing Management,41.7396715,-85.9262162
+886,Auto Parts:O.E.M.,29.6464527,-95.4935119
+887,Real Estate,25.7564471,-80.2056382
+888,Metal Fabrications,36.0268006,-83.7942551
+889,Telecommunications Equipment,28.54,-81.38
+890,Biotechnology: In Vitro & In Vivo Diagnostic Substances,34.1289479,-79.6838874
+891,Auto Parts:O.E.M.,27.791959,-82.723924
+892,n/a,32.53,-92.08
+893,Major Pharmaceuticals,42.3382755,-83.1756188
+894,Real Estate Investment Trusts,32.229334,-110.8772009
+895,Business Services,42.722661,-73.8301437
+896,Computer Communications Equipment,29.385634,-98.5254159
+897,n/a,30.2915328,-97.7688358
+898,n/a,37.7181398,-122.4863492
+899,Computer Manufacturing,26.8844636,-81.734942
+900,RETAIL: Building Materials,39.026091,-95.7226884
+901,Industrial Specialties,40.6945036,-73.9565551
+902,Real Estate Investment Trusts,39.7975767,-89.6551671
+903,n/a,34.144801,-118.2563169
+904,Real Estate Investment Trusts,29.422658,-98.4869905
+905,Major Chemicals,40.9112418,-96.5996963
+906,n/a,38.5385973,-121.6954666
+907,Major Banks,39.75,-75.55
+908,Other Specialty Stores,26.6732151,-81.8181961
+909,Multi-Sector Companies,47.0378741,-122.9006951
+910,Business Services,38.5385973,-121.6954666
+911,Consumer Electronics/Appliances,38.26,-85.75
+912,Real Estate Investment Trusts,39.1,-94.58
+913,Major Banks,29.8743418,-95.5485295
+914,Office Equipment/Supplies/Services,42.3745311,-88.1263369
+915,n/a,30.4,-91.08
+916,n/a,42.1241764,-80.08181
+917,Biotechnology: Electromedical & Electrotherapeutic Apparatus,41.0901834,-73.541744
+918,Major Pharmaceuticals,32.2299999,-86.19
+919,Telecommunications Equipment,40.7177351,-111.8985922
+920,Telecommunications Equipment,36.8537392,-76.2652909
+921,Savings Institutions,25.6697865,-80.4660256
+922,Computer Software: Prepackaged Software,26.5114554,-80.109357
+923,n/a,32.3324642,-111.2129616
+924,Catalog/Specialty Distribution,30.080174,-94.1265562
+925,Automotive Aftermarket,39.7794767,-86.1700894
+926,Major Banks,30.4,-91.08
+927,Biotechnology: Electromedical & Electrotherapeutic Apparatus,35.4213103,-97.5734783
+928,Coal Mining,29.4743666,-98.5165167
+929,n/a,30.3859766,-91.0759758
+930,Business Services,36.15,-96
+931,Other Consumer Services,32.2821952,-90.2291565
+932,Life Insurance,38.6132118,-90.3207299
+933,Telecommunications Equipment,39.1714266,-86.5186022
+934,Industrial Machinery/Components,32.53,-93.75
+935,Commercial Banks,30.21,-97.8
+936,Major Banks,38.26,-85.75
+937,Hospital/Nursing Management,33.8640647,-118.1766294
+938,n/a,33.5199899,-86.8512078
+939,Real Estate Investment Trusts,34.0067522,-81.0330246
+940,Home Furnishings,32.8094568,-96.889555
+941,Business Services,47.0378741,-122.9006951
+942,Computer Software: Prepackaged Software,32.7830575,-79.9365839
+943,n/a,37.1120141,-93.3086778
+944,Diversified Commercial Services,39.14,-84.54
+945,n/a,33.6682421,-117.7659237
+946,Telecommunications Equipment,39.2708955,-84.3279093
+947,Major Pharmaceuticals,29.6211025,-95.2632201
+948,Auto Parts:O.E.M.,38.8974019,-77.0262531
+949,n/a,42.65,-73.76
+950,Savings Institutions,37.0279431,-76.3116235
+951,n/a,40.9180569,-73.8977693
+952,Mining & Quarrying of Nonmetallic Minerals (No Fuels),29.8743418,-95.5485295
+953,n/a,35.99,-78.9
+954,Military/Government/Technical,41.6613587,-91.4918235
+955,Pollution Control Equipment,32.0688848,-102.0946818
+956,n/a,37.4110966,-122.0181762
+957,Marine Transportation,41.07,-85.14
+958,Commercial Banks,34.9128121,-116.6492954
+959,Medical Specialities,36.15,-96
+960,Finance: Consumer Services,32.0688848,-102.0946818
+961,Restaurants,41.2,-111.98
+962,n/a,36.0624707,-86.7768273
+963,Electrical Products,33.436645,-112.036451
+964,Multi-Sector Companies,38.2,-85.7
+965,Major Banks,40.74,-74.17
+966,n/a,32.7657318,-117.199996
+967,Electronic Components,35.5873507,-82.4874499
+968,Real Estate Investment Trusts,38.9477341,-76.8807437
+969,Biotechnology: Commercial Physical & Biological Resarch,37.54,-77.45
+970,Oil & Gas Production,38.8965627,-77.0224418
+971,n/a,37.39,-121.89
+972,Finance/Investors Services,37.6346281,-97.2383178
+973,Major Pharmaceuticals,33.5915355,-101.8482479
+974,n/a,34.28,-118.7
+975,Newspapers/Magazines,32.7030883,-96.8029489
+976,n/a,37.34,-121.89
+977,n/a,38.6,-121.45
+978,"Computer Software: Programming, Data Processing",40.8247318,-96.6157192
+979,n/a,38.34,-85.7
+980,Biotechnology: Biological Products (No Diagnostic Substances),38.42,-82.47
+981,Metal Fabrications,25.9868744,-80.2153998
+982,Telecommunications Equipment,42.7327231,-84.5575089
+983,n/a,33.7200336,-84.5851994
+984,Real Estate Investment Trusts,32.2539326,-90.2481337
+985,Industrial Machinery/Components,36.164846,-115.155709
+986,Real Estate,38.88,-76.85
+987,Investment Bankers/Brokers/Service,39.0745039,-84.33211
+988,Major Pharmaceuticals,41.9720786,-87.7517295
+989,Oil Refining/Marketing,44.7984858,-93.1277854
+990,Homebuilding,29.9919028,-90.0795843
+991,Oil & Gas Production,38.34,-85.7
+992,Movies/Entertainment,38.9,-77.04
+993,EDP Services,32.9578909,-102.8518139
+994,Real Estate Investment Trusts,34.0599302,-118.249786
+995,Biotechnology: Biological Products (No Diagnostic Substances),41.6615259,-83.6861485
+996,Major Pharmaceuticals,45.5155832,-122.6788535
+997,Steel/Iron Ore,29.6211025,-95.2632201
+998,Major Chemicals,36.15,-96
+999,n/a,32.9629396,-96.6691579
+1000,n/a,43.5072348,-83.9638426

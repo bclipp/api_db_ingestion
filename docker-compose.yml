@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=project01
+      - POSTGRES_USER=project01
+      - POSTGRES_DB=project01
+    ports:
+      - 5432:5432
+    volumes:
+      - ./config_pg/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
