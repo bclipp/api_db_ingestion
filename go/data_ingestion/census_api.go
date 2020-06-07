@@ -22,3 +22,4 @@ func census_api(url string) (string, error,int){
 	}
 	return string(responseData),error,response.StatusCode
 }
+
