@@ -4,8 +4,6 @@
 
 import pytest
 
-import app.census_api
-
 TESTDATA = [("a", 5, "aaaaa")]
 
 

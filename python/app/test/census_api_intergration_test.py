@@ -2,7 +2,7 @@
 This test module is for testing census api intergration
 """
 import pytest
-import app.census_api as census
+import app.modules.census_api as census
 
 TESTDATA = [(37.299590, -76.742290, 200)]
 
