@@ -2,8 +2,8 @@
 this module is for census api access
 """
 
-import requests
-import backoff
+import requests # type: ignore
+import backoff # type: ignore
 
 
 @backoff.on_exception(backoff.expo,

@@ -1,8 +1,8 @@
 """
 This test module is for testing census api intergration
 """
-import pytest
-import python.app.modules.census_api as census
+import pytest # type: ignore
+import python.app.modules.census_api as census # type: ignore
 
 TEST_DATA = [(37.299590, -76.742290, 200)]
 
