@@ -17,4 +17,4 @@ def census_api(url: str) -> tuple:
     """
     result = requests.get(url)
 
-    return result.text, result.status_code
+    return result, result.status_code

@@ -9,23 +9,26 @@ import app.modules.database as database
 import app.modules.sql as sql
 
 
-def update_stores(config: dict):
+def update_stores(config: dict, table_name: str):
+    """
+    :param config:
+    :return:
+    """
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
-    stores: list = pd.DataFrame(database_manager.receive_sql_fetchall(sql.select_all_table("stores")))
+    table: list = pd.DataFrame(database_manager.receive_sql_fetchall(sql.select_all_table(table_name)))
     database_manager.close_conn()
-    stores.apply(look_up_row, axis=1)
-
-
-def update_customers(config: dict):
+    data_frame: pd.DataFrame = table.apply(look_up_row, axis=1)
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
-    database_manager.connect_db()
-    customers: list = pd.DataFrame(database_manager.receive_sql_fetchall(sql.select_all_table("customers")))
-    database_manager.close_conn()
-    customers.apply(look_up_row, axis=1)
+    database.update_df(database_manager, data_frame)
 
 
 def look_up_row(row):
+    """
+    
+    :param row:
+    :return:
+    """
     # blockID or block fips id, state_fips, state code and block population
     latitude: float = row["latitude"]
     longitude: float = row["longitude"]
@@ -34,11 +37,9 @@ def look_up_row(row):
                                         "0&lon=" +
                                         str(longitude) +
                                         "&format=json")
-    census_information: dict = response.json()
-    row["block_id"] = census_information["block_fips"]
-    row["state_fips"] = census_information["state_fips"]
-    row["state_code"] = census_information["state_code"]
-    row["block_pop_2015"] = census_information["block_pop_2015"]
+    census_information: dict = response[0].json()
+    row["block_id"] = census_information["results"][0]["block_fips"]
+    row["state_fips"] = census_information["results"][0]["state_fips"]
+    row["state_code"] = census_information["results"][0]["state_code"]
+    row["block_pop_2015"] = census_information["results"][0]["block_pop_2015"]
     return row
-
-

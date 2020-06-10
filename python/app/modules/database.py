@@ -96,9 +96,7 @@ class DatabaseManager:
         """
         self.cursor.close()
 
-
-    def update_row(database_manager, row: dict):
-        row[]
+    def update_df(database_manager, data_frame: pd.DataFrame):
         database_manager.send_sql("""UPDATE
         Customers
         SET
