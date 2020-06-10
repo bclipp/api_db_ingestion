@@ -30,7 +30,11 @@ class DatabaseManager:
         # port = self.config_dict["port"]
         database = self.config["database"]
         conn = psycopg2.connect(
-            f"dbname={database} user={user} host={host} password={password}"
+            user=user,
+            password=password,
+            host=host,
+            database=database,
+            cursor_factory=psycopg2.extras.RealDictCursor
         )
         self.cursor = conn.cursor()
         self.conn = conn
@@ -91,3 +95,13 @@ class DatabaseManager:
         :return:
         """
         self.cursor.close()
+
+
+    def update_row(database_manager, row: dict):
+        row[]
+        database_manager.send_sql("""UPDATE
+        Customers
+        SET
+        col = '', col = ''
+        WHERE
+        ID = 1;""")
