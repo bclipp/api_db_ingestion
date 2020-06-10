@@ -16,9 +16,9 @@ def test_census_api(latitude, longitude, wanted):
     :param wanted:
     :return:
     """
-    result: tuple = census.census_api("https://geo.fcc.gov/api/census/area?lat=" +
-                                      str(latitude) +
-                                      "0&lon=" +
-                                      str(longitude) +
-                                      "&format=json")
-    assert result[1] >= wanted and result[1] <= wanted + 100
+    result: dict = census.census_api("https://geo.fcc.gov/api/census/area?lat=" +
+                                     str(latitude) +
+                                     "0&lon=" +
+                                     str(longitude) +
+                                     "&format=json")
+    assert result["status_code"] >= wanted and result["status_code"] <= wanted + 100

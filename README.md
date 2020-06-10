@@ -57,3 +57,9 @@ avoid leaking aws credentials.
 *USER*: project01  
 *PASSWORD*: project01  
 *DB*: project01  
+
+## Running the app
+
+###bash
+
+pyenv activate app

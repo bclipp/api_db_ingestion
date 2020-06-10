@@ -5,10 +5,10 @@ CREATE TABLE customers (
     email  VARCHAR(255),
     latitude FLOAT,
     longitude FLOAT,
-    block_id INT,
-    state_fips INT,
+    block_id BIGINT,
+    state_fips BIGINT,
     state_code VARCHAR(10),
-    block_pop INT
+    block_pop BIGINT
 );
 
 COPY customers(id,first_name,last_name,email,latitude,longitude)

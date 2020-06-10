@@ -96,10 +96,22 @@ class DatabaseManager:
         """
         self.cursor.close()
 
-    def update_df(database_manager, data_frame: pd.DataFrame):
-        database_manager.send_sql("""UPDATE
-        Customers
-        SET
-        col = '', col = ''
-        WHERE
-        ID = 1;""")
+    def update_df(self, data_frame: pd.DataFrame):
+        """
+        :param database_manager:
+        :param data_frame:
+        :return:
+        """
+        for i in range(len(data_frame)):
+            row = data_frame.iloc[i]
+            state_fips = row["state_fips"]
+            state_code = row["state_code"]
+            block_pop = row["block_pop"]
+            block_id = row["block_id"]
+            table_id = row["id"]
+            self.send_sql(f"""UPDATE
+            Customers
+            SET
+            state_fips = {state_fips}, state_code = '{state_code}', block_pop = {block_pop}, block_id = {block_id}
+            WHERE
+            ID = {table_id};""")
