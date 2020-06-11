@@ -12,21 +12,25 @@ import modules.sql as sql
 def update_stores(config: dict,
                   table_name: str):
     """
+    update_stores is used to iterate through the table in question, lookup census data,
+    then update the DB.
     :param config:
     :return:
     """
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
-    table: pd.DataFrame = pd.DataFrame(database_manager.
-                                       receive_sql_fetchall(sql.select_all_table(table_name)))
+    table: list = database_manager.receive_sql_fetchall(sql.select_all_table(table_name))
     database_manager.close_conn()
-    data_frame: pd.DataFrame = table.apply(look_up_row, axis=1)
+    update_tabe: list = []
+    for row in table:
+        update_tabe.append(look_up_row(row))
     database_manager.connect_db()
-    database_manager.update_df(data_frame)
+    database_manager.update_df(update_tabe)
 
 
-def look_up_row(row):
+def look_up_row(row: list):
     """
+    look_up_row used to by iteration to work on each row : lookup census data, then update db
     :param row:
     :return:
     """
