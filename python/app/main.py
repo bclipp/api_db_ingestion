@@ -3,7 +3,7 @@ This module is the main entry point for stock related functionality
 """
 import logging  # type: ignore
 import modules.utils as utils
-import modulesgit.log as log
+import modules.log as log
 
 
 def main():
