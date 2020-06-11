@@ -6,6 +6,10 @@ import app.modules.utils as utils  # type: ignore
 
 
 def main():
+    """
+
+    :return:
+    """
     config: dict = {
         "db_ip": "127.0.0.1",
         "password": "project01",
@@ -14,7 +18,7 @@ def main():
         "database": "project01",
     }
     table_names: list = ["customers", "stores"]
-    for table in table_names():
+    for table in table_names:
         utils.update_stores(config, table)
 
 

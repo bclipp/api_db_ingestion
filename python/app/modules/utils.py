@@ -2,7 +2,7 @@
 This module is used for filling the customers and stores tables with census information
 """
 
-import pandas as pd
+import pandas as pd # type: ignore
 
 import app.modules.census_api as census
 import app.modules.database as database
@@ -17,17 +17,16 @@ def update_stores(config: dict,
     """
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
-    table: list = pd.DataFrame(database_manager.receive_sql_fetchall(sql.select_all_table(table_name)))
+    table: pd.DataFrame = pd.DataFrame(database_manager.
+                                       receive_sql_fetchall(sql.select_all_table(table_name)))
     database_manager.close_conn()
     data_frame: pd.DataFrame = table.apply(look_up_row, axis=1)
-    database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
     database_manager.update_df(data_frame)
 
 
 def look_up_row(row):
     """
-    
     :param row:
     :return:
     """

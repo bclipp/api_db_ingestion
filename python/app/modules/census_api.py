@@ -9,7 +9,7 @@ import backoff  # type: ignore
 @backoff.on_exception(backoff.expo,
                       (requests.exceptions.Timeout,
                        requests.exceptions.ConnectionError))
-def census_api(url: str) -> tuple:
+def census_api(url: str) -> dict:
     """
 
     :param url:
