@@ -1,8 +1,9 @@
 """
 This module is the main entry point for stock related functionality
 """
-
-import app.modules.utils as utils  # type: ignore
+import logging  # type: ignore
+import modules.utils as utils
+import modulesgit.log as log
 
 
 def main():
@@ -10,6 +11,7 @@ def main():
 
     :return:
     """
+    log.setup_custom_logger()
     config: dict = {
         "db_ip": "127.0.0.1",
         "password": "project01",
@@ -19,6 +21,7 @@ def main():
     }
     table_names: list = ["customers", "stores"]
     for table in table_names:
+        logging.info('Updating table: %s', table)
         utils.update_stores(config, table)
 
 

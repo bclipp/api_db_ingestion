@@ -4,9 +4,9 @@ This module is used for filling the customers and stores tables with census info
 
 import pandas as pd # type: ignore
 
-import app.modules.census_api as census
-import app.modules.database as database
-import app.modules.sql as sql
+import modules.census_api as census
+import modules.database as database
+import modules.sql as sql
 
 
 def update_stores(config: dict,
