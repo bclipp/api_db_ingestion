@@ -18,7 +18,11 @@ CREATE TABLE stores (
     id INT PRIMARY KEY,
     name VARCHAR(255),
     latitude FLOAT,
-    longitude FLOAT
+    longitude FLOAT,
+     block_id BIGINT,
+    state_fips BIGINT,
+    state_code VARCHAR(10),
+    block_pop BIGINT
 );
 
 COPY stores(id,name,latitude,longitude)

@@ -13,7 +13,9 @@ def main():
         "port": "5432",
         "database": "project01",
     }
-
+    table_names: list = ["customers", "stores"]
+    for table in table_names():
+        utils.update_stores(config, table)
 
 
 if __name__ == "__main__":

@@ -60,6 +60,15 @@ avoid leaking aws credentials.
 
 ## Running the app
 
-###bash
+### Bash
 
 pyenv activate app
+
+
+### todo
+* logging
+* multithreading
+* multiprocessing
+* unit testing
+* intergration testing
+* handle secrets better
