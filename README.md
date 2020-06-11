@@ -67,7 +67,6 @@ pyenv activate app
 
 ### todo
 * multithreading
-* multiprocessing
 * unit testing
 * intergration testing
 * handle secrets better
