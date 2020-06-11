@@ -2,6 +2,7 @@
 This module is for abstracted intearctions with the store database
 """
 
+import logging
 import pandas as pd  # type: ignore
 import psycopg2  # type: ignore
 import psycopg2.extras  # type: ignore
@@ -50,7 +51,7 @@ class DatabaseManager:
         try:
             self.cursor.execute(sql_query)
         except psycopg2.DatabaseError as error:
-            print(error)
+            logging.error(error)
             self.conn.rollback()
         return self.cursor.fetchall()
 
@@ -63,7 +64,7 @@ class DatabaseManager:
         try:
             self.cursor.execute(sql_query)
         except psycopg2.DatabaseError as error:
-            print(error)
+            logging.error(error)
             self.conn.rollback()
 
     def df_to_sql(self, data_frame: pd.DataFrame, table: str):
@@ -86,7 +87,7 @@ class DatabaseManager:
                 )
                 # self.conn.commit()
         except psycopg2.DatabaseError as error:
-            print(error)
+            logging.error(error)
             self.conn.rollback()
 
     def close_conn(self):
