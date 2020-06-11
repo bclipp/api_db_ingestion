@@ -66,7 +66,6 @@ pyenv activate app
 
 
 ### todo
-* logging
 * multithreading
 * multiprocessing
 * unit testing
