@@ -2,6 +2,7 @@
 this module is for census api access
 """
 
+import logging  # type: ignore
 import requests  # type: ignore
 import backoff  # type: ignore
 
@@ -15,6 +16,9 @@ def census_api(url: str) -> dict:
     :param url:
     :return:
     """
-    result = requests.get(url)
+    try:
+        result = requests.get(url)
+    except requests.exceptions.RequestException as error:
+        logging.error("Error in API call : %s", error)
 
     return {"json": result.json()["results"][0], "status_code": result.status_code}
