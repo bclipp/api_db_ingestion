@@ -3,7 +3,9 @@
 
 ## API DB Ingestion
 
-
+## Implementation
+[Go](https://github.com/bclipp/api_db_ingestion/tree/master/go)  
+[Python](https://github.com/bclipp/api_db_ingestion/tree/master/python)  
 ## Objective:
 Write an application that combines the data in the local company database with an external API.
 
@@ -66,7 +68,6 @@ pyenv activate app
 
 
 ### todo
-* multithreading
 * unit testing
 * intergration testing
 * handle secrets better
