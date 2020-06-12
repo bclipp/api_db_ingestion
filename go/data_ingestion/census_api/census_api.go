@@ -12,11 +12,19 @@ import (
 
 var httpClient = &http.Client{Timeout: 10 * time.Second}
 
+type Inner struct {
+	BlockFips string `json:"block_fips"`
+	StateCode string `json:"state_code"`
+	StateFips string `json:"state_fips"`
+	BlockPop string `json:"block_pop_2015"`
+}
+type Outer struct {
+	Results []Inner `json:"results"`
+}
 
 
 
-
-func census_api(url string) error{
+func census_api(url string) (Outer,int,error){
 	response, error := httpClient.Get(url)
 	if error != nil {
 		fmt.Print(error.Error())
@@ -29,17 +37,9 @@ func census_api(url string) error{
 		os.Exit(1)
 	}
 
-	type Inner struct {
-		Key2 string `json:"block_fips"`
-		Key3 string `json:"block_pop_2015"`
-		Key4 string `json:"state_code"`
-	}
-	type Outer struct {
-		Key1 []Inner `json:"results"`
-	}
-	var cont Outer
-	json.Unmarshal(body, &cont)
-	fmt.Printf("%+v\n", cont)
-	return nil
+	var census Outer
+	json.Unmarshal(body, &census)
+	fmt.Printf("%+v\n", census)
+	return census,response.StatusCode,error
 }
 
