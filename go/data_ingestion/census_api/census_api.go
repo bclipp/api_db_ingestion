@@ -1,25 +1,45 @@
-package main
+package census_api
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
-func census_api(url string) (string, error,int){
-	response, err := http.Get(url)
 
-	if err != nil {
-		fmt.Print(err.Error())
+var httpClient = &http.Client{Timeout: 10 * time.Second}
+
+
+
+
+
+func census_api(url string) error{
+	response, error := httpClient.Get(url)
+	if error != nil {
+		fmt.Print(error.Error())
+		os.Exit(1)
+	}
+	defer response.Body.Close()
+	body, error := ioutil.ReadAll(response.Body)
+	if error != nil {
+		fmt.Print(error.Error())
 		os.Exit(1)
 	}
 
-	responseData, error := ioutil.ReadAll(response.Body)
-	if err != nil {
-		log.Fatal(err)
+	type Inner struct {
+		Key2 string `json:"block_fips"`
+		Key3 string `json:"block_pop_2015"`
+		Key4 string `json:"state_code"`
 	}
-	return string(responseData),error,response.StatusCode
+	type Outer struct {
+		Key1 []Inner `json:"results"`
+	}
+	var cont Outer
+	json.Unmarshal(body, &cont)
+	fmt.Printf("%+v\n", cont)
+	return nil
 }
 
