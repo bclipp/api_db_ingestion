@@ -5,6 +5,7 @@ import logging  # type: ignore
 import modules.utils as utils
 import modules.log as log
 import modules.database as database
+import modules.census_api as census
 
 
 def main():
@@ -25,7 +26,8 @@ def main():
     for table in table_names:
         logging.info('Updating table: %s', table)
         utils.update_stores(table,
-                            database_manager)
+                            database_manager,
+                            census.look_up_row)
 
 
 if __name__ == "__main__":

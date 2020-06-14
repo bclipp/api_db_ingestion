@@ -12,5 +12,8 @@ def test_utils_update_stores_serial():
     """
     :return:
     """
-    database_manager = Mock()
-    utils.update_stores_serial("customers", database_manager)
+    database_manager: Mock = Mock()
+    mock_lookup_row: Mock = Mock()
+    utils.update_stores("customers",
+                        database_manager,
+                        mock_lookup_row)
