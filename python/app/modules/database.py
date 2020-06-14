@@ -69,7 +69,7 @@ class DatabaseManager:
 
     def df_to_sql(self, data_frame: pd.DataFrame, table: str):
         """
-        df_to_sql is used for UPDATING a table with a dataframe.
+        df_to_sql is used for append a table with a dataframe.
         :param data_frame: dataframe in question, verify schema matches target table
         :param table: table to update
         :return:
@@ -99,31 +99,13 @@ class DatabaseManager:
 
     def update_df(self, data_frame: pd.DataFrame):
         """
+        update_df is used to update rows with a dataframe
         :param database_manager:
         :param data_frame:
         :return:
         """
         for i in range(len(data_frame)):
             row = data_frame.iloc[i]
-            state_fips = row["state_fips"]
-            state_code = row["state_code"]
-            block_pop = row["block_pop"]
-            block_id = row["block_id"]
-            table_id = row["id"]
-            self.send_sql(f"""UPDATE
-            Customers
-            SET
-            state_fips = {state_fips}, state_code = '{state_code}', block_pop = {block_pop}, block_id = {block_id}
-            WHERE
-            ID = {table_id};""")
-
-    def update_list(self, table: list):
-        """
-        :param database_manager:
-        :param data_frame:
-        :return:
-        """
-        for row in table:
             state_fips = row["state_fips"]
             state_code = row["state_code"]
             block_pop = row["block_pop"]

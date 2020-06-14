@@ -2,22 +2,21 @@
 This module is used for filling the customers and stores tables with census information
 """
 
-import pandas as pd # type: ignore
+import pandas as pd  # type: ignore
 
 import modules.census_api as census
 import modules.database as database
 import modules.sql as sql
 
 
-def update_stores(config: dict,
-                  table_name: str):
+def update_stores_serial(table_name: str,
+                         database_manager: database.DatabaseManager):
     """
     update_stores is used to iterate through the table in question, lookup census data,
     then update the DB.
     :param config:
     :return:
     """
-    database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
     table: list = database_manager.receive_sql_fetchall(sql.select_all_table(table_name))
     database_manager.close_conn()
