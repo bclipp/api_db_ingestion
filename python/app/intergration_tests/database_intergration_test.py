@@ -16,7 +16,7 @@ config: dict = {
 
 def test_database_send_sql():
     """
-
+    Intergration test to make sure there are no errors when running method.
     :param latitude:
     :param longitude:
     :param wanted:
@@ -30,7 +30,7 @@ def test_database_send_sql():
 
 def test_database_receive_sql_fetchall():
     """
-
+    Intergration test to make sure there are no errors when running method.
     :param latitude:
     :param longitude:
     :param wanted:
@@ -44,7 +44,7 @@ def test_database_receive_sql_fetchall():
 
 def test_df_to_sql():
     """
-
+    Intergration test to make sure there are no errors when running method.
     :param latitude:
     :param longitude:
     :param wanted:
@@ -63,7 +63,7 @@ FROM customers;""")
 
 def test_update_df():
     """
-
+    Intergration test to make sure there are no errors when running method.
     :param latitude:
     :param longitude:
     :param wanted:
@@ -75,6 +75,6 @@ def test_update_df():
 FROM customers;""")
     fake_data: dict = {'first_name': 'testing', 'last_name': 'test_me'}
     data_frame: pd.DataFrame = pd.DataFrame(fake_data)
-    database_manager.update_df(data_frame, "TestTable")
+    database_manager.update_df(data_frame)
     database_manager.send_sql("DROP TABLE TestTable; ")
     database_manager.close_conn()

@@ -1,24 +1,16 @@
 """
 This test module is for testing census api intergration
 """
+from unittest.mock import Mock
 import pytest  # type: ignore
-import python.app.modules.census_api as census  # type: ignore
-
-TEST_DATA = [(37.299590, -76.742290, 200)]
+import python.app.modules.utils as utils  # type: ignore
 
 
-@pytest.mark.parametrize("lattitude,longitude,wanted", TEST_DATA)
-def test_utils_update_stores_serial(latitude, longitude, wanted):
+# need to mock census_api
+@pytest.mark.parametrize()
+def test_utils_update_stores_serial():
     """
-
-    :param latitude:
-    :param longitude:
-    :param wanted:
     :return:
     """
-    result: dict = census.census_api("https://geo.fcc.gov/api/census/area?lat=" +
-                                     str(latitude) +
-                                     "0&lon=" +
-                                     str(longitude) +
-                                     "&format=json")
-    assert result["status_code"] >= wanted and result["status_code"] <= wanted + 100
+    database_manager = Mock()
+    utils.update_stores_serial("customers", database_manager)
