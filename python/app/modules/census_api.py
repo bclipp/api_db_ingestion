@@ -56,6 +56,5 @@ def look_up_row(row: Row):
     row["state_fips"] = census_information["state_fips"]
     row["state_code"] = census_information["state_code"]
     row["block_pop"] = census_information["block_pop_2015"]
-    test:list[Row] = [{"latitude": 123}, {"longitude": 123}]
     print(test)
     return row
