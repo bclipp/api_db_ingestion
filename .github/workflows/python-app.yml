@@ -37,11 +37,11 @@ jobs:
       run: |
         pytest python/app/test
     - name: Build the stack
-        env:
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_DB: ${{ secrets.POSTGRES_PASSWORD }}
-        run: docker-compose up -d
+      run: docker-compose up -d
+      env:
+        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+        POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+        POSTGRES_DB: ${{ secrets.POSTGRES_PASSWORD }}
     - name: Intergration Test with pytest
         run: |
           pytest python/app/test
