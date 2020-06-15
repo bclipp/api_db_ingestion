@@ -25,11 +25,11 @@ class DatabaseManager:
         not given for testing purposes.
         :return:
         """
-        user = self.config["username"]
-        password = self.config["password"]
-        host = self.config["db_ip"]
+        user = self.config["postgres_user"]
+        password = self.config["postgres_password"]
+        host = self.config["db_ip_address"]
         # port = self.config_dict["port"]
-        database = self.config["database"]
+        database = self.config["postgres_db"]
         conn = psycopg2.connect(
             user=user,
             password=password,

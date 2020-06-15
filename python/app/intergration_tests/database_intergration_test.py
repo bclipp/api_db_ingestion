@@ -3,15 +3,7 @@ This test module is for testing basic database functionality
 """
 import python.app.modules.database as database  # type: ignore
 import pandas as pd
-
-# this should be provided in a better way
-config: dict = {
-    "db_ip": "127.0.0.1",
-    "password": "project01",
-    "username": "project01",
-    "port": "5432",
-    "database": "project01",
-}
+import app.modules.utils as utils
 
 
 def test_database_send_sql():
@@ -22,6 +14,7 @@ def test_database_send_sql():
     :param wanted:
     :return:
     """
+    config = utils.get_variables()
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
     database_manager.send_sql("SELECT * FROM customers limit 10;")
@@ -36,6 +29,7 @@ def test_database_receive_sql_fetchall():
     :param wanted:
     :return:
     """
+    config = utils.get_variables()
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
     database_manager.send_sql("SELECT * FROM customers limit 10;")
@@ -50,6 +44,7 @@ def test_df_to_sql():
     :param wanted:
     :return:
     """
+    config = utils.get_variables()
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
     database_manager.send_sql("""CREATE TABLE TestTable AS SELECT first_name, last_name
@@ -69,6 +64,7 @@ def test_update_df():
     :param wanted:
     :return:
     """
+    config = utils.get_variables()
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
     database_manager.send_sql("""CREATE TABLE TestTable AS SELECT first_name, last_name

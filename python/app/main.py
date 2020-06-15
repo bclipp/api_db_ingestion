@@ -13,14 +13,8 @@ def main():
 
     :return:
     """
+    config = utils.get_variables()
     log.setup_custom_logger()
-    config: dict = {
-        "db_ip": "127.0.0.1",
-        "password": "project01",
-        "username": "project01",
-        "port": "5432",
-        "database": "project01",
-    }
     table_names: list = ["customers", "stores"]
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     for table in table_names:
