@@ -43,7 +43,7 @@ jobs:
         POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
         POSTGRES_DB: ${{ secrets.POSTGRES_PASSWORD }}
     - name: Intergration Test with pytest
-        run: |
+      run: |
           pytest python/app/test
 
 
