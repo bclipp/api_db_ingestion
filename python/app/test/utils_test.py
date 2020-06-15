@@ -1,9 +1,9 @@
 """
 This test module is for testing census api intergration
 """
-from unittest.mock import Mock
+from unittest.mock import Mock  # type: ignore
 
-import pandas as pd
+import pandas as pd  # type: ignore
 
 import app.modules.utils as utils  # type: ignore
 

@@ -16,10 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.7.5
+    - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
-        python-version: 3.7.5
+        python-version: 3.8
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -33,10 +33,18 @@ jobs:
       run: |
         # stop the build if pylint is 10 for everything
         mypy python/app
-
-    - name: Test with pytest
+    - name: Unit Test with pytest
       run: |
         pytest python/app/test
+    - name: Build the stack
+        env:
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_PASSWORD }}
+        run: docker-compose up -d
+    - name: Intergration Test with pytest
+        run: |
+          pytest python/app/test
 
 
 

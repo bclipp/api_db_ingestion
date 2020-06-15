@@ -2,11 +2,11 @@
 This module is used to hold concurrency code
 """
 
-import multiprocessing as mp
-from typing import Callable
+import multiprocessing as mp  # type: ignore
+from typing import Callable, Optional  # type: ignore
 
 
-def concurrent_me(size: int, func: Callable, data: list):
+def concurrent_me(size: Optional[int], func: Callable, data: list):
     """
     This is a simple function to make processing a list of dict concurrent
     :param size:
@@ -14,7 +14,7 @@ def concurrent_me(size: int, func: Callable, data: list):
     :param data:
     :return:
     """
-    pool: mp.Pool = mp.Pool(size)
+    pool = mp.Pool(size)
     updated_data: list = pool.map(func, data)
     pool.close()
     pool.join()

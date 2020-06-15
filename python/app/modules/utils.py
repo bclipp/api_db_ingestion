@@ -11,7 +11,7 @@ import app.modules.parallelism as parallel
 def update_stores(table_name: str,
                   database_manager: database.DatabaseManager,
                   lookup_row: Callable,
-                  par: str = True):
+                  par: bool = True):
     """
     update_stores is used to iterate through the table in question, lookup census data,
     then update the DB.
