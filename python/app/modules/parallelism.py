@@ -22,4 +22,7 @@ def concurrent_me(size: int, func: Callable, data: list):
 
 
 def multithread_me():
+    """
+    :return:
+    """
     print("i'm parallel")

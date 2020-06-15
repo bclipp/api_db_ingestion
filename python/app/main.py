@@ -2,10 +2,10 @@
 This module is the main entry point for stock related functionality
 """
 import logging  # type: ignore
-import modules.utils as utils
-import modules.log as log
-import modules.database as database
-import modules.census_api as census
+import app.modules.utils as utils
+import app.modules.log as log
+import app.modules.database as database
+import app.modules.census_api as census
 
 
 def main():

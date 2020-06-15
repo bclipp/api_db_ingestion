@@ -2,11 +2,13 @@
 This test module is for testing census api intergration
 """
 from unittest.mock import Mock
-import app.modules.utils as utils  # type: ignore
+
 import pandas as pd
 
+import app.modules.utils as utils  # type: ignore
 
-def test_utils_update_stores():
+
+def test_utils_update_stores_serial():
     """
     :return:
     """
