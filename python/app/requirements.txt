@@ -3,3 +3,4 @@ requests
 pylint
 pytest
 mypy
+pandas
