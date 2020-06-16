@@ -1,7 +1,7 @@
-backoff
-requests
-pylint
-pytest
-mypy
-pandas
-psycopg2-binary
+backoff==1.10.0
+requests==2.23.0
+pylint==2.5.3
+pytest==5.4.3
+mypy==0.780
+pandas==1.0.4
+psycopg2-binary==2.8.5

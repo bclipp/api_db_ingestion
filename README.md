@@ -67,7 +67,7 @@ avoid leaking aws credentials.
 export POSTGRES_DB=project01
 export POSTGRES_USER=project01
 export POSTGRES_PASSWORD=project01
-export IP_ADDRESS="127.0.0.1"
+export DB_IP_ADDRESS="127.0.0.1"
 
 #### setup python environment
 
