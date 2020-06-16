@@ -1,7 +1,7 @@
 """
 This test module is for testing basic database functionality
 """
-import pandas as pd # type: ignore
+import pandas as pd  # type: ignore
 import app.modules.database as database
 import app.modules.utils as utils
 
@@ -50,7 +50,7 @@ def test_df_to_sql():
     database_manager.send_sql("""CREATE TABLE TestTable AS SELECT first_name, last_name
 FROM customers;""")
     fake_data: dict = {'first_name': 'testing', 'last_name': 'test_me'}
-    data_frame: pd.DataFrame = pd.DataFrame(fake_data)
+    data_frame: pd.DataFrame = pd.DataFrame(fake_data, index=[0])
     database_manager.df_to_sql(data_frame, "TestTable")
     database_manager.send_sql("DROP TABLE TestTable; ")
     database_manager.close_conn()
@@ -70,7 +70,7 @@ def test_update_df():
     database_manager.send_sql("""CREATE TABLE TestTable AS SELECT first_name, last_name
 FROM customers;""")
     fake_data: dict = {'first_name': 'testing', 'last_name': 'test_me'}
-    data_frame: pd.DataFrame = pd.DataFrame(fake_data)
+    data_frame: pd.DataFrame = pd.DataFrame(fake_data, index=[0])
     database_manager.update_df(data_frame)
     database_manager.send_sql("DROP TABLE TestTable; ")
     database_manager.close_conn()

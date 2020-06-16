@@ -3,9 +3,9 @@ services:
   postgres:
     image: postgres
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-empty}
-      - POSTGRES_USER=${POSTGRES_USER:-empty}
-      - POSTGRES_DB=${POSTGRES_DB:-empty}
+      - POSTGRES_PASSWORD=project01
+      - POSTGRES_USER=project01
+      - POSTGRES_DB=project01
     ports:
       - 5432:5432
     volumes:
