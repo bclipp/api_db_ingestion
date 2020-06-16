@@ -7,7 +7,7 @@ import app.modules.census_api as census  # type: ignore
 TEST_DATA = [(37.299590, -76.742290, 200)]
 
 
-@pytest.mark.parametrize("lattitude,longitude,wanted", TEST_DATA)
+@pytest.mark.parametrize("latitude,longitude,wanted", TEST_DATA)
 def test_census_api(latitude, longitude, wanted):
     """
 
