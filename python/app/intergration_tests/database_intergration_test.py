@@ -67,9 +67,14 @@ def test_update_df():
     config = utils.get_variables()
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
-    database_manager.send_sql("""CREATE TABLE TestTable (block_id BIGINT ,state_fips BIGINT, state_code VARCHAR(10), block_pop BIGINT,
-    id integer PRIMARY KEY);""")
-    fake_data: dict = {'block_id': 5432, 'state_fips': '1234', 'state_code': 'Virginia', 'block_pop': 50000, "id": 0}
+    database_manager.send_sql("CREATE TABLE TestTable " +
+                              "(block_id BIGINT ,state_fips BIGINT, state_code VARCHAR(10)," +
+                              "block_pop BIGINT,id integer PRIMARY KEY);")
+    fake_data: dict = {'block_id': 5432,
+                       'state_fips': '1234',
+                       'state_code': 'Virginia',
+                       'block_pop': 50000,
+                       "id": 0}
     data_frame: pd.DataFrame = pd.DataFrame(fake_data, index=[0])
     database_manager.update_df(data_frame)
     database_manager.send_sql("DROP TABLE TestTable; ")
