@@ -46,9 +46,10 @@ jobs:
       run: |
           pytest  python/app/intergration_tests
       env:
-        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-        POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-        POSTGRES_DB: ${{ secrets.POSTGRES_PASSWORD }}
+        POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD }}
+        POSTGRES_USER: ${{secrets.POSTGRES_USER }}
+        POSTGRES_DB: ${{secrets.POSTGRES_PASSWORD }}
+        DB_IP_ADDRESS: ${{secrets.DB_IP_ADDRESS }}
 
 
 
