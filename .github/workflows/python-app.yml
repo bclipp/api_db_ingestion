@@ -44,7 +44,7 @@ jobs:
         POSTGRES_DB: ${{ secrets.POSTGRES_PASSWORD }}
     - name: Intergration Test with pytest
       run: |
-          pytest  intergration_tests
+          pytest  python/app/intergration_tests
 
 
 

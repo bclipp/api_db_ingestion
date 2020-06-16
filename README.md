@@ -67,6 +67,7 @@ avoid leaking aws credentials.
 export POSTGRES_DB=project01
 export POSTGRES_USER=project01
 export POSTGRES_PASSWORD=project01
+export IP_ADDRESS="127.0.0.1"
 
 #### setup python environment
 
@@ -87,7 +88,7 @@ pyenv virtualenv 3.8.0 app_3.8
 ```
 
 ##### using pyenv enviroment
-pyenv activate app
+pyenv activate app_3.8
 pip3 install -r requirements.txt
 sudo --preserve-env=POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD docker-compose up
 
