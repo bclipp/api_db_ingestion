@@ -1,8 +1,8 @@
 """
 This test module is for testing basic database functionality
 """
-import pandas as pd
-import app.modules.database as database  # type: ignore
+import pandas as pd # type: ignore
+import app.modules.database as database 
 import app.modules.utils as utils
 
 
