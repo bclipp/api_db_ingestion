@@ -100,6 +100,8 @@ sudo docker exec -it <container name> bash
 
 
 ### todo
-* unit testing
-* intergration testing
+* intergration testing   
+
+      * add cleanup after DB interaction and pre
+      
 * handle secrets better
