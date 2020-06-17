@@ -1,4 +1,4 @@
-package census_api
+package main
 
 import (
 	"encoding/json"

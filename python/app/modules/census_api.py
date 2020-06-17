@@ -4,6 +4,7 @@ this module is for census api access
 
 import logging  # type: ignore
 from typing import TypedDict  # type: ignore
+
 import requests  # type: ignore
 import backoff  # type: ignore
 
@@ -13,10 +14,11 @@ import backoff  # type: ignore
                        requests.exceptions.ConnectionError))
 def census_api(url: str) -> dict:
     """
-
-    :param url:
-    :return:
+    this is a wrapper function to the census api.
+    :param url: The current api endpoint for census data lookup
+    :return: The return is the body and status code of the response
     """
+    logging.info('accessing census api')
     try:
         result = requests.get(url)
     except requests.exceptions.RequestException as error:
@@ -27,7 +29,7 @@ def census_api(url: str) -> dict:
 
 class Row(TypedDict):
     """
-    Used to define the dict types in a strict way.
+    This data class is used for type checking by mypy and at runtime.
     """
     latitude: int
     longitude: int
@@ -39,11 +41,11 @@ class Row(TypedDict):
 
 def look_up_row(row: Row):
     """
-    look_up_row used to by iteration to work on each row : lookup census data, then update db
+        lookup_up_row is used to iterate on a row of data and lookup census information.
     :param row:
     :return:
     """
-
+    logging.info('looking census data for a row')
     latitude: int = row["latitude"]
     longitude: float = row["longitude"]
     response: dict = census_api("https://geo.fcc.gov/api/census/area?lat=" +

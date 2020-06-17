@@ -1,8 +1,8 @@
 """
-This module is for abstracted intearctions with the store database
+This module is for abstracted interactions with the store database
 """
 
-import logging
+import logging  # type: ignore
 import pandas as pd  # type: ignore
 import psycopg2  # type: ignore
 import psycopg2.extras  # type: ignore
@@ -10,7 +10,7 @@ import psycopg2.extras  # type: ignore
 
 class DatabaseManager:
     """
-    Used as the main interactions with the postgresql database.
+    Used to manage postgresql database interactions.
 
     """
 
@@ -45,7 +45,7 @@ class DatabaseManager:
         """
         receive_sql_fetchall is used to send a query, and get all the data right away.
 
-        :param sql_query: am SQL query
+        :param sql_query: an SQL query
         :return:
         """
         try:

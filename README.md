@@ -12,18 +12,18 @@ Write an application that combines the data in the local company database with a
 ## Requirements:
 
 The app should be able to run on a system will limited resources. Do not read all the data in at one
-time. 
+time.
 
 ## Data:
 
-1. Local Database running PostgreSQL provided via a docker container. 
+1. Local Database running PostgreSQL provided via a docker container.
 Which will contain the following customer data tables:
 * customers
 * stores
 
-2. The External API: 
+2. The External API:
 
-swagger doc: 
+swagger doc:
 
 https://geo.fcc.gov/api/census/#!/block/get_block_find
 
@@ -44,7 +44,7 @@ StoreID,StoreName, BlockID, customerCount
 3. The report should be uploaded to a s3 location specified by the person running the app at run time. Take care to
 avoid leaking aws credentials.
 
-4. The user will need to provide AWS credentials in a secure manner. 
+4. The user will need to provide AWS credentials in a secure manner.
 
 ## Docker Setup
 
@@ -64,10 +64,10 @@ avoid leaking aws credentials.
 
 ### Local Usage
 
-export POSTGRES_DB=project01
-export POSTGRES_USER=project01
-export POSTGRES_PASSWORD=project01
-export DB_IP_ADDRESS=127.0.0.1
+export POSTGRES_DB=project01  
+export POSTGRES_USER=project01  
+export POSTGRES_PASSWORD=project01  
+export DB_IP_ADDRESS=127.0.0.1  
 
 #### setup python environment
 
@@ -88,18 +88,14 @@ pyenv virtualenv 3.8.0 app_3.8
 ```
 
 ##### using pyenv enviroment
-pyenv activate app_3.8
-pip3 install -r requirements.txt
-sudo --preserve-env=POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD docker-compose up
+pyenv activate app_3.8  
+pip3 install -r requirements.txt  
+sudo --preserve-env=POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD  
+ docker-compose up  
 
-#### if you need to access the docker container 
+#### if you need to access the docker container
 sudo docker ps
 sudo docker exec -it <container name> bash
 
 ### Contiues Intergration
-
-
-### todo
-* unit testing
-* intergration testing
-* handle secrets better
+[Github Actions CI YAML](https://github.com/bclipp/api_db_ingestion/blob/master/.github/workflows/python-app.yml)

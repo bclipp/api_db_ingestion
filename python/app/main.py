@@ -1,7 +1,8 @@
 """
-This module is the main entry point for stock related functionality
+    This module is the main entry point for the census updating app
 """
 import logging  # type: ignore
+
 import app.modules.utils as utils
 import app.modules.log as log
 import app.modules.database as database
@@ -10,8 +11,7 @@ import app.modules.census_api as census
 
 def main():
     """
-
-    :return:
+    This app is used for filling in missing data in the customers and stores tables.
     """
     config = utils.get_variables()
     log.setup_custom_logger()

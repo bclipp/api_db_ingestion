@@ -1,6 +1,7 @@
 """
 This module is used for filling the customers and stores tables with census information
 """
+import logging  # type: ignore
 import os  # type: ignore
 from typing import Callable  # type: ignore
 from typing import TypedDict  # type: ignore
@@ -19,6 +20,7 @@ def update_stores(table_name: str,
     :param config:
     :return:
     """
+    logging.info('updating stores')
     database_manager.connect_db()
     table: list = database_manager.receive_sql_fetchall(sql.select_all_table(table_name))
     database_manager.close_conn()
@@ -49,11 +51,14 @@ def get_variables() -> ConfigVars:
     get_variables is used to access environmental variables
     :return:
     """
-    db_ip_address = os.environ['DB_IP_ADDRESS']
-    postgres_db = os.environ['POSTGRES_DB']
-    postgres_user = os.environ['POSTGRES_USER']
-    postgres_password = os.environ['POSTGRES_PASSWORD']
-
+    logging.info('getting variables')
+    try:
+        db_ip_address = os.environ['DB_IP_ADDRESS']
+        postgres_db = os.environ['POSTGRES_DB']
+        postgres_user = os.environ['POSTGRES_USER']
+        postgres_password = os.environ['POSTGRES_PASSWORD']
+    except KeyError:
+        raise KeyError("Please verify that the needed env variables are set")
     return {"db_ip_address": db_ip_address,
             "postgres_db": postgres_db,
             "postgres_user": postgres_user,

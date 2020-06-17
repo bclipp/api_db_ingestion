@@ -1,5 +1,7 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+# This workflow is designed to verify the code follows basic best practices, perform unit and integration tests.
+# secrets are pulled from Github's secrets's manager
+# the following secrets must be set
+# POSTGRES_PASSWORD, POSTGRES_PASSWORD, POSTGRES_USER, POSTGRES_PASSWORD
 
 name: Python application
 
@@ -11,9 +13,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
