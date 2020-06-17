@@ -26,21 +26,21 @@ type Outer struct {
 
 func census_api( latitude,longitude float64) (Outer,int,error){
 	url := "https://geo.fcc.gov/api/census/area?lat=" + FloatToString(latitude) + "0&lon=" + FloatToString(longitude) + "&format=json"
-	response, error := httpClient.Get(url)
-	if error != nil {
-		fmt.Print(error.Error())
+	response, err := httpClient.Get(url)
+	if err != nil {
+		fmt.Print(err.Error())
 		os.Exit(1)
 	}
 	defer response.Body.Close()
-	body, error := ioutil.ReadAll(response.Body)
-	if error != nil {
-		fmt.Print(error.Error())
+	body, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		fmt.Print(err.Error())
 		os.Exit(1)
 	}
 
 	var census Outer
 	json.Unmarshal(body, &census)
 	fmt.Printf("%+v\n", census)
-	return census,response.StatusCode,error
+	return census,response.StatusCode,err
 }
 

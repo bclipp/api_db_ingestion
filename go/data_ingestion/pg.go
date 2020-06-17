@@ -5,48 +5,63 @@ import (
 	"fmt"
 )
 
-type databaseEnv struct {
-	db *sql.DB
-	age  int
+type Database struct {
+	Db *sql.DB
+	IpAddress string
+	PostgresPassword string
+	PostgresUser string
+	PostgresDb string
+	table []Row
 }
 
 type Row struct {
-	blockFips string
-	stateCode string
-	stateFips string
-	blockPop string
-	id int
-	latitude float64
-	longitude float64
+	BlockFips string
+	StateCode string
+	StateFips string
+	BlockPop string
+	Id int
+	Latitude float64
+	Longitude float64
 }
 
-func read(config map[string]string, tableName string)[]Row{
+func UpdateTable(serial bool,config map[string]string) error {
+	if serial == true {
+		//connect
+		//read table
+		//interate on table updating each row
+		//disconnect
+	} else {
+		//add concurency
+	}
 
-	table :=  make([]Row, 0)
+	return nil
+}
 
-
-	database := new(databaseEnv)
-	var err error
-
+func (d Database) Connect(config map[string]string) error {
 	psqlInfo := fmt.Sprintf("host=%s port=5432 user=%s "+
 		"password=%s dbname=%s sslmode=disable",
 		config["IpAddress"], config["postgresUser"], config["postgresPassword"], config["postgresDb"])
-
-	database.db, err = sql.Open("postgres", psqlInfo)
+	var err error
+	d.Db, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
-		panic(err)
+		return err
 	}
-	defer database.db.Close()
+	//defer d.Db.Close()
 
-	err = database.db.Ping()
+	err = d.Db.Ping()
 	if err != nil {
-		panic(err)
+		return err
 	}
+	return nil
+}
 
-	rows, err := database.db.Query("SELECT *  FROM %s", tableName)
+
+func (d Database) Read(tableName string)error{
+
+	table :=  make([]Row, 0)
+	rows, err := d.Db.Query("SELECT *  FROM %s", tableName)
 	if err != nil {
-		// handle this error better than this
-		panic(err)
+		return err
 	}
 	defer rows.Close()
 	for rows.Next() {
@@ -55,30 +70,27 @@ func read(config map[string]string, tableName string)[]Row{
 		var id int
 		err = rows.Scan(&latitude, &longitude)
 		if err != nil {
-			// handle this error
-			panic(err)
+			return err
 		}
 		census, _, _ := census_api(latitude,longitude)
 		newRow := Row{
-			latitude : latitude ,
-			longitude : longitude ,
-			id : id ,
-			blockFips : census.Results[0].blockFips,
-			stateCode : census.Results[0].blockFips,
-			stateFips : census.Results[0].blockPop,
-			blockPop : census.Results[0].blockPop,
+			Latitude : latitude ,
+			Longitude : longitude ,
+			Id : id ,
+			BlockFips : census.Results[0].blockFips,
+			StateCode : census.Results[0].blockFips,
+			StateFips : census.Results[0].blockPop,
+			BlockPop : census.Results[0].blockPop,
 		}
 		table = append(table, newRow)
-
 	}
-	// get any error encountered during iteration
 	err = rows.Err()
 	if err != nil {
-		panic(err)
+		return err
 	}
-	return table
+	return nil
 }
 
-//update
-
-//lookup_row
+func (d Database) Update() error{
+	return nil
+}
