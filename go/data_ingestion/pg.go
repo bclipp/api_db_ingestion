@@ -5,50 +5,80 @@ import (
 	"fmt"
 )
 
-const (
-	host     = "127.0.0.1"
-	port     = 5432
-	user     = "project01"
-	password = "project01"
-	dbname   = "project01"
-)
+type databaseEnv struct {
+	db *sql.DB
+	age  int
+}
 
-func pg_read(table string){
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
+type Row struct {
+	blockFips string
+	stateCode string
+	stateFips string
+	blockPop string
+	id int
+	latitude float64
+	longitude float64
+}
+
+func read(config map[string]string, tableName string)[]Row{
+
+	table :=  make([]Row, 0)
+
+
+	database := new(databaseEnv)
+	var err error
+
+	psqlInfo := fmt.Sprintf("host=%s port=5432 user=%s "+
 		"password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbname)
+		config["IpAddress"], config["postgresUser"], config["postgresPassword"], config["postgresDb"])
 
-	db, err := sql.Open("postgres", psqlInfo)
+	database.db, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
+	defer database.db.Close()
 
-	err = db.Ping()
+	err = database.db.Ping()
 	if err != nil {
 		panic(err)
 	}
 
-	rows, err := db.Query("SELECT *  FROM %s", table)
+	rows, err := database.db.Query("SELECT *  FROM %s", tableName)
 	if err != nil {
 		// handle this error better than this
 		panic(err)
 	}
 	defer rows.Close()
 	for rows.Next() {
+		var latitude float64
+		var longitude float64
 		var id int
-		var firstName string
-		err = rows.Scan(&id, &firstName)
+		err = rows.Scan(&latitude, &longitude)
 		if err != nil {
 			// handle this error
 			panic(err)
 		}
-		fmt.Println(id, firstName)
+		census, _, _ := census_api(latitude,longitude)
+		newRow := Row{
+			latitude : latitude ,
+			longitude : longitude ,
+			id : id ,
+			blockFips : census.Results[0].blockFips,
+			stateCode : census.Results[0].blockFips,
+			stateFips : census.Results[0].blockPop,
+			blockPop : census.Results[0].blockPop,
+		}
+		table = append(table, newRow)
+
 	}
 	// get any error encountered during iteration
 	err = rows.Err()
 	if err != nil {
 		panic(err)
 	}
-
+	return table
 }
+
+//update
+
+//lookup_row

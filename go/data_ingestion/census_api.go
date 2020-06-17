@@ -13,10 +13,10 @@ import (
 var httpClient = &http.Client{Timeout: 10 * time.Second}
 
 type Inner struct {
-	BlockFips string `json:"block_fips"`
-	StateCode string `json:"state_code"`
-	StateFips string `json:"state_fips"`
-	BlockPop string `json:"block_pop_2015"`
+	blockFips string `json:"block_fips"`
+	stateCode string `json:"state_code"`
+	stateFips string `json:"state_fips"`
+	blockPop string `json:"block_pop_2015"`
 }
 type Outer struct {
 	Results []Inner `json:"results"`
@@ -24,7 +24,8 @@ type Outer struct {
 
 
 
-func census_api(url string) (Outer,int,error){
+func census_api( latitude,longitude float64) (Outer,int,error){
+	url := "https://geo.fcc.gov/api/census/area?lat=" + FloatToString(latitude) + "0&lon=" + FloatToString(longitude) + "&format=json"
 	response, error := httpClient.Get(url)
 	if error != nil {
 		fmt.Print(error.Error())

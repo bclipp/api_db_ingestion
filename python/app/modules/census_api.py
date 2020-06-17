@@ -46,7 +46,7 @@ def look_up_row(row: Row):
     :return:
     """
     logging.info('looking census data for a row')
-    latitude: int = row["latitude"]
+    latitude: float = row["latitude"]
     longitude: float = row["longitude"]
     response: dict = census_api("https://geo.fcc.gov/api/census/area?lat=" +
                                 str(latitude) +
