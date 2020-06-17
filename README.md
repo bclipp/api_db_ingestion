@@ -35,7 +35,7 @@ https://geo.fcc.gov/api/census/area?lat=37.299590&lon=-76.742290&format=json
 Outcome:
 
 Customers and stores are updated with the following information
-blockID or block fips id, state_fips, state code and block population.
+blockID or block fips id, state_fips, state code ,and block population.
 
 
 ## Docker Setup
