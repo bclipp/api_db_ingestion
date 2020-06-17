@@ -89,5 +89,5 @@ sudo --preserve-env=POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD
 sudo docker ps
 sudo docker exec -it <container name> bash
 
-### Contiues Intergration
+### Continuous integration
 [Github Actions CI YAML](https://github.com/bclipp/api_db_ingestion/blob/master/.github/workflows/python-app.yml)
