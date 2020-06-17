@@ -98,4 +98,15 @@ sudo docker ps
 sudo docker exec -it <container name> bash
 
 ### Contiues Intergration
+<<<<<<< HEAD
 [Github Actions CI YAML](https://github.com/bclipp/api_db_ingestion/blob/master/.github/workflows/python-app.yml)
+=======
+
+
+### todo
+* intergration testing   
+
+      * add cleanup after DB interaction and pre
+      
+* handle secrets better
+>>>>>>> ee9456ee82408e2f1d237a943789a9bf131efe0c
