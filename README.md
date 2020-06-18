@@ -66,16 +66,20 @@ export DB_IP_ADDRESS=127.0.0.1
 ##### Initial setup
 
 ```apt-get update && \
-sudo apt install -y python3-pip python3 && \
+sudo apt install -y python3-pip python3
+
 sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
   libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
-  xz-utils tk-dev libffi-dev liblzma-dev python-openssl git && \
-  su - jenkins &&\
-curl https://pyenv.run | bash && \
-export PATH="$HOME/.pyenv/bin:$PATH" && \
-eval "$(pyenv init -)" && \
-eval "$(pyenv virtualenv-init -)"&& \
-pyenv install 3.8.0 && \
+  xz-utils tk-dev libffi-dev liblzma-dev python-openssl git 
+
+curl https://pyenv.run | bash 
+
+export PATH="$HOME/.pyenv/bin:$PATH" 
+eval "$(pyenv init -)" 
+eval "$(pyenv virtualenv-init -)"
+
+pyenv install 3.8.0 
+
 pyenv virtualenv 3.8.0 app_3.8
 ```
 
