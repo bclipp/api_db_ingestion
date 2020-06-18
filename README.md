@@ -11,8 +11,7 @@ Write an application that combines the data in the local company database with a
 
 ## Requirements:
 
-The app should be able to run on a system with limited resources. Do not read all the data at one
-time.
+The app should be able to run on a system with limited resources.
 
 ## Data:
 
