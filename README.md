@@ -17,8 +17,10 @@ The app should be able to run on a system with limited resources.
 
 1. Local Database running PostgreSQL provided via a docker container.
 Which will contain the following customer data tables:
-* customers
-* stores
+  
+  * customers
+  
+  * stores
 
 2. The External API:
 
