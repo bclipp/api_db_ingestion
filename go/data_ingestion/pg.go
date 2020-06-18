@@ -6,30 +6,50 @@ import (
 )
 
 type Database struct {
-	Db *sql.DB
-	IpAddress string
+	Db               *sql.DB
+	IpAddress        string
 	PostgresPassword string
-	PostgresUser string
-	PostgresDb string
-	table []Row
+	PostgresUser     string
+	PostgresDb       string
+	table            []Row
 }
 
 type Row struct {
 	BlockFips string
 	StateCode string
 	StateFips string
-	BlockPop string
-	Id int
-	Latitude float64
+	BlockPop  string
+	Id        int
+	Latitude  float64
 	Longitude float64
 }
 
-func UpdateTable(serial bool,config map[string]string) error {
+func UpdateTable(serial bool, table string, config map[string]string) error {
 	if serial == true {
-		//connect
-		//read table
-		//interate on table updating each row
-		//disconnect
+		var database = Database{
+			IpAddress:        config["IpAddress"],
+			PostgresPassword: config["postgresPassword"],
+			PostgresUser:     config["postgresUser"],
+			PostgresDb:       config["postgresDb"],
+		}
+		database.Connect()
+		defer database.Db.Close()
+		database.Read(table)
+		for _, row := range database.table {
+			census, _, err := census_api(row.Latitude, row.Longitude)
+			if err != nil {
+				return err
+			}
+			table := make([]Row, 0)
+			newRow := Row{
+				BlockFips: census.Results[0].blockFips,
+				StateCode: census.Results[0].blockFips,
+				StateFips: census.Results[0].blockPop,
+				BlockPop:  census.Results[0].blockPop,
+			}
+			table = append(table, newRow)
+
+		}
 	} else {
 		//add concurency
 	}
@@ -37,10 +57,10 @@ func UpdateTable(serial bool,config map[string]string) error {
 	return nil
 }
 
-func (d Database) Connect(config map[string]string) error {
+func (d Database) Connect() error {
 	psqlInfo := fmt.Sprintf("host=%s port=5432 user=%s "+
 		"password=%s dbname=%s sslmode=disable",
-		config["IpAddress"], config["postgresUser"], config["postgresPassword"], config["postgresDb"])
+		d.IpAddress, d.PostgresUser, d.PostgresPassword, d.PostgresDb)
 	var err error
 	d.Db, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
@@ -55,10 +75,9 @@ func (d Database) Connect(config map[string]string) error {
 	return nil
 }
 
+func (d Database) Read(tableName string) error {
 
-func (d Database) Read(tableName string)error{
-
-	table :=  make([]Row, 0)
+	table := make([]Row, 0)
 	rows, err := d.Db.Query("SELECT *  FROM %s", tableName)
 	if err != nil {
 		return err
@@ -72,15 +91,10 @@ func (d Database) Read(tableName string)error{
 		if err != nil {
 			return err
 		}
-		census, _, _ := census_api(latitude,longitude)
 		newRow := Row{
-			Latitude : latitude ,
-			Longitude : longitude ,
-			Id : id ,
-			BlockFips : census.Results[0].blockFips,
-			StateCode : census.Results[0].blockFips,
-			StateFips : census.Results[0].blockPop,
-			BlockPop : census.Results[0].blockPop,
+			Latitude:  latitude,
+			Longitude: longitude,
+			Id:        id,
 		}
 		table = append(table, newRow)
 	}
@@ -88,9 +102,31 @@ func (d Database) Read(tableName string)error{
 	if err != nil {
 		return err
 	}
+	d.table = table
 	return nil
 }
 
-func (d Database) Update() error{
+func (d Database) Update(table string, row Row) error {
+	sqlQuery := `
+UPDATE $2
+SET BlockFips = $3, StateCode = $4, StateFips = $5, BlockPop = $6
+WHERE id = $1;`
+	result, err := d.Db.Exec(
+		sqlQuery,
+		row.Id, table,
+		row.BlockFips,
+		row.StateCode,
+		row.StateFips,
+		row.BlockPop)
+	if err != nil {
+		return err
+	}
+	count, err := result.RowsAffected()
+	if err != nil {
+		return err
+	}
+	if count != 1 {
+		print("Error when updating row, rows effected is not 1.")
+	}
 	return nil
 }
