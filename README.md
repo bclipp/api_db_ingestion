@@ -79,7 +79,7 @@ pyenv install 3.8.0 && \
 pyenv virtualenv 3.8.0 app_3.8
 ```
 
-##### using pyenv enviroment
+##### using pyenv environment
 pyenv activate app_3.8  
 pip3 install -r requirements.txt  
 sudo --preserve-env=POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD  
