@@ -85,8 +85,7 @@ pyenv virtualenv 3.8.0 app_3.8
 ##### using pyenv environment
 pyenv activate app_3.8  
 pip3 install -r requirements.txt  
-sudo --preserve-env=POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD  
- docker-compose up  
+sudo --preserve-env=POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD docker-compose up  
 
 #### if you need to access the docker container
 sudo docker ps
