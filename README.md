@@ -40,7 +40,7 @@ blockID or block fips id, state_fips, state code ,and block population.
 
 ## Docker Setup
 
-1. Install docker and is needed docker-compose
+1. Install docker and docker-compose
 
 2. run docker-compose up
 
