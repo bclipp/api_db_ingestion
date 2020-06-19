@@ -21,7 +21,8 @@ def main():
         logging.info('Updating table: %s', table)
         utils.update_stores(table,
                             database_manager,
-                            census.look_up_row)
+                            census.look_up_row,
+                            True)
 
 
 if __name__ == "__main__":
