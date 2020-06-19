@@ -15,9 +15,9 @@ def test_database_send_sql():
     :param wanted:
     :return:
     """
-    utils.check_interagration_test()
+    utils.check_integration_test()
     config = utils.get_variables()
-    utils.check_interagration_test()
+    utils.check_integration_test()
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
     database_manager.send_sql(sql.select_table("customers", 10))
@@ -32,7 +32,7 @@ def test_database_receive_sql_fetchall():
     :param wanted:
     :return:
     """
-    utils.check_interagration_test()
+    utils.check_integration_test()
     config = utils.get_variables()
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
@@ -48,7 +48,7 @@ def test_df_to_sql():
     :param wanted:
     :return:
     """
-    utils.check_interagration_test()
+    utils.check_integration_test()
     config = utils.get_variables()
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()
@@ -68,7 +68,7 @@ def test_update_df():
     :param wanted:
     :return:
     """
-    utils.check_interagration_test()
+    utils.check_integration_test()
     config = utils.get_variables()
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     database_manager.connect_db()

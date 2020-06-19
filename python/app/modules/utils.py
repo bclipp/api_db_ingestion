@@ -87,12 +87,12 @@ def get_variables() -> ConfigVars:
             "intergration_test": intergration_test}
 
 
-def check_interagration_test():
+def check_integration_test():
     """
-    check_interagration_test is used for intergration tests to avoid running them
+    check_inteagration_test is used for integration tests to avoid running them
     when running unit tests
     :return:
     """
     config: ConfigVars = get_variables()
-    if config["intergration_test"] is None:
-        pytest.skip("Not an Intergration Test")
+    if config["integration_test"] is None:
+        pytest.skip("Not an Integration Test")

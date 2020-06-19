@@ -17,7 +17,7 @@ def test_census_api(latitude, longitude, wanted):
     :param wanted:
     :return:
     """
-    utils.check_interagration_test()
+    utils.check_integration_test()
     result: dict = census.census_api("https://geo.fcc.gov/api/census/area?lat=" +
                                      str(latitude) +
                                      "0&lon=" +
