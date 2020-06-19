@@ -1,4 +1,4 @@
-![Python application](https://github.com/bclipp/api_db_ingestion/workflows/Python%20application/badge.svg)  
+![Python](https://github.com/bclipp/api_db_ingestion/workflows/Python/badge.svg)     
 ![Go application](https://github.com/bclipp/api_db_ingestion/workflows/Go/badge.svg)
 
 ## API DB Ingestion
