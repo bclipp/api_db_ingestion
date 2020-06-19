@@ -17,8 +17,10 @@ The app should be able to run on a system with limited resources.
 
 1. Local Database running PostgreSQL provided via a docker container.
 Which will contain the following customer data tables:
-* customers
-* stores
+  
+    * customers
+  
+    * stores
 
 2. The External API:
 
@@ -55,11 +57,14 @@ blockID or block fips id, state_fips, state code ,and block population.
 
 ### Local Usage
 
+```
 export POSTGRES_DB=project01  
 export POSTGRES_USER=project01  
 export POSTGRES_PASSWORD=project01  
 export DB_IP_ADDRESS=127.0.0.1  
 export INTERGRATION_TEST=False  
+```
+
 #### setup python environment
 
 ##### Initial setup
@@ -83,14 +88,17 @@ pyenv virtualenv 3.8.0 app_3.8
 ```
 
 ##### using pyenv environment
+```
 pyenv activate app_3.8  
 pip3 install -r requirements.txt  
-sudo --preserve-env=POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD  
- docker-compose up  
+sudo --preserve-env=POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD docker-compose up
+```  
 
 #### if you need to access the docker container
+```
 sudo docker ps
 sudo docker exec -it <container name> bash
+```
 
 ### Continuous Integration
 [Github Actions CI YAML](https://github.com/bclipp/api_db_ingestion/blob/master/.github/workflows/python-app.yml)
