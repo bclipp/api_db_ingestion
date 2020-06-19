@@ -6,6 +6,7 @@ import logging  # type: ignore
 import pandas as pd  # type: ignore
 import psycopg2  # type: ignore
 import psycopg2.extras  # type: ignore
+import app.modules.sql as sql
 
 
 class DatabaseManager:
@@ -97,7 +98,7 @@ class DatabaseManager:
         """
         self.cursor.close()
 
-    def update_df(self, data_frame: pd.DataFrame):
+    def update_df(self, data_frame: pd.DataFrame, table: str):
         """
         update_df is used to update rows with a dataframe
         :param database_manager:
@@ -106,14 +107,4 @@ class DatabaseManager:
         """
         for i in range(len(data_frame)):
             row = data_frame.iloc[i]
-            state_fips = row["state_fips"]
-            state_code = row["state_code"]
-            block_pop = row["block_pop"]
-            block_id = row["block_id"]
-            table_id = row["id"]
-            self.send_sql(f"""UPDATE
-            Customers
-            SET
-            state_fips = {state_fips}, state_code = '{state_code}', block_pop = {block_pop}, block_id = {block_id}
-            WHERE
-            ID = {table_id};""")
+            self.send_sql(sql.update_table(table, row))

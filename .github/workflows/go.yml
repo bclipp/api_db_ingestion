@@ -31,9 +31,9 @@ jobs:
         fi
 
     - name: Build
-      run: go build -v go/data_ingestion/
+      run: go build -v go/data_ingestion/*.go
 
     - name: Test
-      run: go test -v go/data_ingestion/
+      run: go test -v go/data_ingestion/*.go
 
 

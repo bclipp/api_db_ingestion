@@ -1,4 +1,4 @@
-package main
+package data_ingestion
 
 import (
 	"database/sql"
@@ -34,13 +34,15 @@ func UpdateTable(serial bool, table string, config map[string]string) error {
 		}
 		database.Connect()
 		defer database.Db.Close()
-		database.Read(table)
+		database.ReadTable(table)
 		for _, row := range database.table {
 			census, _, err := census_api(row.Latitude, row.Longitude)
 			if err != nil {
 				return err
 			}
+			//replace with read table
 			table := make([]Row, 0)
+
 			newRow := Row{
 				BlockFips: census.Results[0].blockFips,
 				StateCode: census.Results[0].blockFips,
@@ -48,7 +50,6 @@ func UpdateTable(serial bool, table string, config map[string]string) error {
 				BlockPop:  census.Results[0].blockPop,
 			}
 			table = append(table, newRow)
-
 		}
 	} else {
 		//add concurency
@@ -75,7 +76,7 @@ func (d Database) Connect() error {
 	return nil
 }
 
-func (d Database) Read(tableName string) error {
+func (d Database) ReadTable(tableName string) error {
 
 	table := make([]Row, 0)
 	rows, err := d.Db.Query("SELECT *  FROM %s", tableName)
@@ -106,7 +107,38 @@ func (d Database) Read(tableName string) error {
 	return nil
 }
 
-func (d Database) Update(table string, row Row) error {
+func (d Database) SendSql(tableName string) error {
+
+	table := make([]Row, 0)
+	rows, err := d.Db.Query("SELECT *  FROM %s", tableName)
+	if err != nil {
+		return err
+	}
+	defer rows.Close()
+	for rows.Next() {
+		var latitude float64
+		var longitude float64
+		var id int
+		err = rows.Scan(&latitude, &longitude)
+		if err != nil {
+			return err
+		}
+		newRow := Row{
+			Latitude:  latitude,
+			Longitude: longitude,
+			Id:        id,
+		}
+		table = append(table, newRow)
+	}
+	err = rows.Err()
+	if err != nil {
+		return err
+	}
+	d.table = table
+	return nil
+}
+
+func (d Database) UpdateTable(table string, row Row) error {
 	sqlQuery := `
 UPDATE $2
 SET BlockFips = $3, StateCode = $4, StateFips = $5, BlockPop = $6

@@ -59,7 +59,7 @@ export POSTGRES_DB=project01
 export POSTGRES_USER=project01  
 export POSTGRES_PASSWORD=project01  
 export DB_IP_ADDRESS=127.0.0.1  
-
+export INTERGRATION_TEST=False  
 #### setup python environment
 
 ##### Initial setup

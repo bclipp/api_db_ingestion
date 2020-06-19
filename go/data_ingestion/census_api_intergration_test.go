@@ -1,4 +1,4 @@
-package main
+package data_ingestion
 
 import (
 	"fmt"
@@ -6,13 +6,7 @@ import (
 )
 
 func TestGetCensusAPIStatus(t *testing.T) {
-	// if you need to ignore bad ssl cert
-    // http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
-
-	//https://medium.com/@nitishkr88/http-retries-in-go-e622e51d249f
-	// add retry for  network issues
-	//https://stackoverflow.com/questions/50676817/does-the-http-request-automatically-retry
-
+	CheckIntergrationTest(t)
 	lattitude := 37.299590
 	longitute := -76.742290
 	_,got,_:= census_api(lattitude,longitute)
@@ -23,7 +17,7 @@ func TestGetCensusAPIStatus(t *testing.T) {
 }
 
 func TestGetCensusAPIBody(t *testing.T) {
-
+	CheckIntergrationTest(t)
 	lattitude := 37.299590
 	longitute := -76.742290
 	census,_,_:= census_api(lattitude,longitute)

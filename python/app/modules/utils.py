@@ -5,6 +5,7 @@ import logging  # type: ignore
 import os  # type: ignore
 from typing import Callable  # type: ignore
 from typing import TypedDict  # type: ignore
+import pytest  # type: ignore
 import app.modules.database as database
 import app.modules.sql as sql
 import app.modules.parallelism as parallel
@@ -22,7 +23,7 @@ def update_stores(table_name: str,
     """
     logging.info('updating stores')
     database_manager.connect_db()
-    table: list = database_manager.receive_sql_fetchall(sql.select_all_table(table_name))
+    table: list = database_manager.receive_sql_fetchall(sql.select_table(table_name))
     database_manager.close_conn()
     update_tabe: list = []
     if par:
@@ -33,7 +34,7 @@ def update_stores(table_name: str,
         for row in table:
             update_tabe.append(lookup_row(row))
     database_manager.connect_db()
-    database_manager.update_df(update_tabe)
+    database_manager.update_df(update_tabe, table_name)
 
 
 class ConfigVars(TypedDict):
@@ -44,6 +45,7 @@ class ConfigVars(TypedDict):
     postgres_db: str
     postgres_user: str
     postgres_password: str
+    intergration_test: str
 
 
 def get_variables() -> ConfigVars:
@@ -57,9 +59,22 @@ def get_variables() -> ConfigVars:
         postgres_db = os.environ['POSTGRES_DB']
         postgres_user = os.environ['POSTGRES_USER']
         postgres_password = os.environ['POSTGRES_PASSWORD']
+        intergration_test = os.environ['INTERGRATION_TEST']
     except KeyError:
         raise KeyError("Please verify that the needed env variables are set")
     return {"db_ip_address": db_ip_address,
             "postgres_db": postgres_db,
             "postgres_user": postgres_user,
-            "postgres_password": postgres_password}
+            "postgres_password": postgres_password,
+            "intergration_test": intergration_test}
+
+
+def check_interagration_test():
+    """
+    check_interagration_test is used for intergration tests to avoid running them
+    when running unit tests
+    :return:
+    """
+    config: ConfigVars = get_variables()
+    if config["intergration_test"] == "False":
+        pytest.skip("Not an Intergration Test")

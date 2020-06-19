@@ -13,7 +13,7 @@ def main():
     """
     This app is used for filling in missing data in the customers and stores tables.
     """
-    config = utils.get_variables()
+    config: utils.ConfigVars = utils.get_variables()
     log.setup_custom_logger()
     table_names: list = ["customers", "stores"]
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
