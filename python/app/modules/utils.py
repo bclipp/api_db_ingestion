@@ -3,7 +3,7 @@ This module is used for filling the customers and stores tables with census info
 """
 import logging  # type: ignore
 import os  # type: ignore
-from typing import Callable  # type: ignore
+from typing import Callable, Optional  # type: ignore
 from typing import TypedDict  # type: ignore
 import pytest  # type: ignore
 import app.modules.database as database
@@ -45,7 +45,7 @@ class ConfigVars(TypedDict):
     postgres_db: str
     postgres_user: str
     postgres_password: str
-    intergration_test: str
+    intergration_test: Optional[str]
 
 
 def get_variables() -> ConfigVars:
