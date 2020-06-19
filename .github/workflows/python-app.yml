@@ -36,8 +36,6 @@ jobs:
     - name: Unit Test with pytest
       run: |
         pytest python/app/tests
-      env:
-        INTERGRATION_TEST: False
     - name: Build the stack
       run: docker-compose up -d
       env:

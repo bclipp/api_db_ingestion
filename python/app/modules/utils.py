@@ -59,7 +59,7 @@ def get_variables() -> ConfigVars:
         postgres_db = os.environ['POSTGRES_DB']
         postgres_user = os.environ['POSTGRES_USER']
         postgres_password = os.environ['POSTGRES_PASSWORD']
-        intergration_test = os.environ['INTERGRATION_TEST']
+        intergration_test = os.environ.get('INTERGRATION_TEST', default=None)
     except KeyError:
         raise KeyError("Please verify that the needed env variables are set")
     return {"db_ip_address": db_ip_address,
@@ -76,5 +76,5 @@ def check_interagration_test():
     :return:
     """
     config: ConfigVars = get_variables()
-    if config["intergration_test"] == "False":
+    if config["intergration_test"] is None:
         pytest.skip("Not an Intergration Test")
