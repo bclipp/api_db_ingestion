@@ -6,9 +6,27 @@ import os  # type: ignore
 from typing import Callable, Optional  # type: ignore
 from typing import TypedDict  # type: ignore
 import pytest  # type: ignore
-import app.modules.database as database
 import app.modules.sql as sql
 import app.modules.parallelism as parallel
+import app.modules.database as database
+import app.modules.census_api as census
+
+
+def manage_update_stores(par: bool,
+                         database_manager: database.DatabaseManager):
+    """
+    manage_update_stores is used to run parrall or serial runs of update stores
+    :param par:
+    :param database_manager:
+    :return:
+    """
+    table_names: list = ["customers", "stores"]
+    for table in table_names:
+        logging.info('Updating table: %s', table)
+        update_stores(table,
+                      database_manager,
+                      census.look_up_row,
+                      par)
 
 
 def update_stores(table_name: str,

@@ -27,9 +27,9 @@ def update_table(table: str, row: census_api.Row) -> str:
     """
     state_fips = row["state_fips"]
     state_code = row["state_fips"]
-    block_pop = row["state_fips"]
-    block_id = row["state_fips"]
-    table_id = row["state_fips"]
+    block_pop = row["block_pop"]
+    block_id = row["block_id"]
+    table_id = row["id"]
     return f"""UPDATE
                 {table}
                 SET

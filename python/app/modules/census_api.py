@@ -37,6 +37,7 @@ class Row(TypedDict):
     state_fips: int
     state_code: str
     block_pop: int
+    id: int
 
 
 def look_up_row(row: Row):
