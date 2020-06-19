@@ -50,7 +50,7 @@ jobs:
         DB_IP_ADDRESS: ${{secrets.DB_IP_ADDRESS }}  
     - name: Intergration Test with pytest
       run: |
-          pytest  python/app/intergration_tests/database_intergration_test.py
+         pytest python/app/tests
       env:
         INTERGRATION_TEST: True
         POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD }}
