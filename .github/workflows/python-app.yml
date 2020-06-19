@@ -36,6 +36,8 @@ jobs:
     - name: Unit Test with pytest
       run: |
         pytest python/app/tests
+      env:
+        INTERGRATION_TEST: False
     - name: Build the stack
       run: docker-compose up -d
       env:
@@ -46,6 +48,7 @@ jobs:
       run: |
           pytest  python/app/intergration_tests/database_intergration_test.py
       env:
+        INTERGRATION_TEST: True
         POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD }}
         POSTGRES_USER: ${{secrets.POSTGRES_USER }}
         POSTGRES_DB: ${{secrets.POSTGRES_PASSWORD }}
