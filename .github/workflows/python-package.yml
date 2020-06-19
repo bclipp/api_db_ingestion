@@ -1,0 +1,62 @@
+# This workflow is designed to verify the code follows basic best practices, perform unit and integration tests.
+# secrets are pulled from Github's secrets's manager
+# the following secrets must be set
+# POSTGRES_PASSWORD, POSTGRES_PASSWORD, POSTGRES_USER, POSTGRES_PASSWORD
+
+name: Python 
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+        if [ -f python/app/requirements.txt ]; then pip install -r python/app/requirements.txt; fi
+    - name: Lint with pylint
+      run: |
+        # stop the build if pylint is 10 for everything
+        pylint python/app
+    - name: Lint with mypy
+      run: |
+        # stop the build if pylint is 10 for everything
+        mypy python/app
+    - name: Unit Test with pytest
+      env:
+        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+        POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+        POSTGRES_DB: ${{ secrets.POSTGRES_PASSWORD }}
+        DB_IP_ADDRESS: ${{secrets.DB_IP_ADDRESS }}  
+      run: |
+        pytest python/app/tests
+    - name: Build the stack
+      run: docker-compose up -d
+      env:
+        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+        POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+        POSTGRES_DB: ${{ secrets.POSTGRES_PASSWORD }}
+        DB_IP_ADDRESS: ${{secrets.DB_IP_ADDRESS }}  
+    - name: Intergration Test with pytest
+      run: |
+         pytest python/app/tests
+      env:
+        INTERGRATION_TEST: True
+        POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD }}
+        POSTGRES_USER: ${{secrets.POSTGRES_USER }}
+        POSTGRES_DB: ${{secrets.POSTGRES_PASSWORD }}
+        DB_IP_ADDRESS: ${{secrets.DB_IP_ADDRESS }}
+
+
+
