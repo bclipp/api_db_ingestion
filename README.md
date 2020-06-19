@@ -19,10 +19,9 @@ The app should be able to run on a system with limited resources.
 Which will contain the following customer data tables:
   
    
-![customers](customers.png)
-![stores](stores.png)
+![customers](customers.png)  
+![stores](stores.png)   
   
-    * stores
 
 2. The External API:
 
