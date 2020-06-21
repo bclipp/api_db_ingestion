@@ -12,9 +12,9 @@ def main():
     """
     This app is used for filling in missing data in the customers and stores tables.
     """
-    logging.info("Starting Table Update App")
     config: utils.ConfigVars = utils.get_variables()
     log.setup_custom_logger()
+    logging.info("Starting Table Update App")
     database_manager: database.DatabaseManager = database.DatabaseManager(config)
     utils.manage_update_stores(True, database_manager)
 
