@@ -44,7 +44,7 @@ blockID or block fips id, state_fips, state code ,and block population.
 
 1. Install docker and docker-compose
 
-2. run docker-compose up
+2. ```sudo run docker-compose up```
 
 ## Connecting to Database UI
 
