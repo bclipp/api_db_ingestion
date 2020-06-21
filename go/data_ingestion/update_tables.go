@@ -11,9 +11,13 @@ func update_tabls(concurrent bool, tables []string, database *Database ){
 			for _, row := range database.table {
 				println(row)
 
-				// lookup each row
-				// updating table in db
+				response,_,_ := census_api(row.Latitude, row.Longitude)
+				row.BlockFips = response.Results[0].blockFips
+				row.BlockPop = response.Results[0].blockPop
+				row.StateCode = response.Results[0].stateCode
+				row.StateFips = response.Results[0].stateFips
 			}
+			database.UpdateTable(table,database)
 		}
 
 	}

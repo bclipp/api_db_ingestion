@@ -50,7 +50,7 @@ func UpdateTable(serial bool, table string, config map[string]string) error {
 				BlockPop:  census.Results[0].blockPop,
 			}
 			table = append(table, newRow)
-		}
+		}// updating table in db
 	} else {
 		//add concurency
 	}
@@ -138,7 +138,8 @@ func (d Database) SendSql(tableName string) error {
 	return nil
 }
 
-func (d Database) UpdateTable(table string, row Row) error {
+func (d Database) UpdateTable(table string, database *Database) error {
+	// update the whole table logically without repeating. 
 	sqlQuery := `
 UPDATE $2
 SET BlockFips = $3, StateCode = $4, StateFips = $5, BlockPop = $6
