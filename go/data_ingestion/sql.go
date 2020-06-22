@@ -8,10 +8,7 @@ func update_table_query(table string, row Row)string{
 	block_pop := row.BlockPop
 	block_id := row.BlockId
 	table_id := row.Id
-	return fmt.Sprintln(`UPDATE
-	%v
-	SET
-	state_fips = %v, state_code = '%v', block_pop = %v, block_id = %v
-	WHERE
-	ID = %v;`,table,state_fips,state_code,block_pop,block_id,table_id)
+	return fmt.Sprintf(
+		"UPDATE %s SET state_fips = %d, state_code = '%s', block_pop = %d, block_id = %d WHERE ID = %d;",
+		table,state_fips,state_code,block_pop,block_id,table_id)
 }

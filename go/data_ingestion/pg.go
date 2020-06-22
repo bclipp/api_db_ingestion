@@ -15,10 +15,10 @@ type Database struct {
 }
 
 type Row struct {
-	BlockId string
+	BlockId int
 	StateCode string
-	StateFips string
-	BlockPop  string
+	StateFips int
+	BlockPop  int
 	Id        int
 	Latitude  float64
 	Longitude float64
