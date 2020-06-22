@@ -47,7 +47,6 @@ func (d Database) Close() error {
 }
 
 func (d Database) ReadTable(tableName string) error {
-
 	table := make([]Row, 0)
 	rows, err := d.Db.Query("SELECT *  FROM %s", tableName)
 	if err != nil {
@@ -77,10 +76,18 @@ func (d Database) ReadTable(tableName string) error {
 	return nil
 }
 
-func (d Database) UpdateDbTable(table string, database *Database) error {
-	for _, row := range database.table {
+func (d Database) SendQuery(query string) (sql.Result, error) {
+	result, err := d.Db.Exec(query)
+	if err != nil {
+		return result, err
+	}
+	return result,nil
+}
+
+func (d Database) UpdateDbTable(table string) error {
+	for _, row := range d.table {
 		query := update_table_query(table,row)
-		result, err := d.Db.Exec(query)
+		result, err := d.SendQuery(query)
 		if err != nil {
 			return err
 		}

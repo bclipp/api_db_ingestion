@@ -16,7 +16,7 @@ func update_tables(concurrent bool, tables []string, database *Database )error{
 				row.StateCode = response.Results[0].stateCode
 				row.StateFips = response.Results[0].stateFips
 			}
-			database.UpdateDbTable(table,database)
+			database.UpdateDbTable(table)
 		}
 	}
 	return nil
