@@ -12,7 +12,7 @@ func update_tabls(concurrent bool, tables []string, database *Database ){
 				println(row)
 
 				response,_,_ := census_api(row.Latitude, row.Longitude)
-				row.BlockFips = response.Results[0].blockFips
+				row.BlockId = response.Results[0].blockId
 				row.BlockPop = response.Results[0].blockPop
 				row.StateCode = response.Results[0].stateCode
 				row.StateFips = response.Results[0].stateFips

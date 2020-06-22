@@ -15,7 +15,7 @@ type Database struct {
 }
 
 type Row struct {
-	BlockFips string
+	BlockId string
 	StateCode string
 	StateFips string
 	BlockPop  string
@@ -44,9 +44,9 @@ func UpdateTable(serial bool, table string, config map[string]string) error {
 			table := make([]Row, 0)
 
 			newRow := Row{
-				BlockFips: census.Results[0].blockFips,
-				StateCode: census.Results[0].blockFips,
-				StateFips: census.Results[0].blockPop,
+				BlockId: census.Results[0].blockId,
+				StateCode: census.Results[0].stateCode,
+				StateFips: census.Results[0].stateFips,
 				BlockPop:  census.Results[0].blockPop,
 			}
 			table = append(table, newRow)
@@ -73,6 +73,10 @@ func (d Database) Connect() error {
 	if err != nil {
 		return err
 	}
+	return nil
+}
+
+func (d Database) Close() error {
 	return nil
 }
 
@@ -107,59 +111,20 @@ func (d Database) ReadTable(tableName string) error {
 	return nil
 }
 
-func (d Database) SendSql(tableName string) error {
-
-	table := make([]Row, 0)
-	rows, err := d.Db.Query("SELECT *  FROM %s", tableName)
-	if err != nil {
-		return err
-	}
-	defer rows.Close()
-	for rows.Next() {
-		var latitude float64
-		var longitude float64
-		var id int
-		err = rows.Scan(&latitude, &longitude)
+func (d Database) UpdateDbTable(table string, database *Database) error {
+	for _, row := range database.table {
+		query := update_table_query(table,row)
+		result, err := d.Db.Exec(query)
 		if err != nil {
 			return err
 		}
-		newRow := Row{
-			Latitude:  latitude,
-			Longitude: longitude,
-			Id:        id,
+		count, err := result.RowsAffected()
+		if err != nil {
+			return err
 		}
-		table = append(table, newRow)
-	}
-	err = rows.Err()
-	if err != nil {
-		return err
-	}
-	d.table = table
-	return nil
-}
-
-func (d Database) UpdateTable(table string, database *Database) error {
-	// update the whole table logically without repeating. 
-	sqlQuery := `
-UPDATE $2
-SET BlockFips = $3, StateCode = $4, StateFips = $5, BlockPop = $6
-WHERE id = $1;`
-	result, err := d.Db.Exec(
-		sqlQuery,
-		row.Id, table,
-		row.BlockFips,
-		row.StateCode,
-		row.StateFips,
-		row.BlockPop)
-	if err != nil {
-		return err
-	}
-	count, err := result.RowsAffected()
-	if err != nil {
-		return err
-	}
-	if count != 1 {
-		print("Error when updating row, rows effected is not 1.")
+		if count != 1 {
+			print("Error when updating row, rows effected is not 1.")
+		}
 	}
 	return nil
 }

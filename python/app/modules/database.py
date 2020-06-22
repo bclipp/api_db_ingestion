@@ -82,6 +82,7 @@ class DatabaseManager:
                 values = "VALUES({})".format(
                     ",".join(["%s" for _ in data_frame_columns])
                 )
+                # should be in sql module
                 insert_stmt = "INSERT INTO {} ({}) {}".format(table, columns, values)
                 psycopg2.extras.execute_batch(
                     self.cursor, insert_stmt, data_frame.values

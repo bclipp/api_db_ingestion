@@ -13,7 +13,7 @@ import (
 var httpClient = &http.Client{Timeout: 10 * time.Second}
 
 type Inner struct {
-	blockFips string `json:"block_fips"`
+	blockId string `json:"block_id"`
 	stateCode string `json:"state_code"`
 	stateFips string `json:"state_fips"`
 	blockPop string `json:"block_pop_2015"`
