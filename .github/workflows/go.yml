@@ -23,7 +23,7 @@ jobs:
       uses: actions/checkout@v2
       
     - name: golangci-lint
-      run: golangci-lint go/data_ingestion/
+      uses: actions-contrib/golangci-lint@v1 go/data_ingestion/
       
     - name: Build
       run: go build -v go/data_ingestion/*.go
