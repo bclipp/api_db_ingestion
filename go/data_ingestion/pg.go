@@ -24,40 +24,6 @@ type Row struct {
 	Longitude float64
 }
 
-func UpdateTable(serial bool, table string, config map[string]string) error {
-	if serial == true {
-		var database = Database{
-			IpAddress:        config["IpAddress"],
-			PostgresPassword: config["postgresPassword"],
-			PostgresUser:     config["postgresUser"],
-			PostgresDb:       config["postgresDb"],
-		}
-		database.Connect()
-		defer database.Db.Close()
-		database.ReadTable(table)
-		for _, row := range database.table {
-			census, _, err := census_api(row.Latitude, row.Longitude)
-			if err != nil {
-				return err
-			}
-			//replace with read table
-			table := make([]Row, 0)
-
-			newRow := Row{
-				BlockId: census.Results[0].blockId,
-				StateCode: census.Results[0].stateCode,
-				StateFips: census.Results[0].stateFips,
-				BlockPop:  census.Results[0].blockPop,
-			}
-			table = append(table, newRow)
-		}// updating table in db
-	} else {
-		//add concurency
-	}
-
-	return nil
-}
-
 func (d Database) Connect() error {
 	psqlInfo := fmt.Sprintf("host=%s port=5432 user=%s "+
 		"password=%s dbname=%s sslmode=disable",
