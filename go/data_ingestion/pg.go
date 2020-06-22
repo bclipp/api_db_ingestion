@@ -1,3 +1,6 @@
+//This module is used for interacting with the postgresql database
+
+
 package data_ingestion
 
 import (
@@ -5,6 +8,7 @@ import (
 	"fmt"
 )
 
+// Database is used to hold the connection related variables
 type Database struct {
 	Db               *sql.DB
 	IpAddress        string
@@ -14,6 +18,8 @@ type Database struct {
 	table            []Row
 }
 
+// Row is used to hold a row of data from a table in the DB
+// only common data is used and needed.
 type Row struct {
 	BlockId int
 	StateCode string
@@ -24,6 +30,10 @@ type Row struct {
 	Longitude float64
 }
 
+// Connect is used to handle connecting to the database
+// Params:
+// return:
+//       error from the connection setup
 func (d Database) Connect() error {
 	psqlInfo := fmt.Sprintf("host=%s port=5432 user=%s "+
 		"password=%s dbname=%s sslmode=disable",
@@ -33,8 +43,6 @@ func (d Database) Connect() error {
 	if err != nil {
 		return err
 	}
-	//defer d.Db.Close()
-
 	err = d.Db.Ping()
 	if err != nil {
 		return err
@@ -42,13 +50,26 @@ func (d Database) Connect() error {
 	return nil
 }
 
+// Close is used to handle closing the connection to the database
+// Params:
+// return:
+//       error from the connection setup
 func (d Database) Close() error {
 	return nil
 }
 
-func (d Database) ReadTable(tableName string) error {
+// ReadTable is used for reading data from the database and storing it in the
+// table field
+// Params:
+//       latitude: number to be added to y
+//       longitude: number to be added to x
+//return:
+//       Jason return document
+//       rest http response code
+//       the error
+func (d Database) ReadTable(tableName string, ) error {
 	table := make([]Row, 0)
-	rows, err := d.Db.Query("SELECT *  FROM %s", tableName)
+	rows, err := d.Db.Query(select_table(tableName,-1))
 	if err != nil {
 		return err
 	}
@@ -76,6 +97,15 @@ func (d Database) ReadTable(tableName string) error {
 	return nil
 }
 
+// ReadTable is used for reading data from the database and storing it in the
+// table field
+// Params:
+//       latitude: number to be added to y
+//       longitude: number to be added to x
+//return:
+//       Jason return document
+//       rest http response code
+//       the error
 func (d Database) SendQuery(query string) (sql.Result, error) {
 	result, err := d.Db.Exec(query)
 	if err != nil {

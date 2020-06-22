@@ -12,3 +12,15 @@ func update_table_query(table string, row Row)string{
 		"UPDATE %s SET state_fips = %d, state_code = '%s', block_pop = %d, block_id = %d WHERE ID = %d;",
 		table,state_fips,state_code,block_pop,block_id,table_id)
 }
+
+func select_table(table string, limit int)string{
+	if limit < 0 {
+		return fmt.Sprintf(
+			"SELECT * FROM %s;",
+			table)
+	} else {
+		return fmt.Sprintf(
+			"SELECT * FROM %s LIMIT %d;",
+			table, limit)
+	}
+}
