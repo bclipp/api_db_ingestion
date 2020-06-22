@@ -1,6 +1,5 @@
 //This module is used for interacting with the postgresql database
 
-
 package data_ingestion
 
 import (
@@ -21,7 +20,7 @@ type Database struct {
 // Row is used to hold a row of data from a table in the DB
 // only common data is used and needed.
 type Row struct {
-	BlockId int
+	BlockId   int
 	StateCode string
 	StateFips int
 	BlockPop  int
@@ -61,15 +60,14 @@ func (d Database) Close() error {
 // ReadTable is used for reading data from the database and storing it in the
 // table field
 // Params:
-//       latitude: number to be added to y
-//       longitude: number to be added to x
+//       tableName: the table to query
 //return:
 //       Jason return document
 //       rest http response code
 //       the error
-func (d Database) ReadTable(tableName string, ) error {
+func (d Database) ReadTable(tableName string) error {
 	table := make([]Row, 0)
-	rows, err := d.Db.Query(select_table(tableName,-1))
+	rows, err := d.Db.Query(select_table(tableName, -1))
 	if err != nil {
 		return err
 	}
@@ -97,26 +95,28 @@ func (d Database) ReadTable(tableName string, ) error {
 	return nil
 }
 
-// ReadTable is used for reading data from the database and storing it in the
-// table field
+// SendQuery is used for sending query to a database
 // Params:
-//       latitude: number to be added to y
-//       longitude: number to be added to x
+//       SendQuery: SQL to send
 //return:
-//       Jason return document
-//       rest http response code
+//		 result variable , see result interface doc in sql
 //       the error
 func (d Database) SendQuery(query string) (sql.Result, error) {
 	result, err := d.Db.Exec(query)
 	if err != nil {
 		return result, err
 	}
-	return result,nil
+	return result, nil
 }
 
-func (d Database) UpdateDbTable(table string) error {
+// UpdateDbTable is used for taking the the table variable and updating the db
+// Params:
+//       tableName: the table to query
+//return:
+//       the error
+func (d Database) UpdateDbTable(tableName string) error {
 	for _, row := range d.table {
-		query := update_table_query(table,row)
+		query := update_table_query(tableName, row)
 		result, err := d.SendQuery(query)
 		if err != nil {
 			return err

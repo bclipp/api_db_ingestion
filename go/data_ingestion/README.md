@@ -6,13 +6,4 @@ sudo apt-get remove -y gccgo-go && wget http://golang.org/dl/go1.13.linux-amd64.
 ### building library
 go install
 
-### todo
-
-* unit tests
-* intergration tests
-* readme
-* example tests
-* SQL statements
-* preand post code for tests
-* docstring and comments
 

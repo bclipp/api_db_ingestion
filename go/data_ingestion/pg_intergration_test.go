@@ -1,11 +1,12 @@
 package data_ingestion
 
 import (
+	"fmt"
 	"testing"
 )
 
 func TestPG(t *testing.T) {
-	CheckIntergrationTest(t)
+	CheckIntegrationTest(t)
 	config := get_variables()
 	var database = Database{
 		IpAddress:        config["IpAddress"],
@@ -15,15 +16,27 @@ func TestPG(t *testing.T) {
 	}
 
 	t.Run("Read", func(t *testing.T) {
-		database.Connect()
+		err := database.Connect()
+		if err != nil {
+			fmt.Print(err.Error())
+		}
+		if err != nil {
+			fmt.Print(err.Error())
+		}
 		defer database.Db.Close()
-		database.ReadTable("customers")
+		err = database.ReadTable("customers")
+		if err != nil {
+			fmt.Print(err.Error())
+		}
 		if len(database.table) < 1 {
 			t.Errorf("Error, read customers table and no data was found.")
 		}
 	})
 	t.Run("UpdateTable", func(t *testing.T) {
-		database.Connect()
+		err := database.Connect()
+		if err != nil {
+			fmt.Print(err.Error())
+		}
 		defer database.Db.Close()
 	})
 

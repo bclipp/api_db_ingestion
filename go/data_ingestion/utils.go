@@ -1,3 +1,5 @@
+//This module is used for holding reusable functions
+
 package data_ingestion
 
 import (
@@ -6,7 +8,8 @@ import (
 	"testing"
 )
 
-func get_variables()  map[string]string{
+// get_variables are used to hold environmental variables read by the app
+func get_variables() map[string]string {
 	config := make(map[string]string)
 	config["postgresDb"] = os.Getenv("POSTGRES_DB")
 	config["postgresUser"] = os.Getenv("POSTGRES_USER")
@@ -16,14 +19,19 @@ func get_variables()  map[string]string{
 	return config
 }
 
+// FloatToString is used for converting a float to a string
+// Params:
+//       input_num: used to convert
+//return:
+//       the string version of the float
 func FloatToString(input_num float64) string {
 	return strconv.FormatFloat(input_num, 'f', 6, 64)
 }
 
-func CheckIntergrationTest(t *testing.T){
+// CheckIntergrationTest is used to avoid integration tests if you are running unit tests
+func CheckIntegrationTest(t *testing.T) {
 	config := get_variables()
 	if config["INT_TEST"] == "" {
 		t.Skip("Skipping testing in during unit testing")
 	}
 }
-
