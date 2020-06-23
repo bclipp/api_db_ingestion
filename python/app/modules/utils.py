@@ -94,5 +94,5 @@ def check_integration_test():
     :return:
     """
     config: ConfigVars = get_variables()
-    if config["integration_test"] is None:
+    if config.get("integration_test") is None:
         pytest.skip("Not an Integration Test")
