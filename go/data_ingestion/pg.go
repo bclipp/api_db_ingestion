@@ -5,6 +5,7 @@ package data_ingestion
 import (
 	"database/sql"
 	"fmt"
+	"log"
 )
 
 // Database is used to hold the connection related variables
@@ -55,9 +56,7 @@ func (d Database) connect() error {
 //       error from the connection setup
 func (d Database) close() error {
 	err := d.DB.Close()
-	if err != nil {
-		return err
-	}
+	if err != nil {return err}
 	return nil
 
 }
@@ -73,18 +72,19 @@ func (d Database) close() error {
 func (d Database) loadTable(tableName string) error {
 	table := make([]Row, 0)
 	rows, err := d.DB.Query(selectTableQuery(tableName, -1))
-	if err != nil {
-		return err
-	}
+	if err != nil { return err}
 	defer rows.Close()
+	defer func() {
+		if err != nil {
+			log.Printf("error in loadTable - error: %v", err)
+		}
+	}()
 	for rows.Next() {
 		var latitude float64
 		var longitude float64
 		var id int
 		err = rows.Scan(&latitude, &longitude)
-		if err != nil {
-			return err
-		}
+		if err != nil { return err}
 		newRow := Row{
 			Latitude:  latitude,
 			Longitude: longitude,
@@ -93,9 +93,7 @@ func (d Database) loadTable(tableName string) error {
 		table = append(table, newRow)
 	}
 	err = rows.Err()
-	if err != nil {
-		return err
-	}
+	if err != nil { return err}
 	d.table = table
 	return nil
 }
@@ -108,9 +106,7 @@ func (d Database) loadTable(tableName string) error {
 //       the error
 func (d Database) sendQuery(query string) (sql.Result, error) {
 	result, err := d.DB.Exec(query)
-	if err != nil {
-		return result, err
-	}
+	if err != nil { return result, err}
 	return result, nil
 }
 
@@ -123,13 +119,9 @@ func (d Database) updateDbTable(tableName string) error {
 	for _, row := range d.table {
 		query := updateTableQuery(tableName, row)
 		result, err := d.sendQuery(query)
-		if err != nil {
-			return err
-		}
+		if err != nil { return err}
 		count, err := result.RowsAffected()
-		if err != nil {
-			return err
-		}
+		if err != nil { return err}
 		if count != 1 {
 			print("Error when updating row, rows effected is not 1.")
 		}

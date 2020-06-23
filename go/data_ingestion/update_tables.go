@@ -14,28 +14,20 @@ func UpdateTables(concurrent bool, tables []string, database *Database) error {
 	if !concurrent {
 		for _, table := range tables {
 			err := database.connect()
-			if err != nil {
-				return err
-			}
+			if err != nil {return err}
 			defer database.DB.Close()
 			err = database.loadTable(table)
-			if err != nil {
-				return err
-			}
+			if err != nil {return err}
 			for _, row := range database.table {
 				response, _, err := censusApi(row.Latitude, row.Longitude)
-				if err != nil {
-					return err
-				}
+				if err != nil {return err}
 				row.BlockId = response.Results[0].BlockId
 				row.BlockPop = response.Results[0].BlockPop
 				row.StateCode = response.Results[0].StateCode
 				row.StateFips = response.Results[0].StateFips
 			}
 			err = database.updateDbTable(table)
-			if err != nil {
-				return err
-			}
+			if err != nil {return err}
 		}
 	}
 	return nil

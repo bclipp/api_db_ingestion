@@ -20,7 +20,5 @@ func TestDatabaseUpdateDbTable(t *testing.T) {
 		"stores",
 	}
 	err := UpdateTables(false, tables, &database)
-	if err != nil {
-		fmt.Print(err.Error())
-	}
+	if err != nil {fmt.Print(err.Error())}
 }
