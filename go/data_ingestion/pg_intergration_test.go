@@ -15,7 +15,7 @@ func TestPG(t *testing.T) {
 		PostgresDb:       config["postgresDb"],
 	}
 
-	t.Run("Read", func(t *testing.T) {
+	t.Run("loadTable", func(t *testing.T) {
 		err := database.connect()
 		if err != nil {
 			fmt.Print(err.Error())
