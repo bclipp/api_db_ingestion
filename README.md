@@ -6,7 +6,7 @@
 ## Implementation
 [Go](https://github.com/bclipp/api_db_ingestion/tree/master/go)  
 [Python](https://github.com/bclipp/api_db_ingestion/tree/master/python)  
-[scala](https://github.com/bclipp/api_db_ingestion/tree/master/scala)  
+[Scala](https://github.com/bclipp/api_db_ingestion/tree/master/scala)  
 
 ## Objective:
 Write an application that combines the data in the local company database with an external API.
