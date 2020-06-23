@@ -5,9 +5,9 @@ import (
 	"testing"
 )
 
-func TestDatabase_UpdateDbTable(t *testing.T) {
+func TestDatabaseUpdateDbTable(t *testing.T) {
 	CheckIntegrationTest(t)
-	config := get_variables()
+	config := getVariables()
 	//needs to be mocked
 	var database = Database{
 		IpAddress:        config["IpAddress"],
@@ -19,7 +19,7 @@ func TestDatabase_UpdateDbTable(t *testing.T) {
 		"customers",
 		"stores",
 	}
-	err := Update_tables(false, tables, &database)
+	err := UpdateTables(false, tables, &database)
 	if err != nil {
 		fmt.Print(err.Error())
 	}

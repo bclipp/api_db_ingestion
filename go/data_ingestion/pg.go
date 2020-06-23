@@ -9,17 +9,17 @@ import (
 
 // Database is used to hold the connection related variables
 type Database struct {
-	Db               *sql.DB
+	DB               *sql.DB
 	IpAddress        string
 	PostgresPassword string
 	PostgresUser     string
 	PostgresDb       string
-	table            []row
+	table            []Row
 }
 
 // Row is used to hold a row of data from a table in the DB
 // only common data is used and needed.
-type row struct {
+type Row struct {
 	BlockId   int
 	StateCode string
 	StateFips int
@@ -38,11 +38,11 @@ func (d Database) connect() error {
 		"password=%s dbname=%s sslmode=disable",
 		d.IpAddress, d.PostgresUser, d.PostgresPassword, d.PostgresDb)
 	var err error
-	d.Db, err = sql.Open("postgres", psqlInfo)
+	d.DB, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
 		return err
 	}
-	err = d.Db.Ping()
+	err = d.DB.Ping()
 	if err != nil {
 		return err
 	}
@@ -65,9 +65,9 @@ func (d Database) close() error {
 //       Jason return document
 //       rest http response code
 //       the error
-func (d Database) ReadTable(tableName string) error {
-	table := make([]row, 0)
-	rows, err := d.Db.Query(select_table(tableName, -1))
+func (d Database) readTable(tableName string) error {
+	table := make([]Row, 0)
+	rows, err := d.DB.Query(selectTableQuery(tableName, -1))
 	if err != nil {
 		return err
 	}
@@ -80,7 +80,7 @@ func (d Database) ReadTable(tableName string) error {
 		if err != nil {
 			return err
 		}
-		newRow := row{
+		newRow := Row{
 			Latitude:  latitude,
 			Longitude: longitude,
 			Id:        id,
@@ -102,7 +102,7 @@ func (d Database) ReadTable(tableName string) error {
 //		 result variable , see result interface doc in sql
 //       the error
 func (d Database) sendQuery(query string) (sql.Result, error) {
-	result, err := d.Db.Exec(query)
+	result, err := d.DB.Exec(query)
 	if err != nil {
 		return result, err
 	}
@@ -116,7 +116,7 @@ func (d Database) sendQuery(query string) (sql.Result, error) {
 //       the error
 func (d Database) updateDbTable(tableName string) error {
 	for _, row := range d.table {
-		query := update_table_query(tableName, row)
+		query := updateTableQuery(tableName, row)
 		result, err := d.sendQuery(query)
 		if err != nil {
 			return err

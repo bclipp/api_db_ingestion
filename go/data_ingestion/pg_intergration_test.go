@@ -7,7 +7,7 @@ import (
 
 func TestPG(t *testing.T) {
 	CheckIntegrationTest(t)
-	config := get_variables()
+	config := getVariables()
 	var database = Database{
 		IpAddress:        config["IpAddress"],
 		PostgresPassword: config["postgresPassword"],
@@ -23,8 +23,8 @@ func TestPG(t *testing.T) {
 		if err != nil {
 			fmt.Print(err.Error())
 		}
-		defer database.Db.Close()
-		err = database.ReadTable("customers")
+		defer database.DB.Close()
+		err = database.readTable("customers")
 		if err != nil {
 			fmt.Print(err.Error())
 		}
@@ -37,7 +37,7 @@ func TestPG(t *testing.T) {
 		if err != nil {
 			fmt.Print(err.Error())
 		}
-		defer database.Db.Close()
+		defer database.DB.Close()
 	})
 
 }

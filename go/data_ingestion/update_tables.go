@@ -10,15 +10,15 @@ package data_ingestion
 // 		 database: the struct used for handling databses.
 //return:
 //       the error
-func Update_tables(concurrent bool, tables []string, database *Database) error {
+func UpdateTables(concurrent bool, tables []string, database *Database) error {
 	if !concurrent {
 		for _, table := range tables {
 			err := database.connect()
 			if err != nil {
 				return err
 			}
-			defer database.Db.Close()
-			err = database.ReadTable(table)
+			defer database.DB.Close()
+			err = database.readTable(table)
 			if err != nil {
 				return err
 			}
