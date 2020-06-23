@@ -49,13 +49,6 @@ func (d Database) connect() error {
 	return nil
 }
 
-// Close is used to handle closing the connection to the database
-// Params:
-// return:
-//       error from the connection setup
-func (d Database) close() error {
-	return nil
-}
 
 // ReadTable is used for reading data from the database and storing it in the
 // table field
