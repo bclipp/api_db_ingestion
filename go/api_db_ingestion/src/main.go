@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/bclipp/api_db_ingestion/go/data_ingestion"
+	"api_db_ingestion/src/data_ingestion"
 	"fmt"
+	_ "github.com/lib/pq"
 )
 
 func main() {

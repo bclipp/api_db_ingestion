@@ -30,7 +30,7 @@ func FloatToString(input_num float64) string {
 
 // CheckIntergrationTest is used to avoid integration tests if you are running unit tests
 func CheckIntegrationTest(t *testing.T) {
-	config := getVariables()
+	config := GetVariables()
 	if config["INT_TEST"] == "" {
 		t.Skip("Skipping testing in during unit testing")
 	}
