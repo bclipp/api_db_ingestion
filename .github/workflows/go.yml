@@ -29,7 +29,7 @@ jobs:
           version: v1.26
           
           # Optional: working directory, useful for monorepos
-          working-directory: go/data_ingestion
+          working-directory: go/api_db_ingestion/src/data_ingestion/
       
     - name: Build
       run: go build -v go/data_ingestion/*.go
