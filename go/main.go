@@ -1,7 +1,7 @@
 package main
 
 import (
-	data_ingestion "github.com/bclipp/api_db_ingestion"
+	"github.com/bclipp/api_db_ingestion"
 )
 
 func main() {
