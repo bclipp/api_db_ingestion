@@ -49,6 +49,18 @@ func (d Database) connect() error {
 	return nil
 }
 
+// Close is used to handle closing the connection to the database
+// Params:
+// return:
+//       error from the connection setup
+func (d Database) close() error {
+	err := d.DB.Close()
+	if err != nil {
+		return err
+	}
+	return nil
+
+}
 
 // ReadTable is used for reading data from the database and storing it in the
 // table field
@@ -58,7 +70,7 @@ func (d Database) connect() error {
 //       Jason return document
 //       rest http response code
 //       the error
-func (d Database) readTable(tableName string) error {
+func (d Database) loadTable(tableName string) error {
 	table := make([]Row, 0)
 	rows, err := d.DB.Query(selectTableQuery(tableName, -1))
 	if err != nil {

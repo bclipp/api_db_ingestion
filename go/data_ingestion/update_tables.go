@@ -18,7 +18,7 @@ func UpdateTables(concurrent bool, tables []string, database *Database) error {
 				return err
 			}
 			defer database.DB.Close()
-			err = database.readTable(table)
+			err = database.loadTable(table)
 			if err != nil {
 				return err
 			}

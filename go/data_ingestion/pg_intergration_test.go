@@ -23,8 +23,8 @@ func TestPG(t *testing.T) {
 		if err != nil {
 			fmt.Print(err.Error())
 		}
-		defer database.DB.Close()
-		err = database.readTable("customers")
+		defer database.close()
+		err = database.loadTable("customers")
 		if err != nil {
 			fmt.Print(err.Error())
 		}
@@ -37,7 +37,7 @@ func TestPG(t *testing.T) {
 		if err != nil {
 			fmt.Print(err.Error())
 		}
-		defer database.DB.Close()
+		defer database.close()
 	})
 
 }
