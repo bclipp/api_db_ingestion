@@ -7,7 +7,7 @@ import (
 
 func TestPG(t *testing.T) {
 	CheckIntegrationTest(t)
-	config := getVariables()
+	config := GetVariables()
 	var database = Database{
 		IpAddress:        config["IpAddress"],
 		PostgresPassword: config["postgresPassword"],
