@@ -9,7 +9,7 @@ import (
 )
 
 // get_variables are used to hold environmental variables read by the app
-func get_variables() map[string]string {
+func getVariables() map[string]string {
 	config := make(map[string]string)
 	config["postgresDb"] = os.Getenv("POSTGRES_DB")
 	config["postgresUser"] = os.Getenv("POSTGRES_USER")
@@ -30,7 +30,7 @@ func FloatToString(input_num float64) string {
 
 // CheckIntergrationTest is used to avoid integration tests if you are running unit tests
 func CheckIntegrationTest(t *testing.T) {
-	config := get_variables()
+	config := getVariables()
 	if config["INT_TEST"] == "" {
 		t.Skip("Skipping testing in during unit testing")
 	}

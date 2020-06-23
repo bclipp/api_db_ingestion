@@ -14,7 +14,7 @@ import (
 var httpClient = &http.Client{Timeout: 10 * time.Second}
 
 // Inner is the second layer of the json document
-type Inner struct {
+type inner struct {
 	BlockId   int    `json:"block_id"`
 	StateCode string `json:"state_code"`
 	StateFips int    `json:"state_fips"`
@@ -22,8 +22,8 @@ type Inner struct {
 }
 
 //Outer is the first layer of the json document
-type Outer struct {
-	Results []Inner `json:"results"`
+type outer struct {
+	Results []inner `json:"results"`
 }
 
 // census_api is used for interacting indirectly with he census api
@@ -34,7 +34,7 @@ type Outer struct {
 //       Jason return document
 //       rest http response code
 //       the error
-func census_api(latitude, longitude float64) (Outer, int, error) {
+func censusApi(latitude, longitude float64) (outer, int, error) {
 	url := "https://geo.fcc.gov/api/census/area?lat=" + FloatToString(latitude) + "0&lon=" + FloatToString(longitude) + "&format=json"
 	response, err := httpClient.Get(url)
 	if err != nil {
@@ -45,7 +45,7 @@ func census_api(latitude, longitude float64) (Outer, int, error) {
 	if err != nil {
 		fmt.Print(err.Error())
 	}
-	var census Outer
+	var census outer
 	err = json.Unmarshal(body, &census)
 	if err != nil {
 		fmt.Print(err.Error())

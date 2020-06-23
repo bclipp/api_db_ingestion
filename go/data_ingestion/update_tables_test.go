@@ -1,6 +1,7 @@
 package data_ingestion
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -18,5 +19,8 @@ func TestDatabase_UpdateDbTable(t *testing.T) {
 		"customers",
 		"stores",
 	}
-	update_tables(false, tables, &database )
+	err := Update_tables(false, tables, &database)
+	if err != nil {
+		fmt.Print(err.Error())
+	}
 }

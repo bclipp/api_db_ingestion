@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/bclipp/api_db_ingestion"
+	"_/home/blipp/Documents/GitHub/api_db_ingestion/go"
 )
 
 func main() {

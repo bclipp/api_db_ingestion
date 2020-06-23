@@ -16,7 +16,7 @@ func TestPG(t *testing.T) {
 	}
 
 	t.Run("Read", func(t *testing.T) {
-		err := database.Connect()
+		err := database.connect()
 		if err != nil {
 			fmt.Print(err.Error())
 		}
@@ -33,7 +33,7 @@ func TestPG(t *testing.T) {
 		}
 	})
 	t.Run("UpdateTable", func(t *testing.T) {
-		err := database.Connect()
+		err := database.connect()
 		if err != nil {
 			fmt.Print(err.Error())
 		}

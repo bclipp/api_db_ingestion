@@ -14,12 +14,12 @@ type Database struct {
 	PostgresPassword string
 	PostgresUser     string
 	PostgresDb       string
-	table            []Row
+	table            []row
 }
 
 // Row is used to hold a row of data from a table in the DB
 // only common data is used and needed.
-type Row struct {
+type row struct {
 	BlockId   int
 	StateCode string
 	StateFips int
@@ -33,7 +33,7 @@ type Row struct {
 // Params:
 // return:
 //       error from the connection setup
-func (d Database) Connect() error {
+func (d Database) connect() error {
 	psqlInfo := fmt.Sprintf("host=%s port=5432 user=%s "+
 		"password=%s dbname=%s sslmode=disable",
 		d.IpAddress, d.PostgresUser, d.PostgresPassword, d.PostgresDb)
@@ -53,7 +53,7 @@ func (d Database) Connect() error {
 // Params:
 // return:
 //       error from the connection setup
-func (d Database) Close() error {
+func (d Database) close() error {
 	return nil
 }
 
@@ -66,7 +66,7 @@ func (d Database) Close() error {
 //       rest http response code
 //       the error
 func (d Database) ReadTable(tableName string) error {
-	table := make([]Row, 0)
+	table := make([]row, 0)
 	rows, err := d.Db.Query(select_table(tableName, -1))
 	if err != nil {
 		return err
@@ -80,7 +80,7 @@ func (d Database) ReadTable(tableName string) error {
 		if err != nil {
 			return err
 		}
-		newRow := Row{
+		newRow := row{
 			Latitude:  latitude,
 			Longitude: longitude,
 			Id:        id,
@@ -101,7 +101,7 @@ func (d Database) ReadTable(tableName string) error {
 //return:
 //		 result variable , see result interface doc in sql
 //       the error
-func (d Database) SendQuery(query string) (sql.Result, error) {
+func (d Database) sendQuery(query string) (sql.Result, error) {
 	result, err := d.Db.Exec(query)
 	if err != nil {
 		return result, err
@@ -114,10 +114,10 @@ func (d Database) SendQuery(query string) (sql.Result, error) {
 //       tableName: the table to query
 //return:
 //       the error
-func (d Database) UpdateDbTable(tableName string) error {
+func (d Database) updateDbTable(tableName string) error {
 	for _, row := range d.table {
 		query := update_table_query(tableName, row)
-		result, err := d.SendQuery(query)
+		result, err := d.sendQuery(query)
 		if err != nil {
 			return err
 		}

@@ -10,7 +10,7 @@ import "fmt"
 //       table: table to generate the update query for.
 //return:
 //       the error
-func update_table_query(table string, row Row) string {
+func updateTableQuery(table string, row Row) string {
 	state_fips := row.StateFips
 	state_code := row.StateCode
 	block_pop := row.BlockPop
@@ -28,7 +28,7 @@ func update_table_query(table string, row Row) string {
 //		 limit: < 0 will cause assume you don't want a limit
 //return:
 //       the error
-func select_table(table string, limit int) string {
+func selectTableQuery(table string, limit int) string {
 	if limit < 0 {
 		return fmt.Sprintf(
 			"SELECT * FROM %s;",
