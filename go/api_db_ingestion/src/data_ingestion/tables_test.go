@@ -7,7 +7,7 @@ import (
 
 func TestDatabaseUpdateDbTable(t *testing.T) {
 	CheckIntegrationTest(t)
-	config := getVariables()
+	config := GetVariables()
 	//needs to be mocked
 	var database = Database{
 		IpAddress:        config["IpAddress"],
