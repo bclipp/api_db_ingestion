@@ -8,8 +8,17 @@ import (
 	"log"
 )
 
+
+type database interface {
+	connect() error
+	close() error
+	updateDbTable(tableName string) error
+	sendQuery(query string) error
+	loadTable(tableName string) error
+}
+
 // Database is used to hold the connection related variables
-type Database struct {
+type Postgresql struct {
 	DB               *sql.DB
 	IpAddress        string
 	PostgresPassword string
@@ -34,7 +43,7 @@ type Row struct {
 // Params:
 // return:
 //       error from the connection setup
-func (d Database) connect() error {
+func (d Postgresql) connect() error {
 	psqlInfo := fmt.Sprintf("host=%s port=5432 user=%s "+
 		"password=%s dbname=%s sslmode=disable",
 		d.IpAddress, d.PostgresUser, d.PostgresPassword, d.PostgresDb)
@@ -54,7 +63,7 @@ func (d Database) connect() error {
 // Params:
 // return:
 //       error from the connection setup
-func (d Database) close() error {
+func (d Postgresql) close() error {
 	err := d.DB.Close()
 	if err != nil {return err}
 	return nil
@@ -69,7 +78,7 @@ func (d Database) close() error {
 //       Jason return document
 //       rest http response code
 //       the error
-func (d Database) loadTable(tableName string) error {
+func (d Postgresql) loadTable(tableName string) error {
 	table := make([]Row, 0)
 	rows, err := d.DB.Query(selectTableQuery(tableName, -1))
 	if err != nil { return err}
@@ -104,7 +113,7 @@ func (d Database) loadTable(tableName string) error {
 //return:
 //		 result variable , see result interface doc in sql
 //       the error
-func (d Database) sendQuery(query string) (sql.Result, error) {
+func (d Postgresql) sendQuery(query string) (sql.Result, error) {
 	result, err := d.DB.Exec(query)
 	if err != nil { return result, err}
 	return result, nil
@@ -115,7 +124,7 @@ func (d Database) sendQuery(query string) (sql.Result, error) {
 //       tableName: the table to query
 //return:
 //       the error
-func (d Database) updateDbTable(tableName string) error {
+func (d Postgresql) updateDbTable(tableName string) error {
 	for _, row := range d.table {
 		query := updateTableQuery(tableName, row)
 		result, err := d.sendQuery(query)

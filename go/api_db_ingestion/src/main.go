@@ -10,7 +10,7 @@ func main() {
 
 	config := data_ingestion.GetVariables()
 	//needs to be mocked
-	var database = data_ingestion.Database{
+	var database = data_ingestion.Postgresql{
 		IpAddress:        config["IpAddress"],
 		PostgresPassword: config["postgresPassword"],
 		PostgresUser:     config["postgresUser"],

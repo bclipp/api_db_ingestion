@@ -9,7 +9,7 @@ func TestDatabaseUpdateDbTable(t *testing.T) {
 	CheckIntegrationTest(t)
 	config := GetVariables()
 	//needs to be mocked
-	var database = Database{
+	var database = Postgresql{
 		IpAddress:        config["IpAddress"],
 		PostgresPassword: config["postgresPassword"],
 		PostgresUser:     config["postgresUser"],

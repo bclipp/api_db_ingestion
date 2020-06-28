@@ -10,15 +10,15 @@ package data_ingestion
 // 		 database: the struct used for handling databses.
 //return:
 //       the error
-func UpdateTables(concurrent bool, tables []string, database *Database) error {
+func UpdateTables(concurrent bool, tables []string, db database) error {
 	if !concurrent {
 		for _, table := range tables {
-			err := database.connect()
+			err := db.connect()
 			if err != nil {return err}
-			defer database.DB.Close()
-			err = database.loadTable(table)
+			defer db.close()
+			err = db.loadTable(table)
 			if err != nil {return err}
-			for _, row := range database.table {
+			for _, row := range db.table {
 				response, _, err := censusApi(row.Latitude, row.Longitude)
 				if err != nil {return err}
 				row.BlockId = response.Results[0].BlockId
@@ -26,7 +26,7 @@ func UpdateTables(concurrent bool, tables []string, database *Database) error {
 				row.StateCode = response.Results[0].StateCode
 				row.StateFips = response.Results[0].StateFips
 			}
-			err = database.updateDbTable(table)
+			err = db.updateDbTable(table)
 			if err != nil {return err}
 		}
 	}
