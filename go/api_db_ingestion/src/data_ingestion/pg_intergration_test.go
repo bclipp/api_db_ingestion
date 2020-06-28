@@ -8,7 +8,7 @@ import (
 func TestPG(t *testing.T) {
 	CheckIntegrationTest(t)
 	config := GetVariables()
-	var database = Database{
+	var pg = PostgreSQL{
 		IpAddress:        config["IpAddress"],
 		PostgresPassword: config["postgresPassword"],
 		PostgresUser:     config["postgresUser"],
@@ -16,22 +16,23 @@ func TestPG(t *testing.T) {
 	}
 
 	t.Run("loadTable", func(t *testing.T) {
-		err := database.connect()
+		err :=pg.connect()
 		if err != nil {fmt.Print(err.Error())}
 		if err != nil {
 			fmt.Print(err.Error())
 		}
-		defer database.close()
-		err = database.loadTable("customers")
+		defer pg.close()
+		var table []Row
+		table, err = pg.returnTable("customers")
 		if err != nil {fmt.Print(err.Error())}
-		if len(database.table) < 1 {
+		if len(table) < 1 {
 			t.Errorf("Error, read customers table and no data was found.")
 		}
 	})
 	t.Run("UpdateTable", func(t *testing.T) {
-		err := database.connect()
+		err := pg.connect()
 		if err != nil {fmt.Print(err.Error())}
-		defer database.close()
+		defer pg.close()
 	})
 
 }

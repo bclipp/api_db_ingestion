@@ -16,7 +16,7 @@ func UpdateTables(concurrent bool, tables []string, db database) error {
 			err := db.connect()
 			if err != nil {return err}
 			defer db.close()
-			table ,err := db.returnTable(table)
+			table ,err := db.returnTable(tableName)
 			if err != nil {return err}
 			for _, row := range table {
 				response, _, err := censusApi(row.Latitude, row.Longitude)

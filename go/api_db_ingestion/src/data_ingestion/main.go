@@ -8,7 +8,7 @@ func main() {
 
 	config := GetVariables()
 	//needs to be mocked
-	var database = Postgresql{
+	var pg = PostgreSQL{
 		IpAddress:        config["IpAddress"],
 		PostgresPassword: config["postgresPassword"],
 		PostgresUser:     config["postgresUser"],
@@ -18,7 +18,7 @@ func main() {
 		"customers",
 		"stores",
 	}
-	err := UpdateTables(false, tables, &database)
+	err := UpdateTables(false, tables, &pg)
 	if err != nil {fmt.Print(err.Error())}
 
 }

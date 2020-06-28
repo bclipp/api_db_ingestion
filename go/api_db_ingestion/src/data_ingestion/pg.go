@@ -11,14 +11,14 @@ import (
 
 type database interface {
 	connect() error
-	close() error
+	close()
 	updateDbTable(table []Row, tableName string) error
 	sendQuery(query string)  (sql.Result, error)
 	returnTable(tableName string) ([]Row, error)
 }
 
 // Database is used to hold the connection related variables
-type Postgresql struct {
+type PostgreSQL struct {
 	DB               *sql.DB
 	IpAddress        string
 	PostgresPassword string
@@ -42,16 +42,16 @@ type Row struct {
 // Params:
 // return:
 //       error from the connection setup
-func (d Postgresql) connect() error {
+func (pg PostgreSQL) connect() error {
 	psqlInfo := fmt.Sprintf("host=%s port=5432 user=%s "+
 		"password=%s dbname=%s sslmode=disable",
-		d.IpAddress, d.PostgresUser, d.PostgresPassword, d.PostgresDb)
+		pg.IpAddress, pg.PostgresUser, pg.PostgresPassword, pg.PostgresDb)
 	var err error
-	d.DB, err = sql.Open("postgres", psqlInfo)
+	pg.DB, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
 		return err
 	}
-	err = d.DB.Ping()
+	err = pg.DB.Ping()
 	if err != nil {
 		return err
 	}
@@ -62,11 +62,8 @@ func (d Postgresql) connect() error {
 // Params:
 // return:
 //       error from the connection setup
-func (d Postgresql) close() error {
-	err := d.DB.Close()
-	if err != nil {return err}
-	return nil
-
+func (pg PostgreSQL) close() {
+	_ = pg.DB.Close()
 }
 
 // ReadTable is used for reading data from the database and storing it in the
@@ -77,9 +74,9 @@ func (d Postgresql) close() error {
 //       Jason return document
 //       rest http response code
 //       the error
-func (d Postgresql) returnTable(tableName string)([]Row, error) {
+func (pg PostgreSQL) returnTable(tableName string)([]Row, error) {
 	table := make([]Row, 0)
-	rows, err := d.DB.Query(selectTableQuery(tableName, -1))
+	rows, err := pg.DB.Query(selectTableQuery(tableName, -1))
 	if err != nil { return nil, err}
 	defer rows.Close()
 	defer func() {
@@ -111,8 +108,8 @@ func (d Postgresql) returnTable(tableName string)([]Row, error) {
 //return:
 //		 result variable , see result interface doc in sql
 //       the error
-func (d Postgresql) sendQuery(query string) (sql.Result, error) {
-	result, err := d.DB.Exec(query)
+func (pg PostgreSQL) sendQuery(query string) (sql.Result, error) {
+	result, err := pg.DB.Exec(query)
 	if err != nil { return result, err}
 	return result, nil
 }
@@ -122,10 +119,10 @@ func (d Postgresql) sendQuery(query string) (sql.Result, error) {
 //       tableName: the table to query
 //return:
 //       the error
-func (d Postgresql) updateDbTable(table []Row ,tableName string) error {
+func (pg PostgreSQL) updateDbTable(table []Row ,tableName string) error {
 	for _, row := range table {
 		query := updateTableQuery(tableName, row)
-		result, err := d.sendQuery(query)
+		result, err := pg.sendQuery(query)
 		if err != nil { return err}
 		count, err := result.RowsAffected()
 		if err != nil { return err}
