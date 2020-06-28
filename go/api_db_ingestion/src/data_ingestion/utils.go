@@ -1,6 +1,6 @@
 //This module is used for holding reusable functions
 
-package data_ingestion
+package main
 
 import (
 	"os"

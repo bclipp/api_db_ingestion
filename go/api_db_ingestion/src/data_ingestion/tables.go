@@ -1,6 +1,6 @@
 //This module is used for controling the lookup and update process
 
-package data_ingestion
+package main
 
 // update_tables is used for handling the update process
 // table field

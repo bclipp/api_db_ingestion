@@ -1,6 +1,6 @@
 //This module is used for interacting with the postgresql database
 
-package data_ingestion
+package main
 
 import (
 	"database/sql"
@@ -13,7 +13,7 @@ type database interface {
 	connect() error
 	close() error
 	updateDbTable(table []Row, tableName string) error
-	sendQuery(query string) error
+	sendQuery(query string)  (sql.Result, error)
 	returnTable(tableName string) ([]Row, error)
 }
 

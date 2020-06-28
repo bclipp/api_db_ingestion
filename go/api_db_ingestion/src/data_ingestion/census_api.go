@@ -1,6 +1,6 @@
 //This module is used for interacting with the census rest api
 
-package data_ingestion
+package main
 
 import (
 	"encoding/json"

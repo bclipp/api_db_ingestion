@@ -1,16 +1,14 @@
 package main
 
 import (
-	"api_db_ingestion/src/data_ingestion"
 	"fmt"
-	_ "github.com/lib/pq"
 )
 
 func main() {
 
-	config := data_ingestion.GetVariables()
+	config := GetVariables()
 	//needs to be mocked
-	var database = data_ingestion.Postgresql{
+	var database = Postgresql{
 		IpAddress:        config["IpAddress"],
 		PostgresPassword: config["postgresPassword"],
 		PostgresUser:     config["postgresUser"],
@@ -20,7 +18,7 @@ func main() {
 		"customers",
 		"stores",
 	}
-	err := data_ingestion.UpdateTables(false, tables, &database)
+	err := UpdateTables(false, tables, &database)
 	if err != nil {fmt.Print(err.Error())}
 
 }
