@@ -12,13 +12,13 @@ package data_ingestion
 //       the error
 func UpdateTables(concurrent bool, tables []string, db database) error {
 	if !concurrent {
-		for _, table := range tables {
+		for _, tableName := range tables {
 			err := db.connect()
 			if err != nil {return err}
 			defer db.close()
-			err = db.loadTable(table)
+			table ,err := db.returnTable(table)
 			if err != nil {return err}
-			for _, row := range db.table {
+			for _, row := range table {
 				response, _, err := censusApi(row.Latitude, row.Longitude)
 				if err != nil {return err}
 				row.BlockId = response.Results[0].BlockId
@@ -26,7 +26,7 @@ func UpdateTables(concurrent bool, tables []string, db database) error {
 				row.StateCode = response.Results[0].StateCode
 				row.StateFips = response.Results[0].StateFips
 			}
-			err = db.updateDbTable(table)
+			err = db.updateDbTable(table, tableName)
 			if err != nil {return err}
 		}
 	}

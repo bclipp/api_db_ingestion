@@ -12,9 +12,9 @@ import (
 type database interface {
 	connect() error
 	close() error
-	updateDbTable(tableName string) error
+	updateDbTable(table []Row, tableName string) error
 	sendQuery(query string) error
-	loadTable(tableName string) error
+	returnTable(tableName string) ([]Row, error)
 }
 
 // Database is used to hold the connection related variables
@@ -24,7 +24,6 @@ type Postgresql struct {
 	PostgresPassword string
 	PostgresUser     string
 	PostgresDb       string
-	table            []Row
 }
 
 // Row is used to hold a row of data from a table in the DB
@@ -78,10 +77,10 @@ func (d Postgresql) close() error {
 //       Jason return document
 //       rest http response code
 //       the error
-func (d Postgresql) loadTable(tableName string) error {
+func (d Postgresql) returnTable(tableName string)([]Row, error) {
 	table := make([]Row, 0)
 	rows, err := d.DB.Query(selectTableQuery(tableName, -1))
-	if err != nil { return err}
+	if err != nil { return nil, err}
 	defer rows.Close()
 	defer func() {
 		if err != nil {
@@ -93,7 +92,7 @@ func (d Postgresql) loadTable(tableName string) error {
 		var longitude float64
 		var id int
 		err = rows.Scan(&latitude, &longitude)
-		if err != nil { return err}
+		if err != nil { return nil, err}
 		newRow := Row{
 			Latitude:  latitude,
 			Longitude: longitude,
@@ -102,9 +101,8 @@ func (d Postgresql) loadTable(tableName string) error {
 		table = append(table, newRow)
 	}
 	err = rows.Err()
-	if err != nil { return err}
-	d.table = table
-	return nil
+	if err != nil { return nil, err}
+	return table, nil
 }
 
 // SendQuery is used for sending query to a database
@@ -124,8 +122,8 @@ func (d Postgresql) sendQuery(query string) (sql.Result, error) {
 //       tableName: the table to query
 //return:
 //       the error
-func (d Postgresql) updateDbTable(tableName string) error {
-	for _, row := range d.table {
+func (d Postgresql) updateDbTable(table []Row ,tableName string) error {
+	for _, row := range table {
 		query := updateTableQuery(tableName, row)
 		result, err := d.sendQuery(query)
 		if err != nil { return err}
