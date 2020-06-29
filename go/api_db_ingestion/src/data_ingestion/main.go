@@ -2,7 +2,12 @@ package main
 
 import (
 	"fmt"
+	log "github.com/sirupsen/logrus"
 )
+
+func init(){
+	setup_log()
+}
 
 func main() {
 
@@ -19,6 +24,6 @@ func main() {
 		"stores",
 	}
 	err := UpdateTables(false, tables, &pg)
-	if err != nil {fmt.Print(err.Error())}
+	if err != nil {log.Fatal(err.Error())}
 
 }

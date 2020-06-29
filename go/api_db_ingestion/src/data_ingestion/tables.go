@@ -2,6 +2,10 @@
 
 package main
 
+import (
+	log "github.com/sirupsen/logrus"
+)
+
 // update_tables is used for handling the update process
 // table field
 // Params:
@@ -13,11 +17,17 @@ package main
 func UpdateTables(concurrent bool, tables []string, db database) error {
 	if !concurrent {
 		for _, tableName := range tables {
+			contextLogger := log.WithFields(log.Fields{
+				"tableName": tableName,
+			})
+			contextLogger.Debug("Starting Data Import Loop")
 			err := db.connect()
 			if err != nil {return err}
 			defer db.close()
+			contextLogger.Debug("Loading the Table from DataBase")
 			table ,err := db.returnTable(tableName)
 			if err != nil {return err}
+			contextLogger.Debug("Looking up Census Data")
 			for _, row := range table {
 				response, _, err := censusApi(row.Latitude, row.Longitude)
 				if err != nil {return err}

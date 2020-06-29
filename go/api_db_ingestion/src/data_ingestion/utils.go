@@ -3,6 +3,8 @@
 package main
 
 import (
+	"fmt"
+	log "github.com/sirupsen/logrus"
 	"os"
 	"strconv"
 	"testing"
@@ -34,4 +36,15 @@ func CheckIntegrationTest(t *testing.T) {
 	if config["INT_TEST"] == "" {
 		t.Skip("Skipping testing in during unit testing")
 	}
+}
+
+func setup_log() {
+	log.SetFormatter(&log.JSONFormatter{})
+	log.SetOutput(os.Stdout)
+	log.SetLevel(log.WarnLevel)
+	file, err := OpenFile(logFile, O_RDWR|O_CREATE|O_APPEND, 0666)
+	if err != nil {
+		fmt.Println("Could Not Open Log File : " + err.Error())
+	}
+	log.SetOutput(file)
 }
