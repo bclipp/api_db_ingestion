@@ -4,10 +4,11 @@ package main
 
 import (
 	"fmt"
-	log "github.com/sirupsen/logrus"
+	logrus "github.com/sirupsen/logrus"
 	"os"
 	"strconv"
 	"testing"
+	"time"
 )
 
 // get_variables are used to hold environmental variables read by the app
@@ -39,12 +40,13 @@ func CheckIntegrationTest(t *testing.T) {
 }
 
 func setup_log() {
-	log.SetFormatter(&log.JSONFormatter{})
-	log.SetOutput(os.Stdout)
-	log.SetLevel(log.WarnLevel)
-	file, err := OpenFile(logFile, O_RDWR|O_CREATE|O_APPEND, 0666)
+	logrus.SetFormatter(&logrus.JSONFormatter{})
+	logrus.SetOutput(os.Stdout)
+	logrus.SetLevel(logrus.WarnLevel)
+	logFileName := time.Now().Format("2006-01-02") + ".log"
+	file, err := os.OpenFile(logFileName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
 		fmt.Println("Could Not Open Log File : " + err.Error())
 	}
-	log.SetOutput(file)
+	logrus.SetOutput(file)
 }

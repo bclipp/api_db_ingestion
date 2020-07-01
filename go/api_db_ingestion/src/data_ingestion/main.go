@@ -1,8 +1,7 @@
 package main
 
 import (
-	"fmt"
-	log "github.com/sirupsen/logrus"
+	logrus "github.com/sirupsen/logrus"
 )
 
 func init(){
@@ -24,6 +23,6 @@ func main() {
 		"stores",
 	}
 	err := UpdateTables(false, tables, &pg)
-	if err != nil {log.Fatal(err.Error())}
+	if err != nil {logrus.Fatal(err.Error())}
 
 }
