@@ -48,6 +48,8 @@ jobs:
         POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
         POSTGRES_DB: ${{ secrets.POSTGRES_PASSWORD }}
         DB_IP_ADDRESS: ${{secrets.DB_IP_ADDRESS }}  
+    - name: PyCharm Python Security Scanner
+      uses: tonybaloney/pycharm-security@1.20.1
     - name: Intergration Test with pytest
       run: |
          pytest python/app/tests
