@@ -1,9 +1,9 @@
-//This module is used for controling the lookup and update process
+//This module is used for controlling the lookup and update process
 
 package main
 
 import (
-	log "github.com/sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 )
 
 // update_tables is used for handling the update process
@@ -17,28 +17,44 @@ import (
 func UpdateTables(concurrent bool, tables []string, db database) error {
 	if !concurrent {
 		for _, tableName := range tables {
-			contextLogger := log.WithFields(log.Fields{
+			contextLogger := logrus.WithFields(logrus.Fields{
 				"tableName": tableName,
 			})
 			contextLogger.Debug("Starting Data Import Loop")
-			err := db.connect()
-			if err != nil {return err}
+
+			err := db.connect();if err != nil {
+				logrus.Println(err)
+				return err
+			}
+
 			defer db.close()
+
 			contextLogger.Debug("Loading the Table from DataBase")
+
 			table ,err := db.returnTable(tableName)
-			if err != nil {return err}
+			if err != nil {
+				logrus.Println(err)
+				return err
+			}
+
 			contextLogger.Debug("Looking up Census Data")
+
 			for _, row := range table {
-				response, _, err := censusApi(row.Latitude, row.Longitude)
-				if err != nil {return err}
-				row.BlockId = response.Results[0].BlockId
+				response, _, err := censusAPI(row.Latitude, row.Longitude);if err != nil {
+					return err
+				}
+
+				row.BlockID = response.Results[0].BlockID
 				row.BlockPop = response.Results[0].BlockPop
 				row.StateCode = response.Results[0].StateCode
 				row.StateFips = response.Results[0].StateFips
 			}
-			err = db.updateDbTable(table, tableName)
-			if err != nil {return err}
+
+			err = db.updateDbTable(table, tableName);if err != nil {
+				return err
+			}
 		}
 	}
+
 	return nil
 }

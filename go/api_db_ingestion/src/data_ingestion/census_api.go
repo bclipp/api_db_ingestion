@@ -8,6 +8,8 @@ import (
 	"io/ioutil"
 	"net/http"
 	"time"
+	"github.com/sirupsen/logrus"
+
 )
 
 // used for adjusting the timeout
@@ -15,7 +17,7 @@ var httpClient = &http.Client{Timeout: 10 * time.Second}
 
 // Inner is the second layer of the json document
 type inner struct {
-	BlockId   int    `json:"block_id"`
+	BlockID   int    `json:"block_id"`
 	StateCode string `json:"state_code"`
 	StateFips int    `json:"state_fips"`
 	BlockPop  int    `json:"block_pop_2015"`
@@ -34,22 +36,29 @@ type outer struct {
 //       Jason return document
 //       rest http response code
 //       the error
-func censusApi(latitude, longitude float64) (outer, int, error) {
+func censusAPI(latitude, longitude float64) (outer, int, error) {
 	url := "https://geo.fcc.gov/api/census/area?lat=" + FloatToString(latitude) + "0&lon=" + FloatToString(longitude) + "&format=json"
-	response, err := httpClient.Get(url)
-	if err != nil {
-		fmt.Print(err.Error())
+	response, err := httpClient.Get(url); if err != nil {
+		logrus.Error(err.Error())
 	}
-	defer response.Body.Close()
-	body, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		fmt.Print(err.Error())
+
+	body, err := ioutil.ReadAll(response.Body); if err != nil {
+		logrus.Error(err.Error())
 	}
+
+	var t interface{} = body
+	_, ok := t.([]byte);if!ok {
+		logrus.Error("response body is not a byte array")
+	}
+
 	var census outer
-	err = json.Unmarshal(body, &census)
-	if err != nil {
+	err = json.Unmarshal(body, &census);if err != nil {
 		fmt.Print(err.Error())
 	}
+
+	_ = response.Body.Close()
+
 	fmt.Printf("%+v\n", census)
+
 	return census, response.StatusCode, err
 }

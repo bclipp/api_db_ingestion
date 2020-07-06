@@ -7,18 +7,21 @@ import (
 
 func TestDatabaseUpdateDbTable(t *testing.T) {
 	CheckIntegrationTest(t)
+
 	config := GetVariables()
 	//needs to be mocked
 	var database = PostgreSQL{
-		IpAddress:        config["IpAddress"],
+		IPAddress:        config["IpAddress"],
 		PostgresPassword: config["postgresPassword"],
 		PostgresUser:     config["postgresUser"],
-		PostgresDb:       config["postgresDb"],
+		PostgresDB:       config["postgresDB"],
 	}
+
 	tables := []string{
 		"customers",
 		"stores",
 	}
-	err := UpdateTables(false, tables, &database)
-	if err != nil {fmt.Print(err.Error())}
+	err := UpdateTables(false, tables, &database);if err != nil {
+		fmt.Print(err.Error())
+	}
 }

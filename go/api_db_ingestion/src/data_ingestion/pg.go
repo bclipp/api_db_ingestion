@@ -5,7 +5,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"log"
+	"github.com/sirupsen/logrus"
 )
 
 
@@ -20,20 +20,20 @@ type database interface {
 // Database is used to hold the connection related variables
 type PostgreSQL struct {
 	DB               *sql.DB
-	IpAddress        string
+	IPAddress        string
 	PostgresPassword string
 	PostgresUser     string
-	PostgresDb       string
+	PostgresDB       string
 }
 
 // Row is used to hold a row of data from a table in the DB
 // only common data is used and needed.
 type Row struct {
-	BlockId   int
+	BlockID   int
 	StateCode string
 	StateFips int
 	BlockPop  int
-	Id        int
+	ID        int
 	Latitude  float64
 	Longitude float64
 }
@@ -45,16 +45,17 @@ type Row struct {
 func (pg PostgreSQL) connect() error {
 	psqlInfo := fmt.Sprintf("host=%s port=5432 user=%s "+
 		"password=%s dbname=%s sslmode=disable",
-		pg.IpAddress, pg.PostgresUser, pg.PostgresPassword, pg.PostgresDb)
+		pg.IPAddress, pg.PostgresUser, pg.PostgresPassword, pg.PostgresDB)
+
 	var err error
-	pg.DB, err = sql.Open("postgres", psqlInfo)
-	if err != nil {
+	pg.DB, err = sql.Open("postgres", psqlInfo);if err != nil {
 		return err
 	}
-	err = pg.DB.Ping()
-	if err != nil {
+
+	err = pg.DB.Ping();if err != nil {
 		return err
 	}
+
 	return nil
 }
 
@@ -76,29 +77,43 @@ func (pg PostgreSQL) close() {
 //       the error
 func (pg PostgreSQL) returnTable(tableName string)([]Row, error) {
 	table := make([]Row, 0)
-	rows, err := pg.DB.Query(selectTableQuery(tableName, -1))
-	if err != nil { return nil, err}
-	defer rows.Close()
+	rows, err := pg.DB.Query(selectTableQuery(tableName, -1));if err != nil {
+		return nil, err
+	}
+
 	defer func() {
 		if err != nil {
-			log.Printf("error in loadTable - error: %v", err)
+			logrus.Printf("error in loadTable - error: %v", err)
 		}
 	}()
+
 	for rows.Next() {
 		var latitude float64
+
 		var longitude float64
+
 		var id int
-		err = rows.Scan(&latitude, &longitude)
-		if err != nil { return nil, err}
+
+		err = rows.Scan(&latitude, &longitude);if err != nil {
+			return nil, err
+		}
+
 		newRow := Row{
 			Latitude:  latitude,
 			Longitude: longitude,
-			Id:        id,
+			ID:        id,
 		}
 		table = append(table, newRow)
 	}
-	err = rows.Err()
-	if err != nil { return nil, err}
+
+	err = rows.Err();if err != nil {
+		return nil, err
+	}
+
+	err = rows.Close();if err != nil {
+		return nil, err
+	}
+
 	return table, nil
 }
 
@@ -119,16 +134,24 @@ func (pg PostgreSQL) sendQuery(query string) (sql.Result, error) {
 //       tableName: the table to query
 //return:
 //       the error
-func (pg PostgreSQL) updateDbTable(table []Row ,tableName string) error {
+func (pg PostgreSQL) updateDBTable(table []Row ,tableName string) error {
 	for _, row := range table {
 		query := updateTableQuery(tableName, row)
 		result, err := pg.sendQuery(query)
-		if err != nil { return err}
+
+		if err != nil {
+			return err
+		}
 		count, err := result.RowsAffected()
-		if err != nil { return err}
+		if err != nil {
+			return err
+		}
+
 		if count != 1 {
 			print("Error when updating row, rows effected is not 1.")
 		}
 	}
+
 	return nil
+
 }

@@ -7,12 +7,14 @@ import (
 
 func TestPG(t *testing.T) {
 	CheckIntegrationTest(t)
+
 	config := GetVariables()
+
 	var pg = PostgreSQL{
-		IpAddress:        config["IpAddress"],
+		IPAddress:        config["IpAddress"],
 		PostgresPassword: config["postgresPassword"],
 		PostgresUser:     config["postgresUser"],
-		PostgresDb:       config["postgresDb"],
+		PostgresDB:       config["postgresDB"],
 	}
 
 	t.Run("loadTable", func(t *testing.T) {
@@ -34,5 +36,4 @@ func TestPG(t *testing.T) {
 		if err != nil {fmt.Print(err.Error())}
 		defer pg.close()
 	})
-
 }
