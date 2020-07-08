@@ -39,10 +39,10 @@ func Test1(t *testing.T) {
 		fmt.Print(err.Error())
 	}
 
-	defer pg.close()
-	/*
+	//defer pg.close()
+
 	got,_ := pg.sendQuery("SELECT * FROM CUSTOMERS;")
-	println(got)*/
+	println(got)
 
 }
 

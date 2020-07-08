@@ -43,7 +43,7 @@ type Row struct {
 // Params:
 // return:
 //       error from the connection setup
-func (pg PostgreSQL) connect() error {
+func (pg *PostgreSQL) connect() error {
 	psqlInfo := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable",
 		pg.PostgresUser,
 		pg.PostgresPassword,
@@ -53,14 +53,11 @@ func (pg PostgreSQL) connect() error {
 	db, err := sql.Open("postgres", psqlInfo);if err != nil {
 		return err
 	}
-
 	pg.DB = db
+
 	err = pg.DB.Ping();if err != nil {
 		return err
 	}
-
-	rows, _ := db.Query("SELECT * FROM customers;")
-	defer rows.Close()
 
 	return nil
 }
@@ -69,7 +66,7 @@ func (pg PostgreSQL) connect() error {
 // Params:
 // return:
 //       error from the connection setup
-func (pg PostgreSQL) close() {
+func (pg *PostgreSQL) close() {
 	_ = pg.DB.Close()
 }
 
@@ -81,7 +78,7 @@ func (pg PostgreSQL) close() {
 //       Jason return document
 //       rest http response code
 //       the error
-func (pg PostgreSQL) returnTable(tableName string, limit int)([]Row, error) {
+func (pg *PostgreSQL) returnTable(tableName string, limit int)([]Row, error) {
 	table := make([]Row, 0)
 	query := selectTableQuery(tableName, limit)
 	rows, err := pg.DB.Query(query);if err != nil {
@@ -126,7 +123,7 @@ func (pg PostgreSQL) returnTable(tableName string, limit int)([]Row, error) {
 //return:
 //		 result variable , see result interface doc in sql
 //       the error
-func (pg PostgreSQL) sendQuery(query string) (sql.Result, error) {
+func (pg *PostgreSQL) sendQuery(query string) (sql.Result, error) {
 	result, err := pg.DB.Exec(query)
 	if err != nil { return result, err}
 
@@ -138,12 +135,13 @@ func (pg PostgreSQL) sendQuery(query string) (sql.Result, error) {
 //       tableName: the table to query
 //return:
 //       the error
-func (pg PostgreSQL) updateDBTable(table []Row ,tableName string) error {
+func (pg *PostgreSQL) updateDBTable(table []Row ,tableName string) error {
 	for _, row := range table {
 		query := updateTableQuery(tableName, row)
 		result, err := pg.sendQuery(query);if err != nil {
 			return err
 		}
+
 		count, err := result.RowsAffected();if err != nil {
 			return err
 		}
