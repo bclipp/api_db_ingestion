@@ -5,6 +5,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	_ "github.com/lib/pq"
 	"github.com/sirupsen/logrus"
 )
 
@@ -12,7 +13,7 @@ import (
 type database interface {
 	connect() error
 	close()
-	updateDbTable(table []Row, tableName string) error
+	updateDBTable(table []Row, tableName string) error
 	sendQuery(query string)  (sql.Result, error)
 	returnTable(tableName string) ([]Row, error)
 }
@@ -25,6 +26,7 @@ type PostgreSQL struct {
 	PostgresUser     string
 	PostgresDB       string
 }
+
 
 // Row is used to hold a row of data from a table in the DB
 // only common data is used and needed.
@@ -137,13 +139,10 @@ func (pg PostgreSQL) sendQuery(query string) (sql.Result, error) {
 func (pg PostgreSQL) updateDBTable(table []Row ,tableName string) error {
 	for _, row := range table {
 		query := updateTableQuery(tableName, row)
-		result, err := pg.sendQuery(query)
-
-		if err != nil {
+		result, err := pg.sendQuery(query);if err != nil {
 			return err
 		}
-		count, err := result.RowsAffected()
-		if err != nil {
+		count, err := result.RowsAffected();if err != nil {
 			return err
 		}
 

@@ -50,7 +50,7 @@ func UpdateTables(concurrent bool, tables []string, db database) error {
 				row.StateFips = response.Results[0].StateFips
 			}
 
-			err = db.updateDbTable(table, tableName);if err != nil {
+			err = db.updateDBTable(table, tableName);if err != nil {
 				return err
 			}
 		}

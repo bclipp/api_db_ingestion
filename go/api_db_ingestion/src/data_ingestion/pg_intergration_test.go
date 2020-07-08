@@ -6,18 +6,19 @@ import (
 )
 
 func TestPG(t *testing.T) {
-	CheckIntegrationTest(t)
-
-	config := GetVariables()
-
-	var pg = PostgreSQL{
-		IPAddress:        config["IpAddress"],
-		PostgresPassword: config["postgresPassword"],
-		PostgresUser:     config["postgresUser"],
-		PostgresDB:       config["postgresDB"],
-	}
+	//CheckIntegrationTest(t)
 
 	t.Run("loadTable", func(t *testing.T) {
+		config := GetVariables()
+		println(config["postgresIP"])
+		println("test")
+		var pg = PostgreSQL{
+			IPAddress:        config["postgresIP"],
+			PostgresPassword: config["postgresPassword"],
+			PostgresUser:     config["postgresUser"],
+			PostgresDB:       config["postgresDB"],
+		}
+
 		err :=pg.connect()
 		if err != nil {fmt.Print(err.Error())}
 		if err != nil {
@@ -32,6 +33,13 @@ func TestPG(t *testing.T) {
 		}
 	})
 	t.Run("UpdateTable", func(t *testing.T) {
+		config := GetVariables()
+		var pg = PostgreSQL{
+			IPAddress:        config["IpAddress"],
+			PostgresPassword: config["postgresPassword"],
+			PostgresUser:     config["postgresUser"],
+			PostgresDB:       config["postgresDB"],
+		}
 		err := pg.connect()
 		if err != nil {fmt.Print(err.Error())}
 		defer pg.close()
