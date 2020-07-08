@@ -3,8 +3,7 @@
 package main
 
 import (
-	"fmt"
-	 "github.com/sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"os"
 	"strconv"
 	"testing"
@@ -40,15 +39,17 @@ func CheckIntegrationTest(t *testing.T) {
 	}
 }
 
-func SetupLog() {
+func SetupLog()error {
 	logrus.SetFormatter(&logrus.JSONFormatter{})
 	logrus.SetOutput(os.Stdout)
 	logrus.SetLevel(logrus.WarnLevel)
 
 	logFileName := time.Now().Format("2006-01-02") + ".log"
 	file, err := os.OpenFile(logFileName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666); if err != nil {
-		fmt.Println("Could Not Open Log File : " + err.Error())
+		return err
 	}
 
 	logrus.SetOutput(file)
+
+	return nil
 }

@@ -31,7 +31,7 @@ func UpdateTables(concurrent bool, tables []string, db database) error {
 
 			contextLogger.Debug("Loading the Table from DataBase")
 
-			table ,err := db.returnTable(tableName)
+			table ,err := db.returnTable(tableName, -1)
 			if err != nil {
 				logrus.Println(err)
 				return err

@@ -6,7 +6,6 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/lib/pq"
-	"github.com/sirupsen/logrus"
 )
 
 
@@ -15,7 +14,7 @@ type database interface {
 	close()
 	updateDBTable(table []Row, tableName string) error
 	sendQuery(query string)  (sql.Result, error)
-	returnTable(tableName string) ([]Row, error)
+	returnTable(tableName string, limit int) ([]Row, error)
 }
 
 // Database is used to hold the connection related variables
@@ -45,9 +44,11 @@ type Row struct {
 // return:
 //       error from the connection setup
 func (pg PostgreSQL) connect() error {
-	psqlInfo := fmt.Sprintf("host=%s port=5432 user=%s "+
-		"password=%s dbname=%s sslmode=disable",
-		pg.IPAddress, pg.PostgresUser, pg.PostgresPassword, pg.PostgresDB)
+	psqlInfo := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable",
+		pg.PostgresUser,
+		pg.PostgresPassword,
+		pg.IPAddress,
+		pg.PostgresDB)
 
 	var err error
 	pg.DB, err = sql.Open("postgres", psqlInfo);if err != nil {
@@ -77,17 +78,14 @@ func (pg PostgreSQL) close() {
 //       Jason return document
 //       rest http response code
 //       the error
-func (pg PostgreSQL) returnTable(tableName string)([]Row, error) {
+func (pg PostgreSQL) returnTable(tableName string, limit int)([]Row, error) {
 	table := make([]Row, 0)
-	rows, err := pg.DB.Query(selectTableQuery(tableName, -1));if err != nil {
+	query := selectTableQuery(tableName, limit)
+	rows, err := pg.DB.Query(query, tableName);if err != nil {
 		return nil, err
 	}
-
-	defer func() {
-		if err != nil {
-			logrus.Printf("error in loadTable - error: %v", err)
-		}
-	}()
+	defer rows.Close()
+	/*
 
 	for rows.Next() {
 		var latitude float64
@@ -115,7 +113,7 @@ func (pg PostgreSQL) returnTable(tableName string)([]Row, error) {
 	err = rows.Close();if err != nil {
 		return nil, err
 	}
-
+*/
 	return table, nil
 }
 
@@ -128,6 +126,7 @@ func (pg PostgreSQL) returnTable(tableName string)([]Row, error) {
 func (pg PostgreSQL) sendQuery(query string) (sql.Result, error) {
 	result, err := pg.DB.Exec(query)
 	if err != nil { return result, err}
+
 	return result, nil
 }
 
