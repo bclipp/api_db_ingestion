@@ -10,7 +10,7 @@ import (
 
 
 type database interface {
-	connect() error
+	connect() (*sql.DB, error)
 	close()
 	updateDBTable(table []Row, tableName string) error
 	sendQuery(query string)  (sql.Result, error)
@@ -43,23 +43,23 @@ type Row struct {
 // Params:
 // return:
 //       error from the connection setup
-func (pg PostgreSQL) connect() error {
+func (pg PostgreSQL) connect() (*sql.DB, error) {
 	psqlInfo := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable",
 		pg.PostgresUser,
 		pg.PostgresPassword,
 		pg.IPAddress,
 		pg.PostgresDB)
 
-	var err error
-	pg.DB, err = sql.Open("postgres", psqlInfo);if err != nil {
-		return err
+	db, err := sql.Open("postgres", psqlInfo);if err != nil {
+		return nil,err
 	}
-
+	fmt.Println(db.Stats())
+	pg.DB = db
 	err = pg.DB.Ping();if err != nil {
-		return err
+		return nil,err
 	}
 
-	return nil
+	return db,nil
 }
 
 // Close is used to handle closing the connection to the database
