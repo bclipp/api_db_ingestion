@@ -22,7 +22,7 @@ func UpdateTables(concurrent bool, tables []string, db database) error {
 			})
 			contextLogger.Debug("Starting Data Import Loop")
 
-			_, err := db.connect();if err != nil {
+			err := db.connect();if err != nil {
 				logrus.Println(err)
 				return err
 			}

@@ -10,7 +10,7 @@ import (
 
 
 type database interface {
-	connect() (*sql.DB, error)
+	connect()  error
 	close()
 	updateDBTable(table []Row, tableName string) error
 	sendQuery(query string)  (sql.Result, error)
@@ -43,7 +43,7 @@ type Row struct {
 // Params:
 // return:
 //       error from the connection setup
-func (pg PostgreSQL) connect() (*sql.DB, error) {
+func (pg PostgreSQL) connect() error {
 	psqlInfo := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable",
 		pg.PostgresUser,
 		pg.PostgresPassword,
@@ -51,15 +51,18 @@ func (pg PostgreSQL) connect() (*sql.DB, error) {
 		pg.PostgresDB)
 
 	db, err := sql.Open("postgres", psqlInfo);if err != nil {
-		return nil,err
-	}
-	fmt.Println(db.Stats())
-	pg.DB = db
-	err = pg.DB.Ping();if err != nil {
-		return nil,err
+		return err
 	}
 
-	return db,nil
+	pg.DB = db
+	err = pg.DB.Ping();if err != nil {
+		return err
+	}
+
+	rows, _ := db.Query("SELECT * FROM customers;")
+	defer rows.Close()
+
+	return nil
 }
 
 // Close is used to handle closing the connection to the database
@@ -81,7 +84,7 @@ func (pg PostgreSQL) close() {
 func (pg PostgreSQL) returnTable(tableName string, limit int)([]Row, error) {
 	table := make([]Row, 0)
 	query := selectTableQuery(tableName, limit)
-	rows, err := pg.DB.Query(query, tableName);if err != nil {
+	rows, err := pg.DB.Query(query);if err != nil {
 		return nil, err
 	}
 	defer rows.Close()

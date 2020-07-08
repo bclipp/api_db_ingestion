@@ -17,6 +17,8 @@ func Test1(t *testing.T) {
 		PostgresDB:       config["postgresDB"],
 	}
 
+	fmt.Println("manual")
+
 	psqlInfo := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable",
 		pg.PostgresUser,
 		pg.PostgresPassword,
@@ -31,15 +33,16 @@ func Test1(t *testing.T) {
 	rows, _ := db.Query("SELECT * FROM customers;")
 	defer rows.Close()
 
-	/*DB, err := pg.connect();if err != nil {
+	fmt.Println("class")
+
+	err = pg.connect();if err != nil {
 		fmt.Print(err.Error())
 	}
-	DB.Stats()
 
 	defer pg.close()
-*/
-	//got,_ := pg.sendQuery("SELECT * FROM CUSTOMERS;")
-	//println(got)
+	/*
+	got,_ := pg.sendQuery("SELECT * FROM CUSTOMERS;")
+	println(got)*/
 
 }
 
