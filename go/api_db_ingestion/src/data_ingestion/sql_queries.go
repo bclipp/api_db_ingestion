@@ -32,11 +32,11 @@ func updateTableQuery(table string, row Row) string {
 func selectTableQuery(table string, limit int) string {
 	if limit < 0 {
 		return fmt.Sprintf(
-			"SELECT * FROM %s;",
+			"SELECT id,latitude,longitude FROM %s;",
 			table)
 	} else {
 		return fmt.Sprintf(
-			"SELECT * FROM %s LIMIT %d;",
+			"SELECT id,latitude, longitude FROM %s LIMIT %d;",
 			table, limit)
 	}
 }

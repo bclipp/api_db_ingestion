@@ -6,6 +6,7 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/lib/pq"
+	"github.com/sirupsen/logrus"
 )
 
 
@@ -81,11 +82,11 @@ func (pg *PostgreSQL) close() {
 func (pg *PostgreSQL) returnTable(tableName string, limit int)([]Row, error) {
 	table := make([]Row, 0)
 	query := selectTableQuery(tableName, limit)
+	fmt.Println(query)
 	rows, err := pg.DB.Query(query);if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	/*
 
 	for rows.Next() {
 		var latitude float64
@@ -94,7 +95,7 @@ func (pg *PostgreSQL) returnTable(tableName string, limit int)([]Row, error) {
 
 		var id int
 
-		err = rows.Scan(&latitude, &longitude);if err != nil {
+		err = rows.Scan(&id ,&latitude, &longitude);if err != nil {
 			return nil, err
 		}
 
@@ -113,7 +114,7 @@ func (pg *PostgreSQL) returnTable(tableName string, limit int)([]Row, error) {
 	err = rows.Close();if err != nil {
 		return nil, err
 	}
-*/
+
 	return table, nil
 }
 
@@ -124,6 +125,7 @@ func (pg *PostgreSQL) returnTable(tableName string, limit int)([]Row, error) {
 //		 result variable , see result interface doc in sql
 //       the error
 func (pg *PostgreSQL) sendQuery(query string) (sql.Result, error) {
+	logrus.Println(query)
 	result, err := pg.DB.Exec(query)
 	if err != nil { return result, err}
 
