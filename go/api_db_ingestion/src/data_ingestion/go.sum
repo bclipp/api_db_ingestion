@@ -1,3 +1,7 @@
+github.com/bclipp/EasyDatabase v0.0.0-20200712165942-547b97432085 h1:DmcZl6aYI+Rs+wkkuSVYa3zt4gVFQcgQ2HKuxvWYzaU=
+github.com/bclipp/EasyDatabase v0.0.0-20200712165942-547b97432085/go.mod h1:EJzkXgoLMZxi3/9NPX/y7dvlK268p4dmFcYGVT+6Mhw=
+github.com/bclipp/EasyDatabase v0.0.0-20200712172252-52b50517c17a h1:BPHQaurkD6WVfS1kE3Vgjjg4IutKgFyb+EhbwdjtMEw=
+github.com/bclipp/EasyDatabase v0.0.0-20200712172252-52b50517c17a/go.mod h1:EJzkXgoLMZxi3/9NPX/y7dvlK268p4dmFcYGVT+6Mhw=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/konsorten/go-windows-terminal-sequences v1.0.3 h1:CE8S1cTafDpPvMhIxNJKvHsGVBgn1xWYf1NbHQhywc8=

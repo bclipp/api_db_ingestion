@@ -1,6 +1,10 @@
 package main
 
-import "github.com/sirupsen/logrus"
+import (
+	EasyDatabase "github.com/bclipp/EasyDatabase"
+	"github.com/sirupsen/logrus"
+)
+
 
 func init() {
 	SetupLog()
@@ -8,7 +12,7 @@ func init() {
 func main() {
 	config := GetVariables()
 	//needs to be mocked
-	var pg = PostgreSQL{
+	var pg = EasyDatabase.PostgreSQL{
 		IPAddress:        config["IpAddress"],
 		PostgresPassword: config["postgresPassword"],
 		PostgresUser:     config["postgresUser"],
