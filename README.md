@@ -48,7 +48,7 @@ blockID or block fips id, state_fips, state code ,and block population.
 
 2. 
 ```
-xexport POSTGRES_DB=project01  
+export POSTGRES_DB=project01  
 export POSTGRES_USER=project01  
 export POSTGRES_PASSWORD=project01  
 export DB_IP_ADDRESS=127.0.0.1  
