@@ -5,7 +5,7 @@
 
 ## Implementation
 [Go](https://github.com/bclipp/api_db_ingestion/tree/master/go)  
-[Python](https://github.com/bclipp/api_db_ingestion/tree/master/python)  
+[Python](https://github.com/bclipp/api_db_ingestion/tree/master/python/app)  
 [Scala](https://github.com/bclipp/api_db_ingestion/tree/master/scala)  
 
 ## Objective:
@@ -46,7 +46,17 @@ blockID or block fips id, state_fips, state code ,and block population.
 
 1. Install docker and docker-compose
 
-2. ```sudo --preserve-env docker-compose up```
+2. 
+```
+xexport POSTGRES_DB=project01  
+export POSTGRES_USER=project01  
+export POSTGRES_PASSWORD=project01  
+export DB_IP_ADDRESS=127.0.0.1  
+# set if you want to run intergration tests
+# export INTERGRATION_TEST=True
+
+sudo --preserve-env docker-compose up
+```
 
 ## Connecting to Database UI
 
