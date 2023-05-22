@@ -1,5 +1,5 @@
 backoff==1.10.0
-requests==2.23.0
+requests==2.31.0
 pylint==2.5.3
 pytest==5.4.3
 mypy==0.780
